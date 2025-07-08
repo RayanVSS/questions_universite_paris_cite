@@ -1,0 +1,833 @@
+[
+{
+    "question": "Une classe déclarée comme `final` peut être héritée par une autre classe.",
+    "réponse": "Faux",
+    "explication": "Le modificateur `final` empêche une classe d'être héritée. Aucune classe ne peut étendre une classe finale."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les méthodes `static` utilisent la liaison dynamique lors de l'exécution.",
+    "réponse": "Faux",
+    "explication": "Les méthodes `static` utilisent la liaison statique car elles sont résolues à la compilation et ne dépendent pas des instances des classes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types scellés (`sealed`) en Java permettent de limiter les sous-types d'une classe ou d'une interface.",
+    "réponse": "Vrai",
+    "explication": "Les types scellés restreignent les classes ou interfaces pouvant hériter ou implémenter le type scellé, ce qui facilite la vérification d'exhaustivité dans les structures de contrôle comme `switch`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un enregistrement (`record`) en Java est mutable par défaut.",
+    "réponse": "Faux",
+    "explication": "Les enregistrements (`record`) en Java sont conçus pour être immuables. Une fois créés, les valeurs de leurs composants ne peuvent pas être modifiées."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les énumérations (`enum`) en Java peuvent implémenter des interfaces.",
+    "réponse": "Vrai",
+    "explication": "En Java, les énumérations peuvent implémenter des interfaces, permettant d'ajouter des comportements spécifiques aux constantes de l'énum."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "La composition est généralement préférée à l'héritage pour réutiliser des fonctionnalités dans une classe.",
+    "réponse": "Vrai",
+    "explication": "La composition est souvent préférée car elle favorise une meilleure encapsulation et flexibilité, évitant les problèmes liés à une hiérarchie d'héritage rigide."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe abstraite peut contenir des méthodes concrètes ainsi que des méthodes abstraites.",
+    "réponse": "Vrai",
+    "explication": "Une classe abstraite peut contenir à la fois des méthodes abstraites (sans implémentation) et des méthodes concrètes (avec implémentation), permettant aux sous-classes de réutiliser ou de redéfinir ces méthodes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une méthode `final` peut être redéfinie dans une sous-classe.",
+    "réponse": "Faux",
+    "explication": "Le modificateur `final` empêche une méthode d'être redéfinie dans une sous-classe."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les interfaces en Java peuvent contenir des méthodes par défaut avec une implémentation.",
+    "réponse": "Vrai",
+    "explication": "Depuis Java 8, les interfaces peuvent définir des méthodes par défaut (`default`) avec une implémentation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le mot-clé `super` est utilisé pour appeler un constructeur de la superclasse.",
+    "réponse": "Vrai",
+    "explication": "Le mot-clé `super` permet de référencer la superclasse immédiate, notamment pour appeler ses constructeurs."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe peut hériter de plusieurs classes en Java.",
+    "réponse": "Faux",
+    "explication": "Java ne supporte pas l'héritage multiple de classes. Une classe ne peut hériter que d'une seule superclasse, mais peut implémenter plusieurs interfaces."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les variables d'instance peuvent être déclarées comme `final` pour les rendre immuables après leur initialisation.",
+    "réponse": "Vrai",
+    "explication": "Déclarer une variable d'instance comme `final` empêche sa réaffectation après son initialisation, garantissant ainsi son immuabilité."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe abstraite peut avoir des constructeurs.",
+    "réponse": "Vrai",
+    "explication": "Les classes abstraites peuvent avoir des constructeurs qui sont appelés lors de l'instanciation des sous-classes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les méthodes `private` d'une classe sont héritées par ses sous-classes.",
+    "réponse": "Faux",
+    "explication": "Les méthodes `private` ne sont pas visibles ni héritées par les sous-classes. Elles sont accessibles uniquement au sein de la classe où elles sont définies."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le polymorphisme permet à une méthode d'avoir plusieurs implémentations basées sur l'objet récepteur.",
+    "réponse": "Vrai",
+    "explication": "Le polymorphisme permet aux sous-classes de fournir des implémentations spécifiques des méthodes définies dans la superclasse, permettant ainsi des comportements variés."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les classes internes statiques peuvent accéder directement aux membres `private` de leur classe englobante.",
+    "réponse": "Vrai",
+    "explication": "Les classes internes statiques peuvent accéder aux membres `private` de leur classe englobante, car elles sont considérées comme membres de cette classe."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le mot-clé `instanceof` permet de vérifier si un objet est une instance d'une classe ou d'une interface spécifique.",
+    "réponse": "Vrai",
+    "explication": "L'opérateur `instanceof` vérifie si un objet est une instance d'une classe particulière ou implémente une interface spécifique."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe `record` en Java ne peut pas implémenter d'interfaces.",
+    "réponse": "Faux",
+    "explication": "Les `record` en Java peuvent implémenter des interfaces, tout comme les classes normales."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les classes abstraites peuvent contenir des variables d'instance non final.",
+    "réponse": "Vrai",
+    "explication": "Les classes abstraites peuvent contenir des variables d'instance avec ou sans le modificateur `final`. Cela dépend de la conception de la classe."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les enums en Java sont implicitement `final`.",
+    "réponse": "Vrai",
+    "explication": "Les énumérations (`enum`) en Java sont implicitement déclarées comme `final`, ce qui empêche leur extension."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une interface peut hériter d'une classe abstraite en Java.",
+    "réponse": "Faux",
+    "explication": "En Java, une interface ne peut hériter que d'autres interfaces, et non de classes abstraites."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le mot-clé `this` peut être utilisé pour retourner l'instance courante d'une classe.",
+    "réponse": "Vrai",
+    "explication": "Le mot-clé `this` fait référence à l'instance courante d'une classe et peut être utilisé pour retourner cette instance ou pour appeler ses méthodes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe `record` en Java est mutable par défaut.",
+    "réponse": "Faux",
+    "explication": "Les `record` en Java sont conçus pour être immuables. Les champs sont final et ne peuvent pas être modifiés après l'initialisation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les constructeurs dans les classes abstraites peuvent être appelés via `super` dans les sous-classes.",
+    "réponse": "Vrai",
+    "explication": "Les sous-classes doivent appeler les constructeurs des classes abstraites via `super` pour initialiser les membres hérités."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les méthodes `default` dans les interfaces peuvent être surchargées dans les classes qui les implémentent.",
+    "réponse": "Vrai",
+    "explication": "Les méthodes `default` dans les interfaces peuvent être surchargées ou redéfinies dans les classes qui implémentent ces interfaces."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe finale peut être héritée si elle implémente une interface.",
+    "réponse": "Faux",
+    "explication": "Une classe déclarée comme `final` ne peut pas être héritée, même si elle implémente des interfaces."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L’accès à toute définition visible (masquée ou pas) de la surperclasse est toujours possible ",
+    "réponse": "Vrai",
+    "explication": "via le mot-clé super. Par exemple : super.toString()."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'héritage permet de réutiliser du code existant en créant des sous-classes qui étendent le comportement de la classe parente.",
+    "réponse": "Vrai",
+    "explication": "L'héritage permet aux sous-classes de réutiliser et de spécialiser le code de la classe parente, favorisant la réutilisation de code et l'établissement de relations de sous-typage."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Masquer un champ d'une superclasse et redéfinir une méthode d'une superclasse sont deux concepts identiques en Java.",
+    "réponse": "Faux",
+    "explication": "Le masquage cache un membre hérité avec un membre du même nom dans la sous-classe, tandis que la redéfinition remplace le comportement d'une méthode héritée."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "La liaison statique en Java se fait au moment de l'exécution du programme.",
+    "réponse": "Faux",
+    "explication": "La liaison statique est effectuée lors de la compilation pour les méthodes et les champs statiques, tandis que la liaison dynamique est déterminée à l'exécution pour les méthodes d'instance."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe finale en Java peut être héritée.",
+    "réponse": "Faux",
+    "explication": "Une classe déclarée comme `final` empêche toute sous-classe d'en hériter, ce qui permet de verrouiller son comportement."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types scellés en Java permettent de limiter les sous-types d'une classe ou interface à un ensemble spécifique.",
+    "réponse": "Vrai",
+    "explication": "Les types scellés restreignent la hiérarchie de sous-types, assurant que seuls certains types définis peuvent être utilisés comme sous-types directs, aidant à éviter des erreurs dans les structures complexes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les énumérations en Java sont principalement utilisées pour représenter des entiers constants.",
+    "réponse": "Faux",
+    "explication": "Les énumérations en Java représentent des ensembles finis de valeurs, offrant une alternative plus sûre et structurée aux entiers ou chaînes pour des valeurs fixes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les enregistrements (records) en Java permettent de définir des classes immuables de manière plus concise.",
+    "réponse": "Vrai",
+    "explication": "Les records en Java encapsulent des valeurs de données dans des classes immuables, en simplifiant la déclaration de classes dont les champs sont constants."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "La liaison dynamique permet de déterminer la méthode à appeler en fonction du type réel de l'objet à l'exécution.",
+    "réponse": "Vrai",
+    "explication": "En Java, la liaison dynamique décide quelle méthode invoquer au moment de l'exécution, en fonction du type réel de l'objet référencé."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une méthode redéfinie dans une sous-classe peut appeler la version de la méthode dans la superclasse via `super`.",
+    "réponse": "Vrai",
+    "explication": "En utilisant `super.nomDeLaMethode()`, la sous-classe peut accéder à la version de la méthode définie dans la superclasse, même si elle est redéfinie."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe abstraite ne peut contenir que des méthodes abstraites.",
+    "réponse": "Faux",
+    "explication": "Une classe abstraite peut contenir des méthodes abstraites et concrètes, offrant une structure pour les sous-classes tout en permettant des comportements partiels."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types scellés en Java permettent d'assurer une sécurité renforcée sur la hiérarchie des classes en limitant les sous-classes autorisées.",
+    "réponse": "Vrai",
+    "explication": "Les types scellés introduisent une liste fermée de sous-types, ce qui limite les extensions possibles et renforce la sécurité de conception des structures."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les énumérations Java peuvent être utilisées pour organiser des ensembles de constantes en ajoutant des méthodes et des comportements spécifiques.",
+    "réponse": "Vrai",
+    "explication": "Les enums en Java permettent de définir des constantes enrichies, pouvant inclure des méthodes et comportements, au-delà des simples valeurs fixes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "La liaison dynamique en Java est utilisée pour les méthodes statiques et les champs de classe.",
+    "réponse": "Faux",
+    "explication": "La liaison dynamique s'applique uniquement aux méthodes d'instance, alors que les méthodes statiques et les champs sont liés statiquement à la compilation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une méthode finale ne peut pas être redéfinie dans une sous-classe.",
+    "réponse": "Vrai",
+    "explication": "Une méthode déclarée comme `final` empêche toute redéfinition dans les sous-classes, assurant ainsi la stabilité de son comportement."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe finale ne peut contenir aucune méthode abstraite.",
+    "réponse": "Vrai",
+    "explication": "Les classes finales ne peuvent pas être héritées, donc elles ne peuvent pas être abstraites et ne peuvent pas contenir de méthodes abstraites."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le masquage des champs d’une superclasse est résolu à la compilation, indépendamment du type d’instance réel.",
+    "réponse": "Vrai",
+    "explication": "Le masquage des champs utilise la liaison statique, donc le champ masqué reste associé au type de référence à la compilation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un type fini est un type ayant un ensemble fini d’instances, toutes définies statiquement dès l’écriture du type, sans possibilité d’en créer de nouvelles lors de l’exécution?",
+    "réponse": "Vrai",
+    "explication": "Certaines variables ont, en effet, une valeur qui doit rester dans un ensemble fini, prédéfini : • les 7 jours de la semaine • les 4 points cardinaux • les 3 (ou 4 ou plus) états de la matière"
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Une classe d’énumération est une classe particulière, déclarée par un bloc synaxique abstract",
+    "réponse": "Faux",
+    "explication": "Une classe d’énumération (ou juste énumération) est une classe particulière, déclarée par un bloc synaxique enum, dans lequel est donnée la liste (exhaustive et définitive) des instances (= « constantes » de l’enum.)."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les `records` en Java sont utilisés pour créer des objets de données immuables avec moins de code.",
+    "réponse": "Vrai",
+    "explication": "Les `records` sont conçus pour représenter des classes immuables de manière concise, en réduisant le code boilerplate pour les constructeurs et méthodes usuelles."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un `record` en Java permet de modifier les valeurs de ses champs après l'instanciation.",
+    "réponse": "Faux",
+    "explication": "Les champs d'un `record` sont `final`, ce qui signifie qu'ils sont immuables et ne peuvent pas être modifiés après l'instanciation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les `records` en Java génèrent automatiquement des méthodes comme `equals`, `hashCode` et `toString`.",
+    "réponse": "Vrai",
+    "explication": "Lors de la déclaration d'un `record`, Java crée automatiquement des méthodes pour l'égalité, le hachage et la conversion en chaîne de caractères."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les `records` peuvent contenir des champs non définis dans la déclaration du record.",
+    "réponse": "Faux",
+    "explication": "Tous les champs d'un `record` doivent être déclarés dans la définition de celui-ci, et ils sont immuables par défaut."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un `record` peut être utilisé pour remplacer une classe POJO (Plain Old Java Object) qui contient principalement des getters et des setters.",
+    "réponse": "Vrai",
+    "explication": "Les `records` sont conçus pour remplacer les classes POJO simples, en fournissant automatiquement des méthodes d'accès aux champs sans code additionnel."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Il est possible de redéfinir le constructeur d'un `record` en Java pour y ajouter des validations spécifiques.",
+    "réponse": "Vrai",
+    "explication": "Java permet de redéfinir le constructeur d'un `record` pour ajouter des vérifications ou du code personnalisé."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un `record` en Java peut hériter d'une autre classe.",
+    "réponse": "Faux",
+    "explication": "Les `records` ne peuvent pas étendre d'autres classes, mais ils peuvent implémenter des interfaces."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les champs d'un `record` en Java sont automatiquement `final` et accessibles via des méthodes sans `getter` explicite.",
+    "réponse": "Vrai",
+    "explication": "Les champs d'un `record` sont final et Java génère automatiquement des méthodes d'accès avec le nom du champ, sans setter."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les `records` en Java peuvent implémenter des interfaces.",
+    "réponse": "Vrai",
+    "explication": "Bien que les `records` ne puissent pas hériter d'autres classes, ils peuvent implémenter des interfaces pour respecter certains contrats de type."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Voici un exemple simple de record pour représenter un point en 2D :\njava Copier le code public record Point(int x, int y) {}\nAvec cette seule ligne, Java crée une classe immuable avec :\nUn constructeur Point(int x, int y), Des méthodes d'accès (x() et y()) pour obtenir les valeurs de chaque champ, Une méthode equals() pour comparer les instances de Point, Une méthode hashCode() pour l'utilisation dans des structures de données, Une méthode toString() pour afficher les valeurs",
+    "réponse": "Vrai",
+    "explication": "on mon gras c'est un record"
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur permet d'ajouter des responsabilités à un objet sans utiliser l'héritage.",
+    "réponse": "Vrai",
+    "explication": "Le patron décorateur utilise la composition pour ajouter des fonctionnalités à un objet, évitant ainsi les inconvénients de l'héritage."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Dans le patron décorateur, on crée des sous-classes spécifiques pour chaque combinaison de décorations possibles.",
+    "réponse": "Faux",
+    "explication": "Le patron décorateur permet de combiner les décorations dynamiquement en les empilant, sans créer une sous-classe pour chaque combinaison."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les classes `Positif` et `Arrondi` sont des décorateurs qui ajoutent des comportements spécifiques à un objet de type `Nombre`.",
+    "réponse": "Vrai",
+    "explication": "Les classes `Positif` et `Arrondi` utilisent l'interface `Nombre` pour ajouter des responsabilités spécifiques, comme garantir un nombre positif ou arrondi."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur nécessite que chaque décorateur contienne une référence à un objet de type `Nombre`.",
+    "réponse": "Vrai",
+    "explication": "Chaque décorateur utilise la composition en contenant une référence à un objet `Nombre`, qu'il enrichit avec de nouvelles fonctionnalités."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Dans l'exemple donné, pour obtenir un nombre réel positif arrondi, il est nécessaire de créer une classe appelée `ReelPositifArrondi`.",
+    "réponse": "Faux",
+    "explication": "En utilisant le patron décorateur, on peut combiner les décorateurs `Positif` et `Arrondi` dynamiquement sans créer une nouvelle classe, comme dans `new Arrondi(new Positif(new Reel(42)))`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur permet d'appliquer plusieurs décorations successives sur un même objet.",
+    "réponse": "Vrai",
+    "explication": "Grâce à la composition, il est possible d'appliquer plusieurs décorateurs successivement, comme `Arrondi` et `Positif`, pour enrichir un objet `Nombre`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'interface `Nombre` dans le patron décorateur contient des méthodes pour obtenir et définir la valeur.",
+    "réponse": "Vrai",
+    "explication": "L'interface `Nombre` dans cet exemple définit les méthodes `getValeur()` et `setValeur(double)`, que chaque décorateur implémente pour interagir avec la valeur."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur permet d'ajouter des responsabilités à un objet sans utiliser l'héritage.",
+    "réponse": "Vrai",
+    "explication": "Le patron décorateur utilise la composition pour ajouter des fonctionnalités à un objet, évitant ainsi les inconvénients de l'héritage."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Dans le patron décorateur, on crée des sous-classes spécifiques pour chaque combinaison de décorations possibles.",
+    "réponse": "Faux",
+    "explication": "Le patron décorateur permet de combiner les décorations dynamiquement en les empilant, sans créer une sous-classe pour chaque combinaison."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur permet d'appliquer plusieurs décorations successives sur un même objet.",
+    "réponse": "Vrai",
+    "explication": "Grâce à la composition, il est possible d'appliquer plusieurs décorateurs successivement, comme `Arrondi` et `Positif`, pour enrichir un objet `Nombre`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur permet de réutiliser plusieurs classes existantes en ajoutant ou modifiant leur comportement.",
+    "réponse": "Vrai",
+    "explication": "Le patron décorateur utilise la composition pour ajouter des fonctionnalités à un objet, en permettant de réutiliser plusieurs classes existantes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur permet de créer des objets avec des méthodes supplémentaires sans limitation.",
+    "réponse": "Faux",
+    "explication": "Le patron décorateur est limité car il ne permet que d'ajouter des comportements à une interface constante, sans ajouter de nouvelles méthodes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Java autorise l'héritage multiple en utilisant la clause `extends` pour plusieurs superclasses.",
+    "réponse": "Faux",
+    "explication": "Java ne permet pas l'héritage multiple avec la clause `extends`; une classe ne peut hériter que d'une seule classe parente."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Pour obtenir à la fois la réutilisation d'implémentations et un type enrichi, il est nécessaire d'utiliser des alternatives à l'héritage multiple en Java.",
+    "réponse": "Vrai",
+    "explication": "Java ne permet pas l'héritage multiple. Il faut donc utiliser des alternatives comme la composition et les interfaces pour ajouter des fonctionnalités."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "En Java, une solution pour simuler l'héritage multiple consiste à utiliser des interfaces et le patron adaptateur.",
+    "réponse": "Vrai",
+    "explication": "Pour contourner l'absence d'héritage multiple, on peut utiliser la composition, implémenter plusieurs interfaces, et recourir au patron adaptateur."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron décorateur est limité car il ne permet pas d'ajouter de nouvelles méthodes à un type.",
+    "réponse": "Vrai",
+    "explication": "Le patron décorateur ne permet que de modifier ou d'enrichir des comportements sur une interface existante, mais sans ajouter de nouvelles méthodes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le patron adaptateur est une solution pour gérer plusieurs interfaces en Java.",
+    "réponse": "Vrai",
+    "explication": "En Java, le patron adaptateur est souvent utilisé pour implémenter plusieurs interfaces et combiner différents comportements dans une classe."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le symbole `<T>` dans `Comparator<T>` représente un type générique.\n\n public interface Comparator<T> {\npublic int compare(T o1, T o2);\n public boolean equals(Object o); \n}",
+    "réponse": "Vrai",
+    "explication": "En Java, `<T>` indique un type générique qui permet à une interface ou une classe d'être paramétrée avec un type spécifique lors de l'utilisation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'interface `Comparator` en Java est une interface non-générique.\n\n public interface Comparator<T> {\npublic int compare(T o1, T o2);\n public boolean equals(Object o); \n}",
+    "réponse": "Faux",
+    "explication": "L'interface `Comparator` est une interface générique, paramétrée par un type `<T>` pour permettre la comparaison de différents types d'objets."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types génériques ont été introduits dans Java 5 principalement pour les collections.",
+    "réponse": "Vrai",
+    "explication": "Les types génériques ont été ajoutés dans Java 5 pour rendre les collections plus sûres et éviter les conversions explicites, parmi d'autres avantages."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types génériques permettent de définir des classes et interfaces qui peuvent fonctionner avec différents types d'objets sans avoir besoin de les convertir explicitement.",
+    "réponse": "Vrai",
+    "explication": "La généricité en Java permet aux classes et interfaces de fonctionner avec différents types, en spécifiant le type lors de l'instanciation, ce qui évite les conversions explicites."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le type générique `<T>` dans `Comparator<T>` peut être remplacé par n'importe quel type d'objet lors de l'utilisation de l'interface.\n\n public interface Comparator<T> {\npublic int compare(T o1, T o2);\n public boolean equals(Object o); \n}",
+    "réponse": "Vrai",
+    "explication": "En utilisant la généricité, `<T>` peut être remplacé par un type spécifique comme `String`, `Integer`, etc., permettant de créer des comparateurs pour différents types d'objets."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les interfaces fonctionnelles introduites dans Java 8 peuvent aussi utiliser la généricité.",
+    "réponse": "Vrai",
+    "explication": "Java 8 a introduit des interfaces fonctionnelles, qui peuvent également être paramétrées avec des types génériques, ce qui les rend plus flexibles et adaptables."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le type générique `<T>` dans `Comparator<T>` signifie que l'on peut comparer des objets de types différents sans erreur? \n\n public interface Comparator<T> {\npublic int compare(T o1, T o2);\n public boolean equals(Object o); \n}",
+    "réponse": "Faux",
+    "explication": "Le type `<T>` dans `Comparator<T>` assure que les objets comparés sont du même type, ce qui renforce la sécurité du type et évite les erreurs de comparaison."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les classes comme `Optional`, `Stream` et `Future` utilisent la généricité pour rendre leur utilisation plus flexible.",
+    "réponse": "Vrai",
+    "explication": "Ces classes sont génériques, ce qui permet de spécifier le type d'objets qu'elles manipulent, offrant ainsi une utilisation plus sûre et flexible."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un type générique en Java est une classe ou une interface définie avec un paramètre de type.",
+    "réponse": "Vrai",
+    "explication": "Un type générique utilise un paramètre de type (comme `<T>` ou `<C>`) qui permet à la classe ou à l'interface de fonctionner avec différents types."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Dans la définition d'un type générique, le paramètre de type introduit dans l'en-tête peut être utilisé comme un nom de type réel dans le corps de la classe ou de l'interface.",
+    "réponse": "Vrai",
+    "explication": "Le paramètre de type (comme `<T>`) peut être utilisé dans tout le corps de la classe ou de l'interface, comme s'il s'agissait d'un type réel."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types génériques permettent de créer des classes et des interfaces qui peuvent accepter différents types sans avoir besoin de les spécifier à l'avance.",
+    "réponse": "Vrai",
+    "explication": "La généricité permet de définir des types flexibles qui peuvent être spécifiés lors de l'instanciation, offrant une grande réutilisabilité et flexibilité."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Dans un type générique, le paramètre de type doit obligatoirement être nommé `T` ou `C`.",
+    "réponse": "Faux",
+    "explication": "Bien que `T` et `C` soient couramment utilisés par convention, le nom du paramètre de type peut être n'importe quel identifiant valide en Java."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un paramètre de type dans une définition générique est utilisé uniquement à la déclaration et n'est pas disponible dans le corps de la classe ou de l'interface.",
+    "réponse": "Faux",
+    "explication": "Le paramètre de type est disponible dans tout le corps de la classe ou de l'interface, permettant de créer des méthodes et des attributs en utilisant ce type générique."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types génériques en Java ont été introduits pour renforcer la sécurité des types et réduire les erreurs de conversion.",
+    "réponse": "Vrai",
+    "explication": "Les types génériques permettent de renforcer la sécurité des types, en éliminant les conversions de types explicites et en réduisant les erreurs liées aux types."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les paramètres de type des génériques sont déterminés au moment de l'exécution.",
+    "réponse": "Faux",
+    "explication": "Les paramètres de type des génériques sont résolus au moment de la compilation, ce qui assure une vérification des types statiques et sécurise le code."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'effacement de type permet d'obtenir un type réifiable à partir d'un type générique.",
+    "réponse": "Vrai",
+    "explication": "L'effacement de type (type erasure) supprime les informations de type générique pour produire un type réifiable, c'est-à-dire un type que la JVM peut gérer."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "En Java, après l'effacement de type, un type générique `G<T>` devient le type brut `G`.",
+    "réponse": "Vrai",
+    "explication": "L'effacement de type transforme un type générique en son type brut, permettant à la JVM de traiter les objets sans informations de type générique."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'effacement de type signifie que les types génériques sont entièrement conservés et vérifiés lors de l'exécution.",
+    "réponse": "Faux",
+    "explication": "L'effacement de type signifie que les informations de type générique sont supprimées à la compilation et ne sont pas disponibles à l'exécution."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le système de types de la JVM ne connaît que les types réifiables.",
+    "réponse": "Vrai",
+    "explication": "La JVM ne gère que les types réifiables, ce qui signifie que les informations de type générique sont perdues après la compilation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Après l'effacement de type, une variable avec une borne supérieure garde cette borne pour le type à l'exécution.",
+    "réponse": "Faux",
+    "explication": "L'effacement de type remplace une variable de type avec sa borne supérieure uniquement pendant la compilation, pas à l'exécution."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "La paramétrisation générique en Java n'a pas d'impact à l'exécution en raison de l'effacement de type.",
+    "réponse": "Vrai",
+    "explication": "L'effacement de type supprime les informations de paramétrisation générique à la compilation, ce qui signifie qu'elles ne sont pas présentes à l'exécution."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'effacement de type est une technique qui rend les types génériques compatibles avec le code Java écrit avant Java 5.",
+    "réponse": "Vrai",
+    "explication": "L'effacement de type permet d'utiliser des types génériques tout en maintenant la compatibilité avec le code Java ancien, qui ne supportait pas la généricité."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un type générique utilisé sans paramètre est appelé un type brut en Java.",
+    "réponse": "Vrai",
+    "explication": "Lorsqu'un type générique est utilisé sans spécifier de paramètre, il est considéré comme un type brut, utilisé principalement pour la compatibilité ascendante."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'utilisation de types bruts en Java est recommandée pour les nouvelles implémentations.",
+    "réponse": "Faux",
+    "explication": "L'utilisation de types bruts est déconseillée pour les nouvelles implémentations, bien qu'elle soit permise pour assurer la compatibilité avec le code Java ancien."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un type brut est le supertype direct de tout type paramétré correspondant.",
+    "réponse": "Vrai",
+    "explication": "En Java, un type brut est le supertype direct de toutes ses variantes paramétrées, par exemple, `Triplet` est le supertype de `Triplet<Number, Object, String>`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'utilisation d'un type brut peut entraîner un avertissement de conversion non vérifiée (unchecked conversion) lors de la compilation.",
+    "réponse": "Vrai",
+    "explication": "Java génère un avertissement `unchecked conversion` lorsqu'il détecte une conversion implicite d'un type brut vers un type paramétré, car cela peut être risqué."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le code `List l1 = new ArrayList(); List<Integer> l2 = l1;` compile sans aucun avertissement.",
+    "réponse": "Faux",
+    "explication": "Ce code compile avec un avertissement `unchecked conversion` car il utilise un type brut (raw type) qui est ensuite affecté à un type paramétré, entraînant un risque potentiel de type."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les types bruts sont utilisés pour éviter les conversions explicites de type.",
+    "réponse": "Faux",
+    "explication": "Les types bruts permettent la compatibilité ascendante mais entraînent des risques de sécurité de type, car ils désactivent la vérification de type lors de la compilation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Un type brut est un type générique auquel on n’a pas spécifié de paramètre de type.",
+    "réponse": "Vrai",
+    "explication": "Un type brut est un type générique utilisé sans paramètres de type, par exemple `List` au lieu de `List<String>`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le code-octet en Java conserve certaines informations sur les types génériques pour vérifier les types lors de la compilation.",
+    "réponse": "Vrai",
+    "explication": "Bien que l'effacement de type supprime les informations de type à l'exécution, le code-octet garde certaines informations sur les types génériques pour permettre la vérification pendant la compilation."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'effacement de type signifie que la JVM ne conserve aucune information sur les types génériques après la compilation.",
+    "réponse": "Vrai",
+    "explication": "La JVM ne gère que les types réifiables après l'effacement de type, ce qui signifie qu'elle n'a aucune information sur la paramétrisation générique lors de l'exécution."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les signatures des classes et de leurs membres conservent des informations de type générique uniquement pour le compilateur.",
+    "réponse": "Vrai",
+    "explication": "Les signatures contiennent des informations sur les types génériques pour aider le compilateur, mais ces informations ne sont pas utilisées par la JVM à l'exécution."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le code-octet en Java ne contient plus aucune information sur les types génériques après la compilation.",
+    "réponse": "Faux",
+    "explication": "Le code-octet garde certaines informations de type générique pour permettre la vérification de type lors de la compilation, bien qu'elles ne soient pas utilisées par la JVM à l'exécution."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les informations de type générique conservées dans le code-octet ne sont pas accessibles à la JVM pendant l'exécution.",
+    "réponse": "Vrai",
+    "explication": "Les informations de type générique sont présentes pour le compilateur, mais la JVM ne les utilise pas lors de l'exécution en raison de l'effacement de type."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'effacement de type permet de garantir la compatibilité ascendante avec les versions de Java antérieures à Java 5.",
+    "réponse": "Vrai",
+    "explication": "L'effacement de type a été introduit pour permettre la compatibilité avec les anciennes versions de Java, qui ne supportaient pas la généricité."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'interface `ListIterator` en Java permet de parcourir une liste dans les deux sens.\n\npublic interface ListIterator<E> extends Iterator<E>{\n  void add(E e);\n  boolean hasPrevious();\n  int nextIndex();\n  E previous();\n  int previousIndex();\n  void set(E e); \n}",
+    "réponse": "Vrai",
+    "explication": "L'interface `ListIterator` ajoute la possibilité de parcourir une liste en arrière, contrairement à un simple `Iterator` qui ne parcourt que dans le sens avant."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'interface `ListIterator` étend l'interface `Iterator` en Java.\n\npublic interface ListIterator<E> extends Iterator<E>{\n  void add(E e);\n  boolean hasPrevious();\n  int nextIndex();\n  E previous();\n  int previousIndex();\n  void set(E e); \n}",
+    "réponse": "Vrai",
+    "explication": "`ListIterator` hérite de `Iterator`, ce qui lui permet de fournir des méthodes supplémentaires tout en conservant les fonctionnalités de base d'un itérateur."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "La méthode `set(E e)` de `ListIterator` permet de remplacer l'élément actuel dans la liste par un nouvel élément.\n\npublic interface ListIterator<E> extends Iterator<E>{\n  void add(E e);\n  boolean hasPrevious();\n  int nextIndex();\n  E previous();\n  int previousIndex();\n  void set(E e); \n}",
+    "réponse": "Vrai",
+    "explication": "`set(E e)` remplace le dernier élément retourné par `next()` ou `previous()` avec le nouvel élément `e`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "L'interface `ListIterator` est nécessaire pour modifier des éléments d'une liste lors de l'itération.\n\npublic interface ListIterator<E> extends Iterator<E>{\n  void add(E e);\n  boolean hasPrevious();\n  int nextIndex();\n  E previous();\n  int previousIndex();\n  void set(E e); \n}",
+    "réponse": "Vrai",
+    "explication": "`ListIterator` permet d'ajouter, modifier ou supprimer des éléments pendant l'itération, contrairement à `Iterator` qui ne permet que de supprimer."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les tableaux en Java offrent une syntaxe légère et une efficacité accrue par rapport aux collections.",
+    "réponse": "Vrai",
+    "explication": "Les tableaux sont simples à utiliser avec une syntaxe concise et offrent une bonne performance, surtout pour les tâches simples et fixes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les collections génériques en Java permettent une grande polyvalence en offrant différents types de collections pour des cas d'utilisation variés.",
+    "réponse": "Vrai",
+    "explication": "Les collections génériques incluent des structures adaptées pour divers cas (List, Set, Map, etc.), offrant plus de polyvalence que les tableaux."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Le polymorphisme est un avantage des collections génériques, car elles peuvent être manipulées via des interfaces communes.",
+    "réponse": "Vrai",
+    "explication": "Les collections génériques permettent l'utilisation du polymorphisme en Java, car elles utilisent des interfaces comme `List`, `Set`, et `Map`."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les collections génériques offrent une meilleure sûreté du typage par rapport aux tableaux.",
+    "réponse": "Vrai",
+    "explication": "Avec les collections génériques, on utilise des types paramétrés (comme `List<String>`), ce qui garantit une vérification des types lors de la compilation et réduit les erreurs de type."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Il est recommandé d'utiliser des tableaux plutôt que des collections génériques si la performance est un critère critique.",
+    "réponse": "Vrai",
+    "explication": "Les tableaux sont parfois préférés dans les applications où la performance maximale est requise, car ils sont plus légers que les collections."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Il est conseillé d'utiliser les collections génériques lorsque l'on souhaite optimiser la performance au maximum.",
+    "réponse": "Faux",
+    "explication": "Pour une optimisation maximale de la performance, les tableaux peuvent être préférés aux collections en raison de leur légèreté."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les collections génériques sont particulièrement utiles pour le prototypage rapide de programmes.",
+    "réponse": "Vrai",
+    "explication": "Les collections offrent plus de flexibilité et de sécurité de type, ce qui facilite le développement rapide et la maintenance de prototypes."
+    ,"typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+},
+{
+    "question": "Les tableaux permettent le polymorphisme de type avec les interfaces de collection en Java.",
+    "réponse": "Faux",
+    "explication": "Les tableaux ne permettent pas le polymorphisme via les interfaces de collection, contrairement aux collections génériques qui peuvent être manipulées via des interfaces communes."
+}
+]

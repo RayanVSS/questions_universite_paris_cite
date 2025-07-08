@@ -1,0 +1,35 @@
+[
+  {
+    "question": "Quel langage de programmation est principalement utilisé pour le développement web côté client ?",
+    "réponse": "JavaScript",
+    "explication": "JavaScript est le langage de programmation standard pour le développement web côté client, permettant l'interactivité des pages web.",
+    "typing": false,
+    "réponse possible": ["JavaScript", "Python", "Java", "C++"]
+  },
+  {
+    "question": "Que signifie l'acronyme HTML ?",
+    "réponse": "HyperText Markup Language",
+    "explication": "HTML signifie HyperText Markup Language. C'est le langage de balisage standard pour créer des pages web.",
+    "typing": true
+  },
+  {
+    "question": "Quel est le port par défaut pour HTTP ?",
+    "réponse": "80",
+    "explication": "Le port 80 est le port par défaut pour le protocole HTTP, tandis que le port 443 est utilisé pour HTTPS.",
+    "typing": true
+  },
+  {
+    "question": "Quelle base de données est considérée comme NoSQL ?",
+    "réponse": "MongoDB",
+    "explication": "MongoDB est une base de données NoSQL orientée document, contrairement aux bases de données relationnelles comme MySQL.",
+    "typing": false,
+    "réponse possible": ["MongoDB", "MySQL", "PostgreSQL", "SQLite"]
+  },
+  {
+    "question": "Quel framework JavaScript est développé par Facebook ?",
+    "réponse": "React",
+    "explication": "React est une bibliothèque JavaScript développée par Facebook pour construire des interfaces utilisateur, particulièrement pour les applications web.",
+    "typing": false,
+    "réponse possible": ["React", "Angular", "Vue.js", "Svelte"]
+  }
+]

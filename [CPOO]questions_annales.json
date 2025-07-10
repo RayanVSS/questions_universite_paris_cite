@@ -1,637 +1,887 @@
 [
-    {
-        "question": "Quand, dans une méthode, on définit et initialise une nouvelle variable locale de type int, sa valeur est stockée dans le tas.",
-        "réponse": "Faux",
-        "explication": "Les variables locales sont stockées en pile ce qui permet de récupérer la mémoire quand on sort de la méthode (décrémentation du pointeur de pile de la taille du frame)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand « this » apparaît dans une méthode, sa valeur est le récepteur de l’appel courant à celle-ci.",
-        "réponse": "Vrai",
-        "explication": "NB : il y a aussi un autre usage de this, pour désigner un constructeur de la classe courante, lorsqu’appelé au début d’un autre constructeur de cette même classe. Dans ce cas, this n’est pas une expression, donc pas d’influence sur la réponse."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Toute classe possède au moins un constructeur.",
-        "réponse": "Vrai",
-        "explication": "Oui, au pire le compilateur ajoute le fameux « constructeur par défaut » (qui ne prend pas de paramètre, et initialise les champs à leur valeur par défaut, à savoir 0 ou null)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Number est supertype de double.",
-        "réponse": "Faux",
-        "explication": "Number est un type référence (type de toutes les références) et double est un type primitif, or les types référence et les types primitifs sont deux hiérarchies de types disjointes."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand un objet n’est plus utilisé, il faut demander à la JVM de libérer la mémoire qu’il occupe.",
-        "réponse": "Faux",
-        "explication": "Non, le ramasse-miettes détermine automatiquement quels objets ne sont plus référencés et peuvent donc être libérés (ce qu’il va donc faire périodiquement sans qu’on ait à le demander)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La ligne 12 du programme ci-dessous affiche « 1 ».\n\n 1 class Truc {\n 2 static int v1 = 0; int v2 = 0;\n 3 public int getV1() { return v1; }\n 4 public int getV2() { return v2; }\n 5 public Truc() { v1++; v2++; }\n 6 }\n 7\n 8 public class Main {\n 9 public static void main(String args[]) {\n 10 System.out.println(new Truc().getV1());\n 11 System.out.println(new Truc().getV2());\n 12 System.out.println(new Truc().getV1());\n 13    }\n 14 }\n",
-        "réponse": "Faux",
-        "explication": "v1 et v2 n’ont pas le même statut. v1 est statique et donc n’existe qu’en un seul exemplaire, incrémenté à chaque instanciation de Truc (donc 3 fois avant la ligne 15) . Donc La ligne 12 affiche “3”."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La ligne 11 du programme ci-dessous affiche « 2 ».\n\n 1 class Truc {\n 2 static int v1 = 0; int v2 = 0;\n 3 public int getV1() { return v1; }\n 4 public int getV2() { return v2; }\n 5 public Truc() { v1++; v2++; }\n 6 }\n 7\n 8 public class Main {\n 9 public static void main(String args[]) {\n 10 System.out.println(new Truc().getV1());\n 11 System.out.println(new Truc().getV2());\n 12 System.out.println(new Truc().getV1());\n 13    }\n 14 }\n",
-        "réponse": "Faux",
-        "explication":" v2, elle, est un attribut d’instance, donc un nouvel exemplaire existe pour chaque nouvelle instance de Truc, dont la valeur vaut 1 à la sortie du constructeur. Donc la ligne 11 affiche “1’"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Object est supertype de double",
-        "réponse": "Faux",
-        "explication": "Object est un type référence (type de toutes les références) et double est un type primitif, or les types référence et les types primitifs sont deux hiérarchies de types disjointes."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La durée de vie d’un attribut statique est celle d’une instance donnée de la classe.",
-        "réponse": "Faux",
-        "explication":"Non, la durée de vie d’un attribut statique est liée à la durée d’existence de la classe dans la mémoire de la JVM (typiquement : toute la durée de l’exécution du programme)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La plateforme Java est adaptée à la programmation système.",
-        "réponse": "Faux",
-        "explication": "Les méthodes d’accès au système fournies par l’API Java sont suffisamment abstraites pour être communes à toutes les plateformes pour lesquelles il existe une implémentation de la JVM. Elles ne donnent donc pas une vision assez bas niveau pour manipuler les primitives d’un système d’exploitation donné."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Dans un fichier source Java, une instruction se situe nécessairement entre une accolade ouvrante et une accolade fermante.",
-        "réponse": "Faux",
-        "explication": "C’est principalement une question de définition. Selon la JLS, les instructions (statements) sont des éléments syntaxiques qu’on peut placer dans un bloc (qui lui-même est délimité par des accolades et peut aussi servir d’instruction)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Avec x et y de type Object, après exécution de l’instruction x = y;, la variable x représente désormais une copie de l'objet représenté par y.",
-        "réponse": "Faux",
-        "explication": "Une affectation copie seulement ce qu’il y a directement dans la variable. Pour les types référence comme Object, la variable contient une adresse, qui est copiée."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une interface peut avoir des instances directes.",
-        "réponse": "Faux",
-        "explication": "Non, seules les classes (non abstraites) peuvent avoir des instances directes. Une interface n’a d’ailleurs pas de constructeur."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Tout objet existant à l’exécution est instance de Object.",
-        "réponse": "Vrai",
-        "explication": "Object est par définition le type de tous les objets… et de null."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le polymorphisme par sous-typage permet de réutiliser une méthode f(...), avec des paramètres d’effets de types différents entre deux utilisations, sans recompiler f(...).",
-        "réponse": "Vrai",
-        "explication": "Pour les valeurs primitives, l’appel peut être précédé d’une conversion comme i2f. Pour les références d’objet, l’appel se fait sans précaution particulière."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Il est plus facile de prouver qu’un programme se comporte correctement quand ses classes encapsulent leurs données que quand elles ne le font pas.",
-        "réponse": "Vrai",
-        "explication": "En effet, l’encapsulation permet d’assurer qu’un membre n’est utilisé que depuis l’intérieur de la classe, donc la preuve ne nécessite que de regarder ce qui se passe dans la classe à valider."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Les attributs d’une interface sont tous statiques.",
-        "réponse": "Vrai",
-        "explication":"Oui, par conception du langage. La raison est que si une interface avait des attributs d’instance, elle forcerait ses implémentations à contenir ces données, ce qui va au delà des préro- gatives d’une interface (à savoir : définir les intéractions avec les objets et non pas leur mise en œuvre)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une classe implémentant une interface doit implémenter/redéfinir toutes les méthodes déclarées dans l'interface.", 
-        "réponse": "Faux",
-        "explication": "Une classe abstraite peut implémenter une interface sans redéfinir toutes les méthodes déclarées (qui restent abstraites). De plus, les interfaces peuvent contenir des méthodes par défaut (default) ou statiques qui n'ont pas besoin d'être redéfinies."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Pour faire un downcasting, on doit demander explicitement le transtypage.",
-        "réponse": "Vrai",
-        "explication": "Le downcasting est une opération potentiellement dangereuse qui nécessite une demande explicite. Si le transtypage échoue à l'exécution, une exception est levée."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La méthode somme ci-dessous s’exécute toujours sans erreur (exception) :\n\n 1 import java.util.List; import java.util.ArrayList;\n 2 public class PaquetDEntiers {\n 3    private final List<Integer> contenu; private final int taille;\n 4      public PaquetDEntiers(ArrayList<Integer> contenu)\n 5           if (contenu != null) this.contenu = contenu\n 6         else this.contenu = Collections.emptyList(); // initialisation à liste vide\n 7           this.taille = this.contenu.size()\n 8     }\n 9    public int somme() {\n 10        int s = 0; for (int i = 0; i < taille; i++) { s += contenu.get(i); } return s;\n 11     }\n 12 }\n",
-        "réponse": "Faux",
-        "explication":": C’est un problème d’aliasing : si on initialise une instance de PaquetDEntiers avec une liste non vide, puis qu’on supprime un élément de la liste avant de demander à l’instance de PaquetDEntiers de calculer la somme, on aura IndexOutOfBoundsException : en effet, le nombre d’itérations pour calculer la somme est calé sur la taille qu’avait la liste au moment de la construction. Si la taille a été diminuée entre temps, le calcul de la somme va faire un appel à get sur un indice qui n’est plus dans la liste, d’où l’erreur.\n Pour rendre cette classe robuste, il faut initialiser l’attribut contenu avec une copie défensive du paramètre du constructeur.\n La solution consistant à supprimer l’attribut redondant taille et se servir de contenu.size() comme borne du for fonctionne aussi, mais seulement dans un contexte single-threaded. Dans un contexte multi-thread, en cas d’accès concurrents à la liste aliasée, il peut encore y avoir des soucis. Cela dit, dans tous les cas de figure, c’est une bonne chose de supprimer les attributs redondants."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Java dispose d'un système de typage statique.",
-        "réponse": "Vrai",
-        "explication": "La preuve : le compilateur refuse les programmes mal typés."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le code source doit être compilé en code-octet avant chaque exécution.",
-        "réponse": "Faux",
-        "explication": "Le code-octet peut évidemment être ré-exécuté à volonté."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Les objets sont typiquement stockés dans la pile.",
-        "réponse": "Faux",
-        "explication":": On aurait pu vouloir dire “toujours” au lieu de “typiquement”. Mais ce n’est pas tout à fait vrai : la JVM est autorisée à optimiser en stockant des objets en pile s’ils sont référencés seulement localement (sans alias externe). Cette optimisation ne provoque aucune différence fonctionelle (aucune différence de comportement visible, si ce n’est la vitesse d’exécution)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Certaines vérifications de type ont lieu à l'exécution.",
-        "réponse": "Vrai",
-        "explication": "Quelques vérifications à l'exécution : l'évaluation de checkcast (instruction ajoutée au code-octet pour les downcasting d'objet); l'évaluation de instanceof; l'évaluation de getClass(); l'évaluation de invokevirtual (instruction ajoutée au code-octet pour appeler une méthode d'instance afin que la JVM opère la liaison dynamique : choix d'une méthode en fonction du type de l'objet récepteur)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand on \"cast\" (transtype) une expression d'un type référence vers un autre, dans certains cas, Java doit, à l'exécution, modifier l'objet référencé pour le convertir.",
-        "réponse": "Faux",
-        "explication": "Non. Le principe d'un cast d'objet, c'est \"ça passe ou ça casse\" : soit l'objet a le type demandé et on peut l'utiliser sans modification; soit ce n'est pas le cas, et le programme quitte sur une exception (ClassCastException)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Un transtypage de référence se traduit toujours par une instruction spécifique dans le code-octet.",
-        "réponse": "Faux",
-        "explication": "Seulement pour le downcasting. En effet, selon le principe du \"upcasting\", la vérification statique du type assure que l'objet est toujours du bon type, donc la vérification à l'exécution est inutile, donc aucune instruction dans le code octet n'est nécessaire."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "On peut déclarer une classe non imbriquée avec la visibilité private.",
-        "réponse": "Faux",
-        "explication": "Seuls public et package-private sont autorisés. En Java, private veut dire \"privé pour la classe\", ce qui n'a pas de sens pour une classe non imbriquée. Cela dit, on aurait pu donner un sens différent à private en dehors de la classe, comme par exemple \"privé pour le fichier\" (c'est le choix du langage Kotlin, par exemple)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Dans une classe B, membre statique de A (on suppose que B ne contient pas elle-même de définition de type imbriquée), this désigne toujours une instance de B.",
-        "réponse": "Faux",
-        "explication": "this désigne toujours une instance de la classe \"la plus proche\" (dans l'ordre d'imbrication)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La classe d'un objet donné est connue et interrogeable à l'exécution.",
-        "réponse": "Vrai",
-        "explication": "Cf. la correction de la question 25. Ces différents cas de figure fonctionnent car tout objet contient une référence vers l'objet-classe de sa classe."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La conversion de int vers float ne perd pas d’information.",
-        "réponse": "Faux",
-        "explication":"float, utilisant 8 bits pour encoder la position de sa virgule, contient seulement 24 bits pour les chiffres significatifs du nombre (la mantisse) alors qu’un int en utilise 32. Donc nécessairement, certains int ne sont pas représentables en float sans arrondi (concrètement : la conversion efface les 8 bits de poids faible et indique que la virgule se situe 8 chiffres à droite)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une interface définit un sous-type de Object.",
-        "réponse": "Vrai",
-        "explication":"Oui, une interface définit un type référence, donc sous-type de Object. Cela est cohérent car toutes les instances d’une interface sont des objets (instances des classes implémentant l’interface)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une interface peut avoir une classe membre.",
-        "réponse": "Vrai",
-        "explication": "C'est autorisé par le langage. À noter que la classe membre est alors statique. Remarque : cela permet, indirectement, de mettre des membres privés dans une interface (alors que c'est interdit de le faire directement)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Java est plus ancien que C++.",
-        "réponse": "Faux",
-        "explication": "C++ : années 80 ; Java : années 90. Cela dit, j'ai réalisé que l'âge de C++ n'était pas dans le cours. Donc cette question est retirée du décompte des points."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type d'une expression est calculé à l'exécution.",
-        "réponse": "Faux",
-        "explication": "La notion d'expression n'a pas de sens à l'exécution : c'est un morceau de texte du programme qui n'existe plus que le code est compilé. Il se trouve que l'expression est l'unité de base pour la vérification de type statique."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Si A et B sont des types référence, A est sous-type de B si et seulement si toutes les instances de A sont aussi des instances de B.",
-        "réponse": "Vrai",
-        "explication": "Tout à fait : la relation de sous-typage coïncide avec la relation d'inclusion d'ensembles (pour les ensembles qui sont des types)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type des objets Java est déterminé à l'exécution.",
-        "réponse": "Vrai",
-        "explication": "Impossible autrement : les objets n'existent pas avant."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type char est primitif.",
-        "réponse": "Vrai",
-        "explication": "Il fait partie de la liste fixe des 8 types primitifs (dont le nom commence par une minuscule)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type Object est primitif.",
-        "réponse": "Faux",
-        "explication": "Les objets sont considérés comme non primitifs (composites, en toute généralité)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La JVM interprète du code source Java.",
-        "réponse": "Faux",
-        "explication": "La JVM interprète seulement (ou bien compile à la volée, cf. JIT) du code-octet, mais en aucun cas du code source. C'est le rôle du compilateur (javac) de comprendre le code source."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand, dans une méthode, on définit et initialise une nouvelle variable locale avec une instruction de la forme Integer x = 12;, alors la valeur 12 est stockée dans le tas.",
-        "réponse": "Vrai",
-        "explication": "Les variables locales sont stockées en pile, mais en l'occurrence, le type Integer n'est pas primitif, donc la valeur stockée en pile est une référence vers un objet du tas contenant la valeur 12 dans un champ."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand « this » apparaît dans une méthode, sa valeur est le récepteur de l'appel courant à celle-ci.",
-        "réponse": "Vrai",
-        "explication": "NB: il y a aussi un autre usage de this, pour désigner un constructeur de la classe courante, lorsqu'appelé au début d'un autre constructeur de cette même classe. Dans ce cas, this n'est pas une expression, donc pas d'influence sur la réponse."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Toute classe possède au moins un constructeur.",
-        "réponse": "Vrai",
-        "explication": "Oui, au pire le compilateur ajoute le fameux « constructeur par défaut » (qui ne prend pas de paramètre, et initialise les champs à leur valeur par défaut, à savoir 0 ou null)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Number est supertype de double.",
-        "réponse": "Faux",
-        "explication": "Number est un type référence (type de toutes les références) et double est un type primitif, or les types référence et les types primitifs sont deux hiérarchies de types disjointes."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand un objet n'est plus utilisé, il faut demander à la JVM de libérer la mémoire qu'il occupe.",
-        "réponse": "Faux",
-        "explication": "Non, le ramasse-miettes détermine automatiquement quels objets ne sont plus référencés et peuvent donc être libérés (ce qu'il va donc faire périodiquement sans qu'on ait à le demander)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "javac prend en entrée un code source Java et produit, en sortie, du code-octet.",
-        "réponse": "Vrai",
-        "explication":"En effet. Compiler le code source sous cette forme le rend exécutable sur toutes les machines physiques pour lesquelles une JVM est implémentée."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Pour s’assurer que l’appel à getD sur une même instance de A retourne toujours la même valeur, il est nécessaire ajouter, dans le constructeur, une copie profonde du paramètre d. (On suppose que tout est exécuté sur le même thread.)\n\n 1 public class A {\n 2    private int d;\n 3    public A(int d) { this.d = d; \n 4    public int getD() { return d;\n5  }\n",
-        "réponse": "Faux",
-        "explication":"Ce n’est pas nécessaire car ce paramètre est de type primitif. Ainsi l’affectation this.d = d est déjà une copie profonde (vu que d n’a pas de « profondeur »). La remarque sur les threads a été ajoutée parce qu’il est possible, en toute généralité, que le construc- teur et getD soient exécutés sur des threads différents. Dans ce cas là, il n’y a pas de garantie que l’attribut soit déjà initialisé quand getD lit sa valeur. Pour « réparer » cette classe en mode multi-thrlead, il faudrait ajouter volatile devant la déclara- tion de d, voire, dans ce cas précis, final (qui donne la même garantie de synchronisation), vu que d ne pourra plus être modifié après son initialisation"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand on cast (transtype) une expression d'un type référence vers un autre, dans certains cas, Java doit, à l'exécution, modifier l'objet référencé pour le convertir.",
-        "réponse": "Faux",
-        "explication": "Non. Le principe d'un cast d'objet, c'est \"ça passe ou ça casse\" : soit l'objet a le type demandé et on peut l'utiliser sans modification; soit ce n'est pas le cas, et le programme quitte sur une exception (ClassCastException)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le système de sous-typage de Java est structurel (si une interface T possède toutes méthodes d'une autre interface U, avec des signatures compatibles, alors T est sous-type de U).",
-        "réponse": "Faux",
-        "explication": "Non, le système de type de Java est, au contraire, nominal et déclaratif : deux types sont le même type si et seulement si ils ont le même nom; un type est sous-type d'un autre s'il a été déclaré en tant que tel via la clause extends ou implements (ou si c'est de base dans le langage)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La classe d'un objet donné est connue et interrogeable à l'exécution.",
-        "réponse": "Vrai",
-        "explication": "Tout à fait, tout objet contient une référence vers sa classe. Cela permet notamment à instanceof et à la liaison dynamique de fonctionner."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Si A et B sont des types référence, A est sous-type de B si et seulement si toutes les instances de A sont aussi des instances de B.",
-        "réponse": "Vrai",
-        "explication": "Tout à fait : la relation de sous-typage coïncide avec la relation d'inclusion d'ensembles (pour les ensembles qui sont des types)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type byte est primitif.",
-        "réponse": "Vrai",
-        "explication":"Il fait partie de la liste fixe des 8 types primitifs (dont le nom commence par une minuscule)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Tout seul, le fichier A.java, ci-dessous, compile :\n\n public class A { final boolean a = 1; }\n class B extends A { final boolean a = 0; }\n",
-        "réponse": "Faux",
-        "explication": "Il y a une incompatibilité de type entre les littéraux 0 et 1 (entiers) et le type déclaré pour les variables a (boolean), donc ce programme ne compile pas. Cela dit, cela était une erreur dans l'énoncé. Les variables étaient supposées être déclarées int. Si cela avait été le cas, la réponse aurait été V avec l'explication suivante : « Si le doute portait sur le modificateur final, alors pas de problème car l'initialisation dans B masque celle-ci. » Le point est donc donné à tout le monde pour que ne soient pénalisés ni les étudiants ayant répondu V en ayant compris les enjeux de la question mais en n'ayant pas vu le « piège » involontaire, ni les étudiants ayant répondu F en ayant vu le piège, ni ceux qui n'ont pas répondu pour cause de perplexité par rapport aux intentions de l'auteur de la question !"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Dans la classe B ci-dessous, la méthode f de la classe A est surchargée par la méthode f de B :\n\n class A { private static void f() {} }\n class B extends A { private static void f() {} }\n",
-        "réponse": "Faux",
-        "explication": "Il n'y a surcharge en un point donné du programme que si plusieurs définitions de méthode de même nom existent dans le contexte courant. Or la méthode f de A étant privée, n'est pas héritée dans le contexte de B (et est de toute façon inaccessible en dehors de A)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une classe peut avoir plusieurs sous-classes directes.",
-        "réponse": "Vrai",
-        "explication": "Sans problème : l'héritage est contraint seulement dans l'autre direction (une seule superclasse directe pour une classe donnée)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Pour les types référence, sous-typage implique héritage.",
-        "réponse": "Faux",
-        "explication": "Non, l'implémentation d'interface, par exemple, crée aussi du sous-typage."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La dernière version de Java est Java 12.",
-        "réponse": "Faux",
-        "explication": "Faux, c'est Java 23"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La durée de vie d’un attribut non statique est celle d’une instance donnée de la classe.",
-        "réponse": "Vrai",
-        "explication":"Oui, un attribut non statique est aussi appelé attribut d’instance, ce qui veut dire qu’il est un constituant d’une instance donnée (de la classe dont il est un attribut)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Avec x et y de type Object, après exécution de l’instruction x = y;, la variable x représente désormais une copie de l’objet représenté par y",
-        "réponse": "Faux",
-        "explication":"Une affectation copie seulement ce qu’il y a directement dans la variable. Pour les types référence comme Object, la variable contient une adresse, qui est copiée. Ainsi, y contiendra une adresse pointant sur le même objet que x, qui n’a donc jamais été copié ici"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type d'une expression est calculé à l'exécution.",
-        "réponse": "Faux",
-        "explication": "Une expression est un morceau de code source. Ainsi, cette notion n'a de sens que pour le programmeur et pour le compilateur (qui, lui, calcule et vérifie le type des expressions : c'est le principe du typage statique), mais plus aucun sens à l'exécution."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand, dans une méthode, on définit et initialise une nouvelle variable locale de type int, à l'exécution, sa valeur est stockée dans le tas.",
-        "réponse": "Faux",
-        "explication": "Les variables locales sont stockées en pile ce qui permet de récupérer la mémoire quand on sort de la méthode (décrémentation du pointeur de pile de la taille du frame)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Les opérations sur un attribut volatile sont atomiques (par rapport à celui-ci)\n\n Opération/Méthode atomique par rapport à un ensemble de variables : opération/méthode dont les accès, à cet ensemble de variables, effectués par une exécution de celle-ci ne sont pas entrelaçables avec les accès, à des variables du même ensemble, effectués par d’autres opérations ou méthodes.",
-        "réponse": "Faux",
-        "explication": "Tout ce que volatile peut contribuer à rendre atomique, ce sont les lectures et écritures simples sur les types de 64 bits (long et float). Les accès simples aux autres variables volatiles de tout type sont garanties atomiques. En revanche, les opérations en plusieurs étapes (par exemple une incrémentation) ne sont pas rendues atomiques par volatile."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Placer le mot-clé synchronized devant toutes les méthodes d'une classe les rend atomiques (par rapport aux attributs de cette classe)",
-        "réponse": "Faux",
-        "explication": "Cela les rendrait atomiques seulement si c'étaient les seules méthodes accédant à ces attributs. Donc c'est faux si les attributs ne sont pas privés."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une enum peut avoir plusieurs supertypes directs.",
-        "réponse": "Vrai",
-        "explication": "C'est en effet possible en implémentant une ou des interfaces."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Tout seul, le fichier Z.java, ci-dessous, compile :\n\n 1 import java.util.function.*;\n 2 public class Z { Function<Object, Boolean> fx -> System.out.println(x); }",
-        "réponse": "Faux",
-        "explication": "La lambda expression donnée ici ne peut pas implémenter la méthode apply de Function car elle ne retourne rien et, en tout cas, certainement pas Boolean. Donc l'inférence vers Function<Object, Boolean> n'est pas possible."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Les objets sont typiquement stockés dans la pile.",
-        "réponse": "Faux",
-        "explication": "Non, ils sont typiquement stockés dans le tas. On aurait pu vouloir dire « toujours » au lieu de « typiquement ». Mais ce ne serait pas tout à fait vrai : la JVM est autorisée à optimiser en stockant des objets en pile s'ils sont référencés seulement localement (sans alias externe). Cette optimisation ne provoque aucune différence fonctionnelle (aucune différence de comportement visible, si ce n'est la vitesse d'exécution)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une méthode ne peut pas être à la fois private et abstract.",
-        "réponse": "Vrai",
-        "explication": "En effet, abstract demande une redéfinition, or pour redéfinir, il faut hériter, mais les membres private ne sont pas héritables. Cette combinaison est donc absurde donc interdite par le compilateur."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Tout seul, le fichier Z.java, ci-dessous, compile :\n\n 1 import java.util.function.*\n; 2 public class Z { Consumer<Object> f = System.out::println; }\n\n  Rappel : public interface Consumer<T> { void accept(T t); }",
-        "réponse": "Vrai",
-        "explication":"La méthode println ne retourne rien et peut accepter des paramètres Object, elle peut donc servir à implémenter la méthode accept de Consumer<Object>. Donc l’inférence fonctionne ici."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Tout seul, le fichier Z.java, ci-dessous, compile (rappel : Integer étend Number) :\n\n 1 public class Z<T extends Number> { static void f() { Z<Integer> w = new Z<>(); } }",
-        "réponse": "Vrai",
-        "explication":"Aucun souci pour contrétiser T par Integer, car Integer est sous-type de la borne (Number)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une classe abstract peut contenir une méthode final",
-        "réponse": "Vrai",
-        "explication":"Ici, pas de contradiction. Cela veut juste dire qu’une partie de l’implémentation ne sera pas modifiable par les sous-classes."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Object[] est un supertype de Integer[].",
-        "réponse": "Vrai",
-        "explication":"En effet, les tableaux de Java sont covariants"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le même programme sera exécuté environ 2 fois plus rapidement sur un ordinateur dont le CPU (microprocesseur) a 4 cœurs que sur un ordinateur dont le CPU en a 2 (toutes les autres caractéristiques du matériel restant identiques par ailleurs).",
-        "réponse": "Faux",
-        "explication":"Cela n’est vrai que si le programme a été conçu pour distribuer son travail équitablement sur 4 threads. Or cela n’est pas toujours possible (certains algorithmes, de par leur nature mathématique, ne peuvent pas être distribués sur plusieurs threads)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},    
-    {
-        "question": "tout seul, le fichier Z.java, ci-dessous, compile :\n\n 1 public class Z<T> {}\n 2 class W<Integer> extends Z<T> {}\n",
-        "réponse": "Faux",
-        "explication":"Ici, tout est mélangé. À droite du nom de la classe qu’on déclare (W), on ne peut mettre qu’un paramètre qu’on introduit (Integer étant un nom de classe existant, il est peu probable qu’on ait voulu que ce soit le nom d’un paramètre); à droite du nom de la classe qu’on étend (Z), il faut remplacer le paramètre par un type bien défini dans le contexte (ça aurait pu être Integer : probablement l’intention du programmeur ici, mais certainement pas T, qui n’a pas d’existence en ce point du programme)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Appeler la méthode start sur une instance de Thread démarre un nouveau thread",
-        "réponse": "Vrai",
-        "explication":"sur la tombe du createur de java que c'est vrai" 
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une classe final peut contenir une méthode abstract",
-        "réponse": "Faux",
-        "explication":"Si c’était le cas, il serait alors impossible d’implémenter un jour cette méthode car on ne pourrait pas créer de sous-classe. Comme c’est absurde, c’est interdit par le compilateur."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Les variables locales peuvent être des variables partagées (entre threads)",
-        "réponse": "Faux",
-        "explication":"Les variables locales étant stockées en pile, et chaque thread possédant sa propre pile, les variables locales ne sont pas partagées."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La JVM interprète du code source Java",
-        "réponse": "Faux",
-        "explication":"La JVM ne comprend que le code-octet JVM. Il peut l’interpréter ou bien le compiler à la volée (« JIT ») vers du code natif. C’est, au contraire, le rôle du compilateur (javac) de comprendre le code source Java."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "HashSet<Integer> est sous-type de Set<Integer>",
-        "réponse": "Vrai",
-        "explication":" d’une part HashSet implémente Set, d’autre part, les deux types génériques sont ici paramétrés avec le même paramètre (Integer)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-        {
-        "question": "Une enum peut hériter d'une autre enum.",
-        "réponse": "Faux",
-        "explication": "Une enum est une classe héritant déjà de Enum, donc elle ne peut pas hériter d'une autre classe (de genre enum ou autrement). Par ailleurs, les enum sont non-extensibles (autrement que par les éventuelles classes-singleton imbriquées générées par le compilateur pour les constantes de l'enum) car ce sont des types finis."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Deque<Integer> est sous-type de Deque<Object>.",
-        "réponse": "Faux",
-        "explication": "Non : le paramètre devrait être identique (invariance des génériques)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "L'instruction ci-dessous a pour effet d'afficher : 1 1\n\n Stream.of(1,2,3).peek(x -> System.out.print(x + \" \")).limit(1).forEach(System.out::print)",
-        "réponse": "Vrai",
-        "explication": "L'affichage sera 1 1 (et non 1 2 3 1) car les calculs demandés par les opérations intermédiaires ne sont exécutés que s'ils sont utiles pour obtenir le résultat demandé par l'opération terminale (évaluation paresseuse). Le fait que limit ait été appelé fait que forEach ne demandera le traitement que du premier élément du stream (c'est à dire « 1 »). Donc le paramètre de peek ne sera exécuté que pour cet élément-là."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Dans la classe B ci-dessous, la méthode f définie dans B masque la méthode f héritée :\n\n class A { private static void f() {} }\n class B extends A { private static void f() {} }",
-        "réponse": "Faux",
-        "explication": "On ne peut masquer que ce qui est hérité. Or la méthode f de A étant privée, n'est pas héritée."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": " Le mot-clé volatile devant un attribut empêche les accès en compétition à celui-ci",
-        "réponse": "Vrai",
-        "explication":"pas d'explication"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "La conversion de long vers double ne perd pas d’information.",
-        "réponse": "Faux",
-        "explication":": double, utilisant 11 bits pour encoder la position de sa virgule, contient seulement 53 bits pour le signe et les chiffres significatifs du nombre (la mantisse) alors qu’un long en utilise 64. Donc nécessairement, certains long ne sont pas représentables en double sans arrondi (concrètement : la conversion efface les 11 bits de poids faible et indique que la virgule se situe 11 chiffres à droite)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une interface peut contenir une enum membre",
-        "réponse": "Vrai",
-        "explication":" C’est autorisé par le langage. À noter que l’enum membre est alors statique"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Quand, dans une classe, on définit une méthode de même nom qu’une méthode héritée, il y a nécessairement masquage ou redéfinition de cette dernière",
-        "réponse": "Faux",
-        "explication":"Pas forcément : si la signature ne correspond pas, on est dans un cas de surcharge"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le type de l’argument de la méthode add d’une instance donnée de LinkedList est connu et interrogeable à l’exécution",
-        "réponse": "Faux",
-        "explication":" Ce type est seulement connu du compilateur, virtuellement associé à l’instance courante de LinkedList, mais oublié aussitôt la compilation terminée (type erasure)"
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "HashSet<Integer> est sous-type de Set<Integer>.",
-        "réponse": "Vrai",
-        "explication": "Oui : d'une part, HashSet implémente Set, d'autre part, les deux types génériques sont ici paramétrés avec le même paramètre (Integer)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Deque<Integer> est sous-type de Deque<Object>.",
-        "réponse": "Faux",
-        "explication": "Non : le paramètre devrait être identique (invariance des génériques)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Le compilateur autorise à déclarer une enum qui soit sous-type de Iterable<Boolean>.",
-        "réponse": "Vrai",
-        "explication": "Oui, les enums, comme les classes classiques, peuvent implémenter n'importe quelle interface."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Une classe peut avoir plusieurs sous-classes directes.",
-        "réponse": "Vrai",
-        "explication": "Sans problème : l'héritage est contraint seulement dans l'autre direction (une seule superclasse directe pour une classe donnée)."
-        ,"typing": false,
-    "réponse possible": ["Vrai", "Faux"]
-},
-    {
-        "question": "Dans le programme ci-dessous, le type Livre est immuable :\n\n public class Livre {\n      public final String titre, auteur;\n      private Livre(String auteur, String titre) { this.auteur = auteur; this.titre = titre; }\n      public static final class Roman extends Livre {\n            public Roman(String auteur, String titre) { super(auteur, titre); }\n      }\n      public static final class Essai extends Livre {\n            public Essai(String auteur, String titre) { super(auteur, titre); }\n      }\n }\n",
-        "réponse": "Vrai",
-        "explication":"Correction : Ici Livre est une classe scellée correctement écrite (constructeur privé et sous-classes finales), dont les attributs sont final et eux-mêmes de type immuable (String). Donc toutes les instances de Livre sont garanties d’être non modifiables, donc le type Livre est immuable."
-    }
+  {
+    "question": "Quand « this » apparaît dans une méthode, sa valeur est le récepteur de l’appel courant à celle-ci.",
+    "réponse": "Vrai",
+    "explication": "NB : il y a aussi un autre usage de this, pour désigner un constructeur de la classe courante, lorsqu’appelé au début d’un autre constructeur de cette même classe. Dans ce cas, this n’est pas une expression, donc pas d’influence sur la réponse.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Toute classe possède au moins un constructeur.",
+    "réponse": "Vrai",
+    "explication": "Oui, au pire le compilateur ajoute le fameux « constructeur par défaut » (qui ne prend pas de paramètre, et initialise les champs à leur valeur par défaut, à savoir 0 ou null).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand un objet n’est plus utilisé, il faut demander à la JVM de libérer la mémoire qu’il occupe.",
+    "réponse": "Faux",
+    "explication": "Non, le ramasse-miettes détermine automatiquement quels objets ne sont plus référencés et peuvent donc être libérés (ce qu’il va donc faire périodiquement sans qu’on ait à le demander).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La ligne 🔸 du programme ci-dessous affiche « 1 » ?\n ```java\nclass Truc {\n static int v1 = 0; int v2 = 0;\n public int getV1() { return v1; }\n public int getV2() { return v2; }\n public Truc() { v1++; v2++; }\n}\n \npublic class Main {\n public static void main(String args[]) {\n  System.out.println(new Truc().getV1());\n  System.out.println(new Truc().getV2());\n  System.out.println(new Truc().getV1());🔸\n  }\n}```\n",
+    "réponse": "Faux",
+    "explication": "v1 et v2 n’ont pas le même statut. v1 est statique et donc n’existe qu’en un seul exemplaire, incrémenté à chaque instanciation de Truc. Donc La ligne 🔸 affiche “3”.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La ligne 🔸 du programme ci-dessous affiche « 1 » ?\n ```java\nclass Truc {\n static int v1 = 0; int v2 = 0;\n public int getV1() { return v1; }\n public int getV2() { return v2; }\n public Truc() { v1++; v2++; }\n}\n \npublic class Main {\n public static void main(String args[]) {\n  System.out.println(new Truc().getV1());\n  System.out.println(new Truc().getV2());🔸\n  System.out.println(new Truc().getV1());\n  }\n}```\n",
+    "réponse": "Faux",
+    "explication": " v2, elle, est un attribut d’instance, donc un nouvel exemplaire existe pour chaque nouvelle instance de Truc, dont la valeur vaut 1 à la sortie du constructeur. Donc la ligne 🔸 affiche “1’",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Object est supertype de double",
+    "réponse": "Faux",
+    "explication": "Object est un type référence (type de toutes les références) et double est un type primitif, or les types référence et les types primitifs sont deux hiérarchies de types disjointes.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La durée de vie d’un attribut statique est celle d’une instance donnée de la classe.",
+    "réponse": "Faux",
+    "explication": "Non, la durée de vie d’un attribut statique est liée à la durée d’existence de la classe dans la mémoire de la JVM (typiquement : toute la durée de l’exécution du programme)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La plateforme Java est adaptée à la programmation système.",
+    "réponse": "Faux",
+    "explication": "Les méthodes d’accès au système fournies par l’API Java sont suffisamment abstraites pour être communes à toutes les plateformes pour lesquelles il existe une implémentation de la JVM. Elles ne donnent donc pas une vision assez bas niveau pour manipuler les primitives d’un système d’exploitation donné.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Dans un fichier source Java, une instruction se situe nécessairement entre une accolade ouvrante et une accolade fermante.",
+    "réponse": "Faux",
+    "explication": "C’est principalement une question de définition. Selon la JLS, les instructions (statements) sont des éléments syntaxiques qu’on peut placer dans un bloc (qui lui-même est délimité par des accolades et peut aussi servir d’instruction).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Avec x et y de type Object, après exécution de l’instruction x = y;, la variable x représente désormais une copie de l'objet représenté par y.",
+    "réponse": "Faux",
+    "explication": "Une affectation copie seulement ce qu’il y a directement dans la variable. Pour les types référence comme Object, la variable contient une adresse, qui est copiée.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une interface peut avoir des instances directes.",
+    "réponse": "Faux",
+    "explication": "Non, seules les classes (non abstraites) peuvent avoir des instances directes. Une interface n’a d’ailleurs pas de constructeur.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Tout objet existant à l’exécution est instance de Object.",
+    "réponse": "Vrai",
+    "explication": "Object est par définition le type de tous les objets… et de null.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le polymorphisme par sous-typage permet de réutiliser une méthode f(...), avec des paramètres d’effets de types différents entre deux utilisations, sans recompiler f(...).",
+    "réponse": "Vrai",
+    "explication": "Pour les valeurs primitives, l’appel peut être précédé d’une conversion comme i2f. Pour les références d’objet, l’appel se fait sans précaution particulière.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Il est plus facile de prouver qu’un programme se comporte correctement quand ses classes encapsulent leurs données que quand elles ne le font pas.",
+    "réponse": "Vrai",
+    "explication": "En effet, l’encapsulation permet d’assurer qu’un membre n’est utilisé que depuis l’intérieur de la classe, donc la preuve ne nécessite que de regarder ce qui se passe dans la classe à valider.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Les attributs d’une interface sont tous statiques.",
+    "réponse": "Vrai",
+    "explication": "Oui, par conception du langage. La raison est que si une interface avait des attributs d’instance, elle forcerait ses implémentations à contenir ces données, ce qui va au delà des préro- gatives d’une interface (à savoir : définir les intéractions avec les objets et non pas leur mise en œuvre)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une classe implémentant une interface doit implémenter/redéfinir toutes les méthodes déclarées dans l'interface.",
+    "réponse": "Faux",
+    "explication": "Une classe abstraite peut implémenter une interface sans redéfinir toutes les méthodes déclarées (qui restent abstraites). De plus, les interfaces peuvent contenir des méthodes par défaut (default) ou statiques qui n'ont pas besoin d'être redéfinies.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Pour faire un downcasting, on doit demander explicitement le transtypage.",
+    "réponse": "Vrai",
+    "explication": "Le downcasting est une opération potentiellement dangereuse qui nécessite une demande explicite. Si le transtypage échoue à l'exécution, une exception est levée.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La méthode somme ci-dessous s’exécute toujours sans erreur (exception) : ```java\nimport java.util.List; import java.util.ArrayList;\npublic class PaquetDEntiers {\n     private final List<Integer> contenu; private final int taille;\n       public PaquetDEntiers(ArrayList<Integer> contenu)\n            if (contenu != null) this.contenu = contenu\n          else this.contenu = Collections.emptyList(); // initialisation à liste vide\n            this.taille = this.contenu.size()\n      }\n     public int somme() {\n         int s = 0; for (int i = 0; i < taille; i++) { s += contenu.get(i); } return s;\n      }\n  }```\n",
+    "réponse": "Faux",
+    "explication": ": C’est un problème d’aliasing : si on initialise une instance de PaquetDEntiers avec une liste non vide, puis qu’on supprime un élément de la liste avant de demander à l’instance de PaquetDEntiers de calculer la somme, on aura IndexOutOfBoundsException : en effet, le nombre d’itérations pour calculer la somme est calé sur la taille qu’avait la liste au moment de la construction. Si la taille a été diminuée entre temps, le calcul de la somme va faire un appel à get sur un indice qui n’est plus dans la liste, d’où l’erreur.\n Pour rendre cette classe robuste, il faut initialiser l’attribut contenu avec une copie défensive du paramètre du constructeur.\n La solution consistant à supprimer l’attribut redondant taille et se servir de contenu.size() comme borne du for fonctionne aussi, mais seulement dans un contexte single-threaded. Dans un contexte multi-thread, en cas d’accès concurrents à la liste aliasée, il peut encore y avoir des soucis. Cela dit, dans tous les cas de figure, c’est une bonne chose de supprimer les attributs redondants.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Java dispose d'un système de typage statique.",
+    "réponse": "Vrai",
+    "explication": "La preuve : le compilateur refuse les programmes mal typés.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le code source doit être compilé en code-octet avant chaque exécution.",
+    "réponse": "Faux",
+    "explication": "Le code-octet peut évidemment être ré-exécuté à volonté.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Les objets sont typiquement stockés dans la pile.",
+    "réponse": "Faux",
+    "explication": ": On aurait pu vouloir dire “toujours” au lieu de “typiquement”. Mais ce n’est pas tout à fait vrai : la JVM est autorisée à optimiser en stockant des objets en pile s’ils sont référencés seulement localement (sans alias externe). Cette optimisation ne provoque aucune différence fonctionelle (aucune différence de comportement visible, si ce n’est la vitesse d’exécution).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Certaines vérifications de type ont lieu à l'exécution.",
+    "réponse": "Vrai",
+    "explication": "Quelques vérifications à l'exécution : l'évaluation de checkcast (instruction ajoutée au code-octet pour les downcasting d'objet); l'évaluation de instanceof; l'évaluation de getClass(); l'évaluation de invokevirtual (instruction ajoutée au code-octet pour appeler une méthode d'instance afin que la JVM opère la liaison dynamique : choix d'une méthode en fonction du type de l'objet récepteur).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand on \"cast\" (transtype) une expression d'un type référence vers un autre, dans certains cas, Java doit, à l'exécution, modifier l'objet référencé pour le convertir.",
+    "réponse": "Faux",
+    "explication": "Non. Le principe d'un cast d'objet, c'est \"ça passe ou ça casse\" : soit l'objet a le type demandé et on peut l'utiliser sans modification; soit ce n'est pas le cas, et le programme quitte sur une exception (ClassCastException).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Un transtypage de référence se traduit toujours par une instruction spécifique dans le code-octet.",
+    "réponse": "Faux",
+    "explication": "Seulement pour le downcasting. En effet, selon le principe du \"upcasting\", la vérification statique du type assure que l'objet est toujours du bon type, donc la vérification à l'exécution est inutile, donc aucune instruction dans le code octet n'est nécessaire.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "On peut déclarer une classe non imbriquée avec la visibilité private.",
+    "réponse": "Faux",
+    "explication": "Seuls public et package-private sont autorisés. En Java, private veut dire \"privé pour la classe\", ce qui n'a pas de sens pour une classe non imbriquée. Cela dit, on aurait pu donner un sens différent à private en dehors de la classe, comme par exemple \"privé pour le fichier\" (c'est le choix du langage Kotlin, par exemple).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Dans une classe B, membre statique de A (on suppose que B ne contient pas elle-même de définition de type imbriquée), this désigne toujours une instance de B.",
+    "réponse": "Faux",
+    "explication": "this désigne toujours une instance de la classe \"la plus proche\" (dans l'ordre d'imbrication).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La classe d'un objet donné est connue et interrogeable à l'exécution.",
+    "réponse": "Vrai",
+    "explication": "Cf. la correction de la question 25. Ces différents cas de figure fonctionnent car tout objet contient une référence vers l'objet-classe de sa classe.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La conversion de int vers float ne perd pas d’information.",
+    "réponse": "Faux",
+    "explication": "float, utilisant 8 bits pour encoder la position de sa virgule, contient seulement 24 bits pour les chiffres significatifs du nombre (la mantisse) alors qu’un int en utilise 32. Donc nécessairement, certains int ne sont pas représentables en float sans arrondi (concrètement : la conversion efface les 8 bits de poids faible et indique que la virgule se situe 8 chiffres à droite)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une interface définit un sous-type de Object.",
+    "réponse": "Vrai",
+    "explication": "Oui, une interface définit un type référence, donc sous-type de Object. Cela est cohérent car toutes les instances d’une interface sont des objets (instances des classes implémentant l’interface)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une interface peut avoir une classe membre.",
+    "réponse": "Vrai",
+    "explication": "C'est autorisé par le langage. À noter que la classe membre est alors statique. Remarque : cela permet, indirectement, de mettre des membres privés dans une interface (alors que c'est interdit de le faire directement).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Java est plus ancien que C++.",
+    "réponse": "Faux",
+    "explication": "C++ : années 80 ; Java : années 90. Cela dit, j'ai réalisé que l'âge de C++ n'était pas dans le cours. Donc cette question est retirée du décompte des points.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type d'une expression est calculé à l'exécution.",
+    "réponse": "Faux",
+    "explication": "La notion d'expression n'a pas de sens à l'exécution : c'est un morceau de texte du programme qui n'existe plus que le code est compilé. Il se trouve que l'expression est l'unité de base pour la vérification de type statique.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Si A et B sont des types référence, A est sous-type de B si et seulement si toutes les instances de A sont aussi des instances de B.",
+    "réponse": "Vrai",
+    "explication": "Tout à fait : la relation de sous-typage coïncide avec la relation d'inclusion d'ensembles (pour les ensembles qui sont des types).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type des objets Java est déterminé à l'exécution.",
+    "réponse": "Vrai",
+    "explication": "Impossible autrement : les objets n'existent pas avant.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type char est primitif.",
+    "réponse": "Vrai",
+    "explication": "Il fait partie de la liste fixe des 8 types primitifs (dont le nom commence par une minuscule).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type Object est primitif.",
+    "réponse": "Faux",
+    "explication": "Les objets sont considérés comme non primitifs (composites, en toute généralité).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La JVM interprète du code source Java.",
+    "réponse": "Faux",
+    "explication": "La JVM interprète seulement (ou bien compile à la volée, cf. JIT) du code-octet, mais en aucun cas du code source. C'est le rôle du compilateur (javac) de comprendre le code source.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand, dans une méthode, on définit et initialise une nouvelle variable locale avec une instruction de la forme Integer x = 12;, alors la valeur 12 est stockée dans le tas.",
+    "réponse": "Vrai",
+    "explication": "Les variables locales sont stockées en pile, mais en l'occurrence, le type Integer n'est pas primitif, donc la valeur stockée en pile est une référence vers un objet du tas contenant la valeur 12 dans un champ.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand « this » apparaît dans une méthode, sa valeur est le récepteur de l'appel courant à celle-ci.",
+    "réponse": "Vrai",
+    "explication": "NB: il y a aussi un autre usage de this, pour désigner un constructeur de la classe courante, lorsqu'appelé au début d'un autre constructeur de cette même classe. Dans ce cas, this n'est pas une expression, donc pas d'influence sur la réponse.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Toute classe possède au moins un constructeur.",
+    "réponse": "Vrai",
+    "explication": "Oui, au pire le compilateur ajoute le fameux « constructeur par défaut » (qui ne prend pas de paramètre, et initialise les champs à leur valeur par défaut, à savoir 0 ou null).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Number est supertype de double.",
+    "réponse": "Faux",
+    "explication": "Number est un type référence (type de toutes les références) et double est un type primitif, or les types référence et les types primitifs sont deux hiérarchies de types disjointes.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand un objet n'est plus utilisé, il faut demander à la JVM de libérer la mémoire qu'il occupe.",
+    "réponse": "Faux",
+    "explication": "Non, le ramasse-miettes détermine automatiquement quels objets ne sont plus référencés et peuvent donc être libérés (ce qu'il va donc faire périodiquement sans qu'on ait à le demander).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "javac prend en entrée un code source Java et produit, en sortie, du code-octet.",
+    "réponse": "Vrai",
+    "explication": "En effet. Compiler le code source sous cette forme le rend exécutable sur toutes les machines physiques pour lesquelles une JVM est implémentée.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Pour s’assurer que l’appel à getD sur une même instance de A retourne toujours la même valeur, il est nécessaire ajouter, dans le constructeur, une copie profonde du paramètre d. (On suppose que tout est exécuté sur le même thread.)\n\n 1 public class A {\n 2    private int d;\n 3    public A(int d) { this.d = d; \n 4    public int getD() { return d;\n5  }\n",
+    "réponse": "Faux",
+    "explication": "Ce n’est pas nécessaire car ce paramètre est de type primitif. Ainsi l’affectation this.d = d est déjà une copie profonde (vu que d n’a pas de « profondeur »). La remarque sur les threads a été ajoutée parce qu’il est possible, en toute généralité, que le construc- teur et getD soient exécutés sur des threads différents. Dans ce cas là, il n’y a pas de garantie que l’attribut soit déjà initialisé quand getD lit sa valeur. Pour « réparer » cette classe en mode multi-thrlead, il faudrait ajouter volatile devant la déclara- tion de d, voire, dans ce cas précis, final (qui donne la même garantie de synchronisation), vu que d ne pourra plus être modifié après son initialisation",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand on cast (transtype) une expression d'un type référence vers un autre, dans certains cas, Java doit, à l'exécution, modifier l'objet référencé pour le convertir.",
+    "réponse": "Faux",
+    "explication": "Non. Le principe d'un cast d'objet, c'est \"ça passe ou ça casse\" : soit l'objet a le type demandé et on peut l'utiliser sans modification; soit ce n'est pas le cas, et le programme quitte sur une exception (ClassCastException).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le système de sous-typage de Java est structurel (si une interface T possède toutes méthodes d'une autre interface U, avec des signatures compatibles, alors T est sous-type de U).",
+    "réponse": "Faux",
+    "explication": "Non, le système de type de Java est, au contraire, nominal et déclaratif : deux types sont le même type si et seulement si ils ont le même nom; un type est sous-type d'un autre s'il a été déclaré en tant que tel via la clause extends ou implements (ou si c'est de base dans le langage).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La classe d'un objet donné est connue et interrogeable à l'exécution.",
+    "réponse": "Vrai",
+    "explication": "Tout à fait, tout objet contient une référence vers sa classe. Cela permet notamment à instanceof et à la liaison dynamique de fonctionner.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Si A et B sont des types référence, A est sous-type de B si et seulement si toutes les instances de A sont aussi des instances de B.",
+    "réponse": "Vrai",
+    "explication": "Tout à fait : la relation de sous-typage coïncide avec la relation d'inclusion d'ensembles (pour les ensembles qui sont des types).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type byte est primitif.",
+    "réponse": "Vrai",
+    "explication": "Il fait partie de la liste fixe des 8 types primitifs (dont le nom commence par une minuscule)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Tout seul, le fichier A.java, ci-dessous, compile :\n```java\n public class A { final boolean a = 1; }\nclass B extends A { final boolean a = 0; }```\n",
+    "réponse": "Faux",
+    "explication": "Il y a une incompatibilité de type entre les littéraux 0 et 1 (entiers) et le type déclaré pour les variables a (boolean), donc ce programme ne compile pas. Cela dit, cela était une erreur dans l'énoncé. Les variables étaient supposées être déclarées int. Si cela avait été le cas, la réponse aurait été V avec l'explication suivante : « Si le doute portait sur le modificateur final, alors pas de problème car l'initialisation dans B masque celle-ci. » Le point est donc donné à tout le monde pour que ne soient pénalisés ni les étudiants ayant répondu V en ayant compris les enjeux de la question mais en n'ayant pas vu le « piège » involontaire, ni les étudiants ayant répondu F en ayant vu le piège, ni ceux qui n'ont pas répondu pour cause de perplexité par rapport aux intentions de l'auteur de la question !",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Dans la classe B ci-dessous, la méthode f de la classe A est surchargée par la méthode f de B :\n```java\nclass A { private static void f() {} }\nclass B extends A { private static void f() {} }```\n",
+    "réponse": "Faux",
+    "explication": "Il n'y a surcharge en un point donné du programme que si plusieurs définitions de méthode de même nom existent dans le contexte courant. Or la méthode f de A étant privée, n'est pas héritée dans le contexte de B (et est de toute façon inaccessible en dehors de A).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une classe peut avoir plusieurs sous-classes directes.",
+    "réponse": "Vrai",
+    "explication": "Sans problème : l'héritage est contraint seulement dans l'autre direction (une seule superclasse directe pour une classe donnée).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Pour les types référence, sous-typage implique héritage.",
+    "réponse": "Faux",
+    "explication": "Non, l'implémentation d'interface, par exemple, crée aussi du sous-typage.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La dernière version de Java est Java 12.",
+    "réponse": "Faux",
+    "explication": "Faux, c'est Java 23",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La durée de vie d’un attribut non statique est celle d’une instance donnée de la classe.",
+    "réponse": "Vrai",
+    "explication": "Oui, un attribut non statique est aussi appelé attribut d’instance, ce qui veut dire qu’il est un constituant d’une instance donnée (de la classe dont il est un attribut)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Avec x et y de type Object, après exécution de l’instruction x = y;, la variable x représente désormais une copie de l’objet représenté par y",
+    "réponse": "Faux",
+    "explication": "Une affectation copie seulement ce qu’il y a directement dans la variable. Pour les types référence comme Object, la variable contient une adresse, qui est copiée. Ainsi, y contiendra une adresse pointant sur le même objet que x, qui n’a donc jamais été copié ici",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type d'une expression est calculé à l'exécution.",
+    "réponse": "Faux",
+    "explication": "Une expression est un morceau de code source. Ainsi, cette notion n'a de sens que pour le programmeur et pour le compilateur (qui, lui, calcule et vérifie le type des expressions : c'est le principe du typage statique), mais plus aucun sens à l'exécution.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand, dans une méthode, on définit et initialise une nouvelle variable locale de type int, à l'exécution, sa valeur est stockée dans le tas.",
+    "réponse": "Faux",
+    "explication": "Les variables locales sont stockées en pile ce qui permet de récupérer la mémoire quand on sort de la méthode (décrémentation du pointeur de pile de la taille du frame).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Les opérations sur un attribut volatile sont atomiques (par rapport à celui-ci)\n\n Opération/Méthode atomique par rapport à un ensemble de variables : opération/méthode dont les accès, à cet ensemble de variables, effectués par une exécution de celle-ci ne sont pas entrelaçables avec les accès, à des variables du même ensemble, effectués par d’autres opérations ou méthodes.",
+    "réponse": "Faux",
+    "explication": "Tout ce que volatile peut contribuer à rendre atomique, ce sont les lectures et écritures simples sur les types de 64 bits (long et float). Les accès simples aux autres variables volatiles de tout type sont garanties atomiques. En revanche, les opérations en plusieurs étapes (par exemple une incrémentation) ne sont pas rendues atomiques par volatile.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Placer le mot-clé synchronized devant toutes les méthodes d'une classe les rend atomiques (par rapport aux attributs de cette classe)",
+    "réponse": "Faux",
+    "explication": "Cela les rendrait atomiques seulement si c'étaient les seules méthodes accédant à ces attributs. Donc c'est faux si les attributs ne sont pas privés.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une enum peut avoir plusieurs supertypes directs.",
+    "réponse": "Vrai",
+    "explication": "C'est en effet possible en implémentant une ou des interfaces.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Tout seul, le fichier Z.java, ci-dessous, compile :\n```java\nimport java.util.function.*;\n\npublic class Z { Function<Object, Boolean> fx -> System.out.println(x); }```",
+    "réponse": "Faux",
+    "explication": "La lambda expression donnée ici ne peut pas implémenter la méthode apply de Function car elle ne retourne rien et, en tout cas, certainement pas Boolean. Donc l'inférence vers Function<Object, Boolean> n'est pas possible.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Les objets sont typiquement stockés dans la pile.",
+    "réponse": "Faux",
+    "explication": "Non, ils sont typiquement stockés dans le tas. On aurait pu vouloir dire « toujours » au lieu de « typiquement ». Mais ce ne serait pas tout à fait vrai : la JVM est autorisée à optimiser en stockant des objets en pile s'ils sont référencés seulement localement (sans alias externe). Cette optimisation ne provoque aucune différence fonctionnelle (aucune différence de comportement visible, si ce n'est la vitesse d'exécution).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une méthode ne peut pas être à la fois private et abstract.",
+    "réponse": "Vrai",
+    "explication": "En effet, abstract demande une redéfinition, or pour redéfinir, il faut hériter, mais les membres private ne sont pas héritables. Cette combinaison est donc absurde donc interdite par le compilateur.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Tout seul, le fichier Z.java, ci-dessous, compile :```java\nimport java.util.function.*;\npublic class Z { Consumer<Object> f = System.out::println; }```\n\n\\\\Rappel : public interface Consumer<T> { void accept(T t); }",
+    "réponse": "Vrai",
+    "explication": "La méthode println ne retourne rien et peut accepter des paramètres Object, elle peut donc servir à implémenter la méthode accept de Consumer<Object>. Donc l’inférence fonctionne ici.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Tout seul, le fichier Z.java, ci-dessous, compile (rappel : Integer étend Number) :\n ```java\npublic class Z<T extends Number> { static void f() { Z<Integer> w = new Z<>(); } }```",
+    "réponse": "Vrai",
+    "explication": "Aucun souci pour contrétiser T par Integer, car Integer est sous-type de la borne (Number).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une classe abstract peut contenir une méthode final",
+    "réponse": "Vrai",
+    "explication": "Ici, pas de contradiction. Cela veut juste dire qu’une partie de l’implémentation ne sera pas modifiable par les sous-classes.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Object[] est un supertype de Integer[].",
+    "réponse": "Vrai",
+    "explication": "En effet, les tableaux de Java sont covariants",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le même programme sera exécuté environ 2 fois plus rapidement sur un ordinateur dont le CPU (microprocesseur) a 4 cœurs que sur un ordinateur dont le CPU en a 2 (toutes les autres caractéristiques du matériel restant identiques par ailleurs).",
+    "réponse": "Faux",
+    "explication": "Cela n’est vrai que si le programme a été conçu pour distribuer son travail équitablement sur 4 threads. Or cela n’est pas toujours possible (certains algorithmes, de par leur nature mathématique, ne peuvent pas être distribués sur plusieurs threads)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "tout seul, le fichier Z.java, ci-dessous, compile :\n```java\npublic class Z<T> {}\nclass W<Integer> extends Z<T> {}\n```",
+    "réponse": "Faux",
+    "explication": "Ici, tout est mélangé. À droite du nom de la classe qu’on déclare (W), on ne peut mettre qu’un paramètre qu’on introduit (Integer étant un nom de classe existant, il est peu probable qu’on ait voulu que ce soit le nom d’un paramètre); à droite du nom de la classe qu’on étend (Z), il faut remplacer le paramètre par un type bien défini dans le contexte (ça aurait pu être Integer : probablement l’intention du programmeur ici, mais certainement pas T, qui n’a pas d’existence en ce point du programme).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Appeler la méthode start sur une instance de Thread démarre un nouveau thread",
+    "réponse": "Vrai",
+    "explication": "sur la tombe du createur de java que c'est vrai",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une classe final peut contenir une méthode abstract",
+    "réponse": "Faux",
+    "explication": "Si c’était le cas, il serait alors impossible d’implémenter un jour cette méthode car on ne pourrait pas créer de sous-classe. Comme c’est absurde, c’est interdit par le compilateur.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Les variables locales peuvent être des variables partagées (entre threads)",
+    "réponse": "Faux",
+    "explication": "Les variables locales étant stockées en pile, et chaque thread possédant sa propre pile, les variables locales ne sont pas partagées.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La JVM interprète du code source Java",
+    "réponse": "Faux",
+    "explication": "La JVM ne comprend que le code-octet JVM. Il peut l’interpréter ou bien le compiler à la volée (« JIT ») vers du code natif. C’est, au contraire, le rôle du compilateur (javac) de comprendre le code source Java.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "HashSet<Integer> est sous-type de Set<Integer>",
+    "réponse": "Vrai",
+    "explication": " d’une part HashSet implémente Set, d’autre part, les deux types génériques sont ici paramétrés avec le même paramètre (Integer)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une enum peut hériter d'une autre enum.",
+    "réponse": "Faux",
+    "explication": "Une enum est une classe héritant déjà de Enum, donc elle ne peut pas hériter d'une autre classe (de genre enum ou autrement). Par ailleurs, les enum sont non-extensibles (autrement que par les éventuelles classes-singleton imbriquées générées par le compilateur pour les constantes de l'enum) car ce sont des types finis.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Deque<Integer> est sous-type de Deque<Object>.",
+    "réponse": "Faux",
+    "explication": "Non : le paramètre devrait être identique (invariance des génériques).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "L'instruction ci-dessous a pour effet d'afficher : **1 1**\n```java\nStream.of(1,2,3).peek(x -> System.out.print(x + \" \")).limit(1).forEach(System.out::print)```",
+    "réponse": "Vrai",
+    "explication": "L'affichage sera 1 1 (et non 1 2 3 1) car les calculs demandés par les opérations intermédiaires ne sont exécutés que s'ils sont utiles pour obtenir le résultat demandé par l'opération terminale (évaluation paresseuse). Le fait que limit ait été appelé fait que forEach ne demandera le traitement que du premier élément du stream (c'est à dire « 1 »). Donc le paramètre de peek ne sera exécuté que pour cet élément-là.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Dans la classe B ci-dessous, la méthode f définie dans B masque la méthode f héritée :\n```java\nclass A { private static void f() {} }\nclass B extends A { private static void f() {} }```",
+    "réponse": "Faux",
+    "explication": "On ne peut masquer que ce qui est hérité. Or la méthode f de A étant privée, n'est pas héritée.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": " Le mot-clé volatile devant un attribut empêche les accès en compétition à celui-ci",
+    "réponse": "Vrai",
+    "explication": "pas d'explication",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "La conversion de long vers double ne perd pas d’information.",
+    "réponse": "Faux",
+    "explication": ": double, utilisant 11 bits pour encoder la position de sa virgule, contient seulement 53 bits pour le signe et les chiffres significatifs du nombre (la mantisse) alors qu’un long en utilise 64. Donc nécessairement, certains long ne sont pas représentables en double sans arrondi (concrètement : la conversion efface les 11 bits de poids faible et indique que la virgule se situe 11 chiffres à droite).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une interface peut contenir une enum membre",
+    "réponse": "Vrai",
+    "explication": " C’est autorisé par le langage. À noter que l’enum membre est alors statique",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Quand, dans une classe, on définit une méthode de même nom qu’une méthode héritée, il y a nécessairement masquage ou redéfinition de cette dernière",
+    "réponse": "Faux",
+    "explication": "Pas forcément : si la signature ne correspond pas, on est dans un cas de surcharge",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le type de l’argument de la méthode add d’une instance donnée de LinkedList est connu et interrogeable à l’exécution",
+    "réponse": "Faux",
+    "explication": " Ce type est seulement connu du compilateur, virtuellement associé à l’instance courante de LinkedList, mais oublié aussitôt la compilation terminée (type erasure)",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "HashSet<Integer> est sous-type de Set<Integer>.",
+    "réponse": "Vrai",
+    "explication": "Oui : d'une part, HashSet implémente Set, d'autre part, les deux types génériques sont ici paramétrés avec le même paramètre (Integer).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Deque<Integer> est sous-type de Deque<Object>.",
+    "réponse": "Faux",
+    "explication": "Non : le paramètre devrait être identique (invariance des génériques).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Le compilateur autorise à déclarer une enum qui soit sous-type de Iterable<Boolean>.",
+    "réponse": "Vrai",
+    "explication": "Oui, les enums, comme les classes classiques, peuvent implémenter n'importe quelle interface.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Une classe peut avoir plusieurs sous-classes directes.",
+    "réponse": "Vrai",
+    "explication": "Sans problème : l'héritage est contraint seulement dans l'autre direction (une seule superclasse directe pour une classe donnée).",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Dans le programme ci-dessous, le type Livre est immuable :\n```java\n public class Livre {\n      public final String titre, auteur;\n      private Livre(String auteur, String titre) { this.auteur = auteur; this.titre = titre; }\n      public static final class Roman extends Livre {\n            public Roman(String auteur, String titre) { super(auteur, titre); }\n      }\n      public static final class Essai extends Livre {\n            public Essai(String auteur, String titre) { super(auteur, titre); }\n      }\n }\n```",
+    "réponse": "Vrai",
+    "explication": "Correction : Ici Livre est une classe scellée correctement écrite (constructeur privé et sous-classes finales), dont les attributs sont final et eux-mêmes de type immuable (String). Donc toutes les instances de Livre sont garanties d’être non modifiables, donc le type Livre est immuable."
+  }
 ]

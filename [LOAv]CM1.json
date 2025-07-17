@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Quelle est la valeur de la constante `EXIT_SUCCESS` en C++ ?",
+    "réponse": "0",
+    "explication": "`EXIT_SUCCESS` est défini comme la constante entière 0 (`EXIT_FAILURE` vaut 1).",
+    "typing": true
+  },
+  {
+    "question": "Parmi les syntaxes suivantes, laquelle est la syntaxe d'initialisation préférée en C++11 pour un entier `i` ?",
+    "réponse": "int i{4};",
+    "explication": "En C++11, la forme avec liste d'initialisation (`{}`) est recommandée : `int i{4};`.",
+    "typing": false,
+    "réponse possible": [
+      "int i(4);",
+      "int i = 4;",
+      "int i{4};",
+      "int i={4};",
+      "int i;"
+    ]
+  },
+  {
+    "question": "Après compilation manuelle avec `g++ -c -Wall -std=c++11 test.cpp`, quel fichier est produit ?",
+    "réponse": "test.o",
+    "explication": "L'option `-c` demande uniquement la compilation sans édition des liens, générant un fichier objet `.o`.",
+    "typing": true
+  },
+  {
+    "question": "Quel est le rôle d'un gardien (`#ifndef ... #define ... #endif`) dans un fichier d'en-tête `.hpp` ?",
+    "réponse": "Empêcher les inclusions multiples du même fichier d'en-tête",
+    "explication": "Le gardien garantit que le contenu du `.hpp` n'est inclus qu'une seule fois lors de la précompilation.",
+    "typing": false,
+    "réponse possible": [
+      "Optimiser le code généré",
+      "Gérer les dépendances du Makefile",
+      "Empêcher les inclusions multiples du même fichier d'en-tête",
+      "Définir des variables de configuration"
+    ]
+  },
+  {
+    "question": "Quelle commande Makefile génère l'exécutable `go` à partir des fichiers objets `Point.o` et `Test.o` ?",
+    "réponse": "g++ -o go -Wall -std=c++11 Point.o Test.o",
+    "explication": "On lie les fichiers objets avec `g++ -o <nom_exécutable> <objets>` pour créer l'exécutable.",
+    "typing": false,
+    "réponse possible": [
+      "g++ -o go -Wall -std=c++11 Point.o Test.o",
+      "g++ -o -Wall -std=c++11 Point.o Test.o -o go",
+      "g++ -o go -Wall -std=c++11 Point Test"
+    ]
+  },
+  {
+    "question": "En C++, que fait l'instruction `using namespace std;` ?",
+    "réponse": "Elle rend accessibles sans préfixe les entités du namespace `std`",
+    "explication": "Sans ce `using`, il faut écrire `std::cout`, `std::string`, etc. Avec lui, on peut omettre `std::`.",
+    "typing": false,
+    "réponse possible": [
+      "Elle importe tout le contenu de l'espace de nom `std`",
+      "Elle définit un alias pour `std`",
+      "Elle crée un nouveau namespace `using`",
+      "Elle rend accessibles sans préfixe les entités du namespace `std`"
+    ]
+  },
+  {
+    "question": "Quelle est la différence de comportement entre :\n```cpp\nvector<int> v1 {4,100};\nvector<int> v2 (4,100);\n```",
+    "réponse": "v1 contient [4,100], v2 contient quatre fois 100",
+    "explication": "`v1` utilise le constructeur `initializer_list` et a deux éléments : 4 et 100. `v2` utilise le constructeur (n, val) et contient 4 éléments valant 100.",
+    "typing": false,
+    "réponse possible": [
+      "v1 contient quatre fois 100, v2 contient [4,100]",
+      "v1 contient [4,100], v2 contient quatre fois 100",
+      "Les deux contiennent [4,100]",
+      "Les deux contiennent quatre fois 100"
+    ]
+  },
+  {
+    "question": "En C++, quel opérateur est surchargé pour envoyer des données vers `cout` ?",
+    "réponse": "<<",
+    "explication": "L'opérateur `<<` est surchargé dans la librairie iostream pour formater et envoyer des données dans un flux de sortie.",
+    "typing": true
+  },
+  {
+    "question": "Les énumérations (`enum`) en C++ peuvent-elles implémenter des interfaces (concepts) ?",
+    "réponse": "Faux",
+    "explication": "Contrairement à Java, les `enum` en C++ ne peuvent pas implémenter d'interfaces ; ils sont de simples types énumérés.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "Lors de la compilation, quelle phase précède l'édition des liens ?",
+    "réponse": "La compilation des fichiers sources en fichier éxecutable",
+    "explication": "D'abord chaque `.cpp` est compilé en `.o`, puis l'éditeur de liens assemble ces objets en exécutable.",
+    "typing": false,
+    "réponse possible": [
+      "La précompilation des gardiens",
+      "La compilation des fichiers sources en fichier éxecutable",
+      "L'exécution du programme",
+      "Le nettoyage (`clean`)"
+    ]
+  },
+  {
+    "question": "Quel mot-clé en C++ sert à déclarer qu'un paramètre de fonction ne peut pas être modifié ?",
+    "réponse": "const",
+    "explication": "En plaçant `const` devant un paramètre, on interdit toute modification de sa valeur à l'intérieur de la fonction.",
+    "typing": false,
+    "réponse possible": [
+      "static",
+      "volatile",
+      "const",
+      "mutable"
+    ]
+  },
+  {
+    "question": "Quel mot-clé permet de déduire le type d'une variable à partir de son initialisateur en C++11 ?",
+    "réponse": "auto",
+    "explication": "Le mot-clé `auto` indique au compilateur de déterminer automatiquement le type de la variable.",
+    "typing": true
+  },
+  {
+    "question": "Quelle valeur renvoie `std::vector<int>().size()` ?",
+    "réponse": "0",
+    "explication": "Un vecteur vide a une taille (`size()`) égale à 0.",
+    "typing": true
+  },
+  {
+    "question": "Que fait la méthode `push_back` sur un `std::vector` ?",
+    "réponse": "Ajoute un élément à la fin du vecteur",
+    "explication": "`push_back(val)` insère la valeur `val` en tant que nouvel élément à la fin du vecteur.",
+    "typing": false,
+    "réponse possible": [
+      "Supprime le dernier élément",
+      "Insère un élément au début",
+      "Ajoute un élément à la fin du vecteur",
+      "Trie le vecteur"
+    ]
+  },
+  {
+    "question": "Combien y a‑t‑il d’éléments après :\n```cpp\nstd::array<int,5> a = {1,2,3,4,5};\n```",
+    "réponse": "5",
+    "explication": "`std::array<int,5>` est un tableau fixe de 5 éléments.",
+    "typing": true
+  },
+  {
+    "question": "Quel est l’effet de `std::move` sur un objet ?",
+    "réponse": "Indique que l’objet peut être déplacé plutôt que copié",
+    "explication": "`std::move(obj)` convertit `obj` en rvalue, autorisant le transfert de ressources sans copie.",
+    "typing": false,
+    "réponse possible": [
+      "Copie l’objet",
+      "Supprime l’objet",
+      "Indique que l’objet peut être déplacé plutôt que copié",
+      "Convertit l’objet en pointeur"
+    ]
+  },
+  {
+    "question": "Quel est le type de retour de la fonction `main` en C++ ?",
+    "réponse": "int",
+    "explication": "La fonction `main` doit retourner un entier, généralement 0 pour indiquer un succès.",
+    "typing": true
+  },
+  {
+    "question": "Quelle est la différence entre `std::vector` et `std::list` en C++ ?",
+    "réponse": "`std::vector` est un tableau dynamique, `std::list` est une liste chaînée",
+    "explication": "`std::vector` offre un accès rapide aux éléments par index, tandis que `std::list` permet des insertions/suppressions efficaces.",
+    "typing": false,
+    "réponse possible": [
+      "`std::vector` est un tableau dynamique, `std::list` est une liste chaînée",
+      "`std::vector` est une liste chaînée, `std::list` est un tableau dynamique",
+      "`std::vector` n'existe pas en C++",
+      "`std::list` n'existe pas en C++"
+    ]
+  },
+  {
+    "question": "Quel type C++ gère automatiquement la libération de mémoire dynamique ?",
+    "réponse": "std::unique_ptr",
+    "explication": "`std::unique_ptr<T>` supprime automatiquement l’objet pointé lorsque le pointeur sort de son scope.",
+    "typing": false,
+    "réponse possible": [
+      "std::shared_ptr",
+      "std::unique_ptr",
+      "std::auto_ptr",
+      "std::weak_ptr"
+    ]
+  },
+  {
+    "question": "le code compile t-il ? \n```cpp\n #include <iostream>\nint main() {\ncout << \"Bonjour tout le monde\" << endl;\nreturn EXIT_SUCCESS;\n}```",
+    "réponse": "Faux",
+    "typing": false,
+    "explication": "Le code ne compile pas car `cout` et `endl` doivent être préfixés par `std::` ou le namespace `std` doit être utilisé.\n```cpp\n #include <iostream>\n**using namespace std;**\nint main() {\ncout << \"Bonjour tout le monde\" << endl;\nreturn EXIT_SUCCESS;\n}``` \n ou \n ```cpp\n #include <iostream>\nint main() {\n**std::**cout << \"Bonjour tout le monde\" << **std::**endl;\nreturn EXIT_SUCCESS;\n}``` ",
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+      {
+    "question": "qu'affiche la ​ligne 🟢​ \n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n bool b1=true, b2=false;\n cout << b1 << b2 << endl; 🟢\n cout << boolalpha;\n cout << b1 << b2 << endl; \n}```",
+    "réponse": "10",
+    "explication": "La ligne 🟢 affiche les valeurs booléennes `true` et `false` sous forme d'entiers, donc `1` pour `true` et `0` pour `false`.",
+    "typing": true
+  },
+  {
+    "question": "qu'affiche la ​ligne 🟣 \n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n bool b1=true, b2=false;\n cout << b1 << b2 << endl; \n cout << boolalpha;\n cout << b1 << b2 << endl; 🟣\n}```",
+    "réponse": "truefalse",
+    "explication": "La ligne 🟣 utilise `boolalpha`, ce qui affiche les valeurs booléennes sous forme de mots (`true` et `false`).",
+    "typing": true
+  },
+{
+    "question": "qu'affiche la ligne 🔷```cpp\n#include <iostream>\nusing namespace std;\n\nvoid afficher(int n) {\n cout << \"int:\" << n << endl;\n}\n\nvoid afficher(float f) {\n cout << \"float:\" << f << endl;\n}\n\nint main() {\n int i=13; float f=3.14159;\n afficher(i); \n afficher(f); 🔷​\n return EXIT_SUCCESS;\n}```",
+    "réponse": "float:3.14159",
+    "explication": "La ligne 🔷 appelle la fonction `afficher` avec un argument de type `float`, donc la version de la fonction qui prend un `float` est appelée, affichant `3.14159`.",
+    "typing": false,
+    "réponse possible": [
+      "ne compile pas",
+      "float:3.14159",
+      "int:13",
+      "int:3.14159"
+    ]
+  },
+  {
+    "question": "La séparation hpp/cpp est-elle toujours propre ?",
+    "réponse": "Faux",
+    "explication": "Malheureusement vous pouvez faire ce que vous voulez : écrire vos fichiers avec une autre extension, mettre une partie de code dans la déclaration, définir une classe dans le cpp etc ... cela peut conduire à des pbs : un code défini dans le hpp sera recopié autant de fois qu'il y a un include la seconde redéfinition sera interdite et considérée comme une erreur (et si vous déclarez une classe dans un cpp n’allez pas imaginer faire un include de ce .cpp ensuite ... bref... confusions ... )",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "En c++, lorsque vous définissez une fonction à plusieurs arguments, sa déclaration (préalable ou dans le hpp) peut contenir des **\"valeurs par défaut\"**",
+    "réponse": "Vrai",
+    "explication": "En c++, lorsque vous définissez une fonction à plusieurs arguments : ```cpp\nvoid f (int a, char b, string c) {\nstring res{c+' '};\nif (a<0) a=-a;\nfor (int i=0;i < a;i++) res+=b;\ncout << res << endl;\n}```\ndestinée à être appelée sous la forme : `f(5,'A',\"coucou\");`\nqui produit ici : `coucou AAAAA` \nsa déclaration (préalable ou dans le hpp) peut contenir des **\"valeurs par défaut\"**\ncela permet de faire appel à f sans avoir à tout spécifier.\nAinsi :\n  f() produira : toto X\n  f(5) produira : toto XXXXX \n",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "que produit ce code :```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid f (int a =1, char b='X', string c=\"toto\");\n\nvoid f (int a, char b, string c) {\n    string res{c+' '};\n    if (a<0) a=-a;\n    for (int i=0;i < a;i++) res+=b;\n    cout << res << endl;\n}\n\nint main() {\n    f('A');\n    return 0;\n}```\n",
+    "réponse": "toto XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX (65*'X')",
+    "explication": "En c++, lorsque vous définissez une fonction à plusieurs arguments : ```cpp\nvoid f (int a, char b, string c) {\nstring res{c+' '};\nif (a<0) a=-a;\nfor (int i=0;i < a;i++) res+=b;\ncout << res << endl;\n}```\ndestinée à être appelée sous la forme : `f(5,'A',\"coucou\");`\nqui produit ici : `coucou AAAAA` \nsa déclaration (préalable ou dans le hpp) peut contenir des **\"valeurs par défaut\"**\ncela permet de faire appel à f sans avoir à tout spécifier.\nAinsi :\n  f() produira : toto X\n  f(5) produira : toto XXXXX \n  f('A') produira toto XXXX ...65fois... X (car le code ascii de 'A' est 65)",
+    "typing": false,
+    "réponse possible": [
+      "toto A",
+      "A X",
+      "toto XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX (65*'X')",
+      "message d'erreur"
+    ]
+  }
+]

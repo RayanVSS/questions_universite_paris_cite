@@ -1,0 +1,52 @@
+[
+  {
+    "question": "on peut appuier sur entrée pour **valider** la réponse",
+    "réponse": "Vrai",
+    "explication": "on peut meme passer a la question suivante en appuyant sur entrée.",
+    "typing": false,
+    "réponse possible": [
+        "Vrai",
+        "Faux"
+    ]
+  },
+  {
+    "question": "on peut afficher le code de manière propre ```python\n print('Hello World')\n```",
+    "réponse": "Vrai",
+    "explication": "on peut le faire avec tout type de code, pas seulement python.",
+    "typing": false,
+    "réponse possible": [
+        "Vrai",
+        "Faux"
+    ]
+  },
+  {
+    "question": "on peut écrire des réponses",
+    "réponse": "Vrai",
+    "explication": "🙊​🙉​🙈​",
+    "typing": true
+  }, 
+  {
+    "question": "il y a des questions avec plusieurs réponses possibles",
+    "réponse": ["1", "2", "3"],
+    "explication": "🈹​🈚​🈲​🈸​🈴​🈺​🈵​​",
+    "typing": false,
+    "réponse possible": [
+        "1",
+        "2",
+        "3",
+        "4"
+    ]
+  },
+    {
+        "question": "on peut mettre des emojis du style 🐱‍👤, **du texte en gras**, `en mode code`, * italique *",
+        "réponse": "Vrai",
+        "explication": "🗿​",
+        "typing": false,
+        "réponse possible": [
+            "Vrai",
+            "Faux"
+        ]
+    }
+
+
+]

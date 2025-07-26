@@ -1,0 +1,230 @@
+[
+  {
+    "question": " Cocher tous les affichages possibles :```C\ncpt = 0;\np1 = fork();\np2 = fork();\np3 = fork();\nif (p1 && p2) printf(\"%d\", cpt);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["0"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["0", "1", "2", "3", "4", "5", "6"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\nif (fork() == 0) write(1, \"a\", 1);\nelse if (fork() == 0) write(1, \"b\", 1);\nelse { wait(NULL); write(1, \"c\", 1); }\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["bca", "acb", "abc", "bac"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["cab", "bca", "cba", "acb", "abc", "bac"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\nif (fork()) {\n  execlp(\"echo\",\"echo\",\"-n\",\"a\",NULL);\n  execlp(\"echo\",\"echo\",\"-n\",\"b\",NULL);\n} else printf(\"c\");\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ca", "ac"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["ca", "abc", "ab", "cab", "ac", "ba", "acb", "autre chose"]
+  },
+  {
+    "question": " Cocher toutes les propriétés satisfaites par tous les affichages possibles :```C\nfork(); printf(\"a\"); if (fork()) printf(\"b\");\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["contient exactement 4 a", "contient exactement 2 b", "commence par un a"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "contient exactement 1 a",
+      "contient exactement 2 a",
+      "contient exactement 4 a",
+      "contient exactement 1 b",
+      "contient exactement 2 b",
+      "contient exactement 4 b",
+      "commence par un a",
+      "termine par un b"
+    ]
+  },
+  {
+    "question": " Combien obtient‑on d’étoiles ?```C\nif (fork()) { if (fork()) fork(); }\nprintf(\"*\"); fork();\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["7"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["4", "5", "6", "7", "8", "9", "moins", "plus"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\nchar *tap = \"abcd\";\nint p1 = 0, p2 = 0;\nif (fork()) p1 = 1;\nif (fork()) p2 = 2;\nwait(NULL);\nwrite(1, tap + p1 + p2, 1);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["abdc", "acdb", "abcd", "bacd"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["abdc", "acdb", "cdba", "bcad", "bdca", "abcd", "dabc", "bacd"]
+  },
+  {
+    "question": " Quel est l’affichage obtenu après exécution du code suivant ?```C\nfd = open(\"toto\", O_RDONLY);\ndo { nb = read(fd, buf, 7); } while (nb > 0);\nprintf(\"%s\", buf);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["hijklfg"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["fghijkl", "abcdefgh", "ghijkl", "abhijkl", "hijkl", "hijklfg", "rien", "autre chose"]
+  },
+  {
+    "question": " Combien obtient‑on d’étoiles ?```C\nif (fork()) { if (fork()) fork(); } fork();\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["8"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["4", "5", "6", "7", "8", "9", "moins", "plus"]
+  },
+  {
+    "question": " Que contient toto après exécution de a.out 2> toto ?```C\nfprintf(stderr, \"a\"); printf(\"b\");\ndup2(2, 1);\ndup2(fd, 2);\nfprintf(stderr, \"c\"); printf(\"d\");\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ad"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["ac", "ad", "d", "bd", "c", "abcd", "rien", "autre chose"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\npipe(t); pid = fork();\nif (pid) { read(t[0], &c, 1); write(1, \"a\", 1); }\nelse { write(1, \"b\", 1); write(t[1], \"e\", 1); }\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ba"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["ba", "a", "ab", "b", "rien"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\npipe(t); pid = fork();\nif (pid) { write(1, \"a\", 1); read(t[0], &c, 1); }\nelse { write(t[1], \"c\", 1); write(1, \"b\", 1); }\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ba", "ab"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["ba", "ab", "a", "b", "rien"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\npid = fork(); pipe(t);\nif (pid) { read(t[0], &c, 1); write(1, \"a\", 1); }\nelse { write(1, \"b\", 1); write(t[1], \"a\", 1); }\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ba"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["ab", "ba", "a", "b", "rien"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\npipe(t); pid = fork();\nif (pid) { write(t[1], \"a\", 1); read(t[0], &c, 1); printf(\"a\"); }\nelse { write(t[1], \"b\", 1); read(t[0], &c, 1); printf(\"b\"); }\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ab", "ba"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["a", "b", "ab", "ba", "rien"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\npipe(t); pid = fork();\nif (pid) { read(t[0], buf, 2); printf(\"%s\", buf); }\nelse { write(t[1], \"a\", 1); write(t[1], \"b\", 1); }\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid, fd et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["ab", "aa"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": ["ba", "ab", "aa", "b", "rien"]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\nfd = open(\"toto\", O_RDWR | O_TRUNC);\npid = fork();\nnb = read(fd, buf, 2);\nwrite(STDOUT_FILENO, buf, nb);\nif (pid) write(fd, \"...\", 3);\nelse write(fd, \"***\", 3);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["rien"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "rien",
+      "ghiabc",
+      "...",
+      "abs..",
+      "***",
+      "abc***",
+      "abc",
+      "defabc",
+      "abcghi",
+      "abcief",
+      "abcabc",
+      "autre chose"
+    ]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\nfd = open(\"toto\", O_RDWR);\npid = fork();\nnb = read(fd, buf, 2);\nwrite(STDOUT_FILENO, buf, nb);\nif (pid) write(fd, \"...\", 3);\nelse write(fd, \"***\", 3);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["defabc","abcghi","abcdef"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "rien",
+      "abcabc",
+      "...",
+      "***",
+      "abcghi",
+      "defabc",
+      "abcdef",
+      "abc...",
+      "abc",
+      "abcabc",
+      "abc***",
+      "autre chose"
+    ]
+  },
+  {
+    "question": " Cocher tous les affichages possibles :```C\nfd = open(\"toto\", O_RDWR | O_APPEND);\npid = fork();\nnb = read(fd, buf, 2);\nwrite(STDOUT_FILENO, buf, nb);\nif (pid) write(fd, \"...\", 3);\nelse write(fd, \"***\", 3);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["abcdef","abcghi","defabc"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "rien",
+      "ghiabc",
+      "...",
+      "abs..",
+      "***",
+      "abc***",
+      "abc",
+      "defabc",
+      "abcghi",
+      "abcief",
+      "abcabc",
+      "autre chose"
+    ]
+  },
+  {
+    "question": " Cocher tous les contenus finaux possibles du fichier toto :```C\nfd = open(\"toto\", O_RDWR);\npid = fork();\nnb = read(fd, buf, 2);\nwrite(STDOUT_FILENO, buf, nb);\nif (pid) write(fd, \"...\", 3);\nelse write(fd, \"***\", 3);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["abcdef...***","abcdef***...","abc***ghi...","abc...ghi***"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "abcdefghijkl***...",
+      "abc***ghi...",
+      "...***",
+      "...",
+      "abcdef...***",
+      "abcdef***...",
+      "abcdefghijkl...***",
+      "***",
+      "***...",
+      "abc...ghi***",
+      "abc...gnijkl",
+      "abc***ghijkl"
+    ]
+  },
+  {
+    "question": " Cocher tous les contenus finaux possibles du fichier toto :```C\nfd = open(\"toto\", O_RDWR | O_APPEND);\npid = fork();\nnb = read(fd, buf, 2);\nwrite(STDOUT_FILENO, buf, nb);\nif (pid) write(fd, \"...\", 3);\nelse write(fd, \"***\", 3);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["abcdefghijkl***...","abcdefghijkl...***"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "abcdefghijkl***...",
+      "abc***ghi...",
+      "...***",
+      "...",
+      "abcdef...***",
+      "abcdef***...",
+      "abcdefghijkl...***",
+      "***",
+      "***...",
+      "abc...ghi***",
+      "abc...gnijkl",
+      "abc***ghijkl"
+    ]
+  },
+  {
+    "question": " Cocher tous les contenus finaux possibles du fichier toto :```C\npid = fork();\nfd = open(\"toto\", O_RDWR | O_TRUNC);\nnb = read(fd, buf, 2);\nwrite(STDOUT_FILENO, buf, nb);\nif (pid) write(fd, \"...\", 3);\nelse write(fd, \"***\", 3);\n```* Dans l’ensemble du QCM, toto désigne un fichier ordinaire de contenu \"abcdefghijkl\" et buf un tableau de type char[32] rempli d’octets nuls (tous deux réinitialisés au début de chaque question) ; pid et nb sont des int, c est un char et t est un tableau int[3]. Les erreurs ne sont pas gérées ; on suppose que tous les appels système réussissent. *",
+    "réponse": ["...***","...","***...","***"],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "abcdefghijkl***...",
+      "abc***ghi...",
+      "...***",
+      "...",
+      "abcdef...***",
+      "abcdef***...",
+      "abcdefghijkl...***",
+      "***",
+      "***...",
+      "abc...ghi***",
+      "abc...gnijkl",
+      "abc***ghijkl"
+    ]
+  }
+
+]

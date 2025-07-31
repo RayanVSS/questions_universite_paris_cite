@@ -37,16 +37,30 @@
         "4"
     ]
   },
-    {
-        "question": "on peut mettre des emojis du style 🐱‍👤, **du texte en gras**, `en mode code`, * italique *",
-        "réponse": "Vrai",
-        "explication": "🗿​",
-        "typing": false,
-        "réponse possible": [
-            "Vrai",
-            "Faux"
-        ]
-    }
-
+  {
+      "question": "on peut mettre des emojis du style 🐱‍👤, **du texte en gras**, `en mode code`, * italique *",
+      "réponse": "Vrai",
+      "explication": "🗿​",
+      "typing": false,
+      "réponse possible": [
+          "Vrai",
+          "Faux"
+      ]
+  },
+  {
+    "question": "on peut tester du code en vous imposant le langage",
+    "réponse": "Vrai",
+    "code": true,
+    "language": "python",
+    "expectedOutput": "Vrai",
+    "codeTemplate": "# on peut même écrire un code de base et on est gentil, on vous a mis la réponse 🐒\nprint(\"Vrai\")"
+  },
+  {
+    "question": "on peut tester du code en vous laissant choisir le langage, essaye d'écrire ** Vrai **",
+    "réponse": "Vrai",
+    "code": true,
+    "expectedOutput": "Vrai",
+    "explication": "🐳​🐋​🐬​🐟​"
+  }
 
 ]

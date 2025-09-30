@@ -1,0 +1,236 @@
+[
+  {
+    "question": "Quel est l'objectif principal des diagrammes de classes UML présentés dans le cours ?",
+    "réponse": "Décrire les concepts pertinents et les relations entre eux",
+    "explication": "Le cours souligne que l'on ne vise que les diagrammes de classes pour décrire les concepts pertinents et leurs relations.",
+    "typing": false,
+    "réponse possible": [
+      "Décrire l'algorithme de chaque méthode",
+      "Générer automatiquement le code source complet",
+      "Décrire les concepts pertinents et les relations entre eux",
+      "Mesurer la complexité temporelle"
+    ]
+  },
+  {
+    "question": "Sélectionnez tous les principes qui correspondent à « masquer les détails internes non essentiels ».",
+    "réponse": ["Encapsulation"],
+    "explication": "Encapsulation = boîte noire, on masque les détails internes qui ne sont pas essentiels pour l'utilisateur de l'objet.",
+    "typing": false,
+    "réponse possible": ["Abstraction", "Encapsulation", "Modularité", "Hiérarchisation"]
+  },
+  {
+    "question": "En UML, quelle relation exprime la dépendance forte où la destruction du composé entraîne la destruction des composants ?",
+    "réponse": "Composition",
+    "explication": "La composition exprime une relation de vie liée (forte) entre le tout et les parties, contrairement à l'agrégation.",
+    "typing": false,
+    "réponse possible": ["Association", "Agrégation", "Composition", "Héritage"]
+  },
+  {
+    "question": "Quelle est la bonne lecture d'une multiplicité 0..1 du côté de la classe A dans une association binaire A—B ?",
+    "réponse": "Pour toute instance fixée de B, il existe 0 ou 1 instance de A reliée",
+    "explication": "La multiplicité contraint la taille de la collection d'instances à l'autre extrémité lorsque l'on fixe les N−1 extrémités restantes.",
+    "typing": false,
+    "réponse possible": [
+      "Pour toute instance fixée de B, il existe exactement 1 instance de A reliée",
+      "Pour toute instance fixée de B, il existe 0 ou 1 instance de A reliée",
+      "A et B ont toujours le même nombre d'instances",
+      "Il faut au moins un lien pour toutes les combinaisons"
+    ]
+  },
+  {
+    "question": "Quel énoncé est correct au sujet d'une « classe d'association » en UML ?",
+    "réponse": "Elle permet d'attacher des attributs ou associations à une relation",
+    "explication": "Une classe d'association porte des informations propres au lien et peut servir de point d'entrée vers d'autres associations.",
+    "typing": false,
+    "réponse possible": [
+      "Elle remplace toujours les associations binaires",
+      "Elle empêche d'ajouter des multiplicités",
+      "Elle permet d'attacher des attributs ou associations à une relation",
+      "Elle ne peut pas porter d'attributs"
+    ]
+  },
+  {
+    "question": "En C++, quelle est la valeur nulle standard d'un pointeur moderne ?",
+    "réponse": "nullptr",
+    "explication": "Le cours rappelle que le « zéro » d'un pointeur est nullptr.",
+    "typing": true
+  },
+  {
+    "question": "Dans l'expression C++ suivante, que fait l'instruction marquée ?\n```cpp\nint a{0}, *pa{&a};\n*pa++; // instruction marquée\n```",
+    "réponse": "Incrémente le pointeur pa (puis déréférence le résultat), à cause de la priorité de ++ sur *",
+    "explication": "++ est prioritaire sur * : on obtient (pa++), ce qui incrémente l'adresse stockée dans pa, pas la valeur de a.",
+    "typing": false,
+    "réponse possible": [
+      "Incrémente la valeur de a",
+      "Incrémente le pointeur pa (puis déréférence le résultat), à cause de la priorité de ++ sur *",
+      "Décrémente a",
+      "Ne compile pas"
+    ]
+  },
+  {
+    "question": "Vrai ou Faux : `int *t = new int[10]; int t2[10]; t2 = t;` est valide en C++.",
+    "réponse": "Faux",
+    "explication": "On ne peut pas affecter à un tableau statique une valeur de type pointeur. L'affectation `t2 = t;` est invalide.",
+    "typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+  },
+  {
+    "question": "Règle de placement de `const` : il s'applique à…",
+    "réponse": "Ce qui est immédiatement à sa gauche (ou à droite s'il n'y a rien à gauche)",
+    "explication": "C'est la règle générale rappelée dans le cours.",
+    "typing": false,
+    "réponse possible": [
+      "Toujours le premier type à droite",
+      "Toujours le type de plus haut niveau",
+      "Ce qui est immédiatement à sa gauche (ou à droite s'il n'y a rien à gauche)",
+      "Uniquement les pointeurs"
+    ]
+  },
+  {
+    "question": "Parmi ces déclarations, laquelle déclare un pointeur constant vers un entier non constant ?",
+    "réponse": "int * const p = &x;",
+    "explication": "Le pointeur ne peut pas changer d'adresse (const après *), mais l'entier pointé reste modifiable.",
+    "typing": false,
+    "réponse possible": [
+      "const int * p = &x;",
+      "int const * p = &x;",
+      "int * const p = &x;",
+      "const int * const p = &x;"
+    ]
+  },
+  {
+    "question": "Écrivez le mot-clé C++ pour obtenir l'adresse d'une variable (réponse libre).",
+    "réponse": "&",
+    "explication": "L'opérateur unaire `&` retourne l'adresse d'une lvalue.",
+    "typing": true
+  },
+  {
+    "question": "En C++, laquelle de ces lignes libère correctement un tableau alloué dynamiquement par `new int[10]` ?",
+    "réponse": "delete[] p;",
+    "explication": "Pour des tableaux alloués avec `new T[n]`, il faut `delete[] p;`.",
+    "typing": false,
+    "réponse possible": ["delete p;", "free(p);", "delete[] p;", "dispose(p);"]
+  },
+  {
+    "question": "quelle écriture affiche la variable `x` du namespace `B` ?\nSupposez :\n```cpp\nnamespace A { double x{0.123}; }\nnamespace B { std::string x{\"truc\"}; }\n```",
+    "réponse": "std::cout << B::x;",
+    "explication": "On qualifie le nom par `B::` pour accéder au symbole x du namespace B.",
+    "typing": false,
+    "réponse possible": [
+      "std::cout << x;",
+      "std::cout << A::x;",
+      "std::cout << B::x;",
+      "std::cout << ::x;"
+    ]
+  },
+  {
+    "question": "Question de code (C++). Écrivez un programme minimal qui :\\n1) alloue dynamiquement un tableau de 5 entiers,\\n2) y range 0,1,2,3,4,\\n3) affiche la somme,\\n4) libère la mémoire.\\nLa sortie attendue est : `10`",
+    "réponse": "10",
+    "explication": "La somme de 0+1+2+3+4 = 10. Pensez à `delete[]`.",
+    "code": true,
+    "language": "cpp",
+    "expectedOutput": "10",
+    "codeTemplate": "\n// Complétez le programme\n#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n    // 1) allouer un tableau dynamique de 5 entiers\n    // 2) y ranger 0..4\n    // 3) calculer la somme\n    // 4) afficher la somme puis libérer\n    cout << /* somme */ << endl;\n    return 0;\n}"
+  },
+  {
+    "question": "Considérez :\n```cpp\nint *t = new int[10];\nint t2[10];\n```\nLes affectations suivantes sont-elles valides ?\n🍎 `t = t2;`\n🍏 `t2 = t;`",
+    "réponse": ["🍎​ Valide", "🍏​ Invalide"],
+    "explication": "`t` est un pointeur et peut recevoir l'adresse décayée de `t2`. En revanche, un tableau statique (`t2`) n'est pas assignable à un pointeur : `t2 = t;` est illégal.",
+    "typing": false,
+    "réponse possible": ["🍎​ Valide", "🍎​ Invalide", "🍏​ Valide", "🍏​ Invalide"]
+  },
+  {
+    "question": "Déterminez les types :\n```cpp\nint *x[10], y[10];\n```\nSélectionnez les bonnes descriptions.",
+    "réponse": ["x est un tableau de 10 pointeurs vers int", "y est un tableau de 10 int"],
+    "explication": "`x` : les crochets `[]` s'appliquent avant `*` → tableau de pointeurs; `y` : tableau d'int.",
+    "typing": false,
+    "réponse possible": [
+      "x est un pointeur vers un tableau de 10 int",
+      "x est un tableau de 10 pointeurs vers int",
+      "y est un pointeur vers int",
+      "y est un tableau de 10 int"
+    ]
+  },
+  {
+    "question": "Règle générale : où s'applique `const` ?",
+    "réponse": "À ce qui est immédiatement à sa gauche (ou à droite s'il n'y a rien à gauche)",
+    "explication": "C'est la règle rappelée dans le quiz : `const` lie sa protection à l'élément le plus proche à gauche, par tolérance à droite s'il n'y a rien à gauche.",
+    "typing": false,
+    "réponse possible": [
+      "Toujours au premier type à droite",
+      "Uniquement aux pointeurs",
+      "À ce qui est immédiatement à sa gauche (ou à droite s'il n'y a rien à gauche)",
+      "Au type de plus haut niveau"
+    ]
+  },
+  {
+    "question": "```cpp\nint const a{1};\nconst int b{1};\nconst int *p{&a};\n```\nCochez les propositions valides.",
+    "réponse": ["p = &b;"],
+    "explication": "`const int *p` : l'objet pointé est constant via `p` → on peut changer l'adresse (`p = &b`), pas la valeur pointée (`*p = 2` interdit).",
+    "typing": false,
+    "réponse possible": ["p = &b; ", "*p = 2;"]
+  },
+  {
+    "question": "```cpp\nint c{3}, d = 4.5;\nint *const q = &c;\n```\nCochez les propositions valides.",
+    "réponse": ["*q = 4;", "q = &c;"],
+    "explication": "`int *const q` : le pointeur est constant (adresse figée) mais la valeur pointée est modifiable. On ne peut pas réassigner `q` vers une autre adresse.",
+    "typing": false,
+    "réponse possible": ["*q = 4;", "q = &d;", "q = &c;", "q = &a;"]
+  },
+  {
+    "question": "```cpp\nint const a{1};\nconst int * const r{&a};\n```\nQue peut-on faire ?",
+    "réponse": "Ni réassigner r, ni modifier *r",
+    "explication": "Pointeur constant vers un entier constant : pas de changement d'adresse ni de la valeur pointée via `r`.",
+    "typing": false,
+    "réponse possible": [
+      "Réassigner r mais ne pas modifier *r",
+      "Modifier *r mais ne pas réassigner r",
+      "Ni réassigner r, ni modifier *r",
+      "Réassigner r et modifier *r"
+    ]
+  },
+  {
+    "question": "```cpp\nint b[10]={0,1,2,3,4,5,6,7,8,9};\nconst int * const x[10]{b};\n```\nQue vaut `*x[0]` juste après l'initialisation puis après `b[0]++;` ?",
+    "réponse": ["**juste après l'initialisation**: 0", "**Après b[0]++:**: 1"],
+    "explication": "`x[0]` pointe vers `b[0]`. Le type impose des restrictions via `x`, mais la mémoire sous-jacente `b[0]` a bien été incrémentée → la lecture via `x` reflète la nouvelle valeur.",
+    "typing": false,
+    "réponse possible": ["**juste après l'initialisation**: 0", "**juste après l'initialisation**: 1", "**Après b[0]++:**: 0", "**Après b[0]++:**: 1"]
+  },
+  {
+    "question": "```cpp\nint *x[10], y[10], z{4};\nx[1] = &z;\ny[1] = 2*z;\n```\nQue vaut `*x[1]` ?",
+    "réponse": "4",
+    "explication": "`x[1]` pointe vers `z` (qui vaut 4). L'affectation `y[1] = 2*z` ne modifie pas `z`. Donc `x[1] == 4`. ",
+    "typing": false,
+    "réponse possible": ["0", "2", "4", "8"]
+  },
+  {
+    "question": "\n```cpp\nint *x[10], y[10];\n```\nLaquelle est vraie ?",
+    "réponse": "`**x` déréférence `x[0]` puis l'entier pointé, équivalent à `*x[0]` si `x[0]` est non nul",
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "`**x` est toujours égal à `y[0]`",
+      "`**x` déréférence `x[0]` puis l'entier pointé, équivalent à `*x[0]` si `x[0]` est non nul",
+      "`**x` est l'adresse de `x`",
+      "`**x` ne compile jamais"
+    ]
+  },
+  {
+    "question": "Priorité des opérateurs : lequel a la priorité la plus haute ?",
+    "réponse": "Les crochets `[]` ont priorité sur `*`",
+    "explication": "Le quiz insiste sur la priorité de `[]` sur `*`, d'où les confusions fréquentes sur les types et déréférencements. ",
+    "typing": false,
+    "réponse possible": [
+      "`*` a priorité sur `[]`",
+      "Les crochets `[]` ont priorité sur `*`",
+      "Même priorité, associativité à gauche",
+      "Cela dépend du compilateur"
+    ]
+  },
+  {
+    "question": "pour libérer la mémoire d'un tableau alloué par `new int[10]`, que faut-il utiliser ?",
+    "réponse": "delete[]",
+    "explication": "Les tableaux alloués avec `new T[n]` doivent être libérés avec `delete[]`.",
+    "typing": true
+  }
+]

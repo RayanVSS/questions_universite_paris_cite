@@ -1,0 +1,343 @@
+[
+  {
+    "question": "Que génère automatiquement le compilateur pour une classe vide `class A {};` ?",
+    "réponse": ["Un constructeur par défaut", "Un constructeur de copie", "Un destructeur"],
+    "explication": "Le compilateur fournit par défaut un constructeur, un constructeur de copie et un destructeur pour une classe vide.",
+    "typing": false,
+    "réponse possible": [
+      "Un constructeur par défaut",
+      "Un constructeur de copie",
+      "Un destructeur",
+      "Un opérateur <<"
+    ]
+  },
+  {
+    "question": "Lorsqu’un paramètre est passé par référence constante (`const T&`), une copie est créée.",
+    "réponse": "Faux",
+    "explication": "Une référence constante évite la copie : elle se contente de lier un alias à l’objet existant.",
+    "typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+  },
+  {
+    "question": "Dans un retour par valeur, quel mécanisme du compilateur peut éviter la copie inutile ? (on veut les initials en minuscule)",
+    "réponse": "rvo",
+    "explication": "C'est le \" rvo\",le compilateur peut optimiser le retour par valeur en construisant directement l’objet retourné à l’endroit attendu.",
+    "typing": true
+  },
+  {
+    "question": "Quel problème survient si un objet conserve des pointeurs vers des variables locales détruites ?",
+    "réponse": "Dangling pointer (référence morte)",
+    "explication": "Les pointeurs deviennent invalides une fois la variable détruite, ce qui provoque un comportement indéfini.",
+    "typing": false,
+    "réponse possible": [
+      "Fuite mémoire",
+      "Dangling pointer (référence morte)",
+      "Erreur de compilation",
+      "Aucune conséquence"
+    ]
+  },
+  {
+    "question": "Dans le cas d’un `Segment` qui crée ses propres copies de `Point` avec `new`, quel problème survient sans opérateur de copie adapté ?",
+    "réponse": "Double destruction",
+    "explication": "La copie par défaut copie seulement les pointeurs. Lors de la destruction, deux objets tentent de détruire la même zone mémoire.",
+    "typing": false,
+    "réponse possible": [
+      "Fuite mémoire",
+      "Double destruction",
+      "Aucune erreur",
+      "Optimisation mémoire"
+    ]
+  },
+  {
+    "question": "Quelles sont les trois règles à respecter pour éviter les erreurs avec pointeurs/références ?",
+    "réponse": ["Vérifier la vivacité", "Définir la propriété", "Éviter double destruction ou fuite mémoire"],
+    "explication": "Il faut vérifier que l’objet pointé existe toujours, savoir qui en est propriétaire, et éviter fuites ou destructions multiples.",
+    "typing": false,
+    "réponse possible": [
+      "Vérifier la vivacité",
+      "Définir la propriété",
+      "Toujours utiliser des références",
+      "Éviter double destruction ou fuite mémoire"
+    ]
+  },
+  {
+    "question": "En UML, l’agrégation implique-t-elle la destruction automatique des objets agrégés ?",
+    "réponse": "Non",
+    "explication": "Dans une agrégation, les objets peuvent être partagés et leur destruction n’est pas liée à celle de l’agrégat.",
+    "typing": false,
+    "réponse possible": ["Oui", "Non"]
+  },
+  {
+    "question": "Quelle méthode de `vector` permet de construire directement un objet sans copie intermédiaire ?",
+    "réponse": "emplace_back",
+    "explication": "La méthode `emplace_back` construit l’objet directement dans le conteneur à partir des paramètres donnés.",
+    "typing": false,
+    "réponse possible": ["push_back", "emplace_back", "reserve", "insert"]
+  },
+  {
+    "question": "Pourquoi l’utilisation d’une boucle `for (Point p : points)` est-elle coûteuse en mémoire ?",
+    "réponse": "Parce qu’elle crée une copie de chaque élément",
+    "explication": "Cette syntaxe réalise une copie de chaque élément du vector, contrairement à `for (const Point& p : points)`.",
+    "typing": false,
+    "réponse possible": [
+      "Parce qu’elle libère la mémoire à chaque tour",
+      "Parce qu’elle crée une copie de chaque élément",
+      "Parce qu’elle bloque les optimisations du compilateur",
+      "Parce qu’elle détruit les objets avant la fin"
+    ]
+  },
+  {
+    "question": "Lorsqu’un `vector` dépasse sa capacité, que se passe-t-il ?",
+    "réponse": "Une réallocation et copie des éléments existants",
+    "explication": "Le `vector` double sa capacité, alloue une nouvelle zone mémoire et copie tous ses éléments dedans.",
+    "typing": false,
+    "réponse possible": [
+      "Les anciens éléments sont perdus",
+      "Une réallocation et copie des éléments existants",
+      "Un segfault survient",
+      "Aucune opération"
+    ]
+  },
+  {
+    "question": "Dans le problème de l’opérateur d’affectation avec pointeurs, que faut-il vérifier avant tout ?",
+    "réponse": "L’auto-affectation",
+    "explication": "Il faut vérifier `if (this == &x)` pour éviter de détruire les données d’un objet en cours de copie dans lui-même.",
+    "typing": false,
+    "réponse possible": [
+      "La taille de l’objet",
+      "L’auto-affectation",
+      "Le type de pointeur",
+      "Le nombre de copies existantes"
+    ]
+  },
+  {
+    "question": "La Rule of Three concerne :",
+    "réponse": ["Destructeur", "Constructeur de copie", "Opérateur d’affectation"],
+    "explication": "Ces trois méthodes gèrent la mémoire et doivent être définies ensemble pour éviter des incohérences.",
+    "typing": false,
+    "réponse possible": [
+      "Destructeur",
+      "Constructeur de copie",
+      "Opérateur d’affectation",
+      "Opérateur <<"
+    ]
+  },
+  {
+    "question": "Pourquoi le destructeur doit-il être déclaré `virtual` ?",
+    "réponse": "Pour permettre la destruction correcte via un pointeur de base",
+    "explication": "Sans destructeur virtuel, la destruction via un pointeur de classe de base ne détruit pas correctement les objets dérivés.",
+    "typing": false,
+    "réponse possible": [
+      "Pour améliorer la vitesse",
+      "Pour permettre la destruction correcte via un pointeur de base",
+      "Parce que le compilateur l’impose",
+      "Pour éviter les fuites mémoire dans `main`"
+    ]
+  },
+  {
+    "question": "Quel est l’effet du mot-clé `static` sur un membre de classe ?",
+    "réponse": "Le membre est partagé entre toutes les instances",
+    "explication": "Un attribut statique appartient à la classe, et non à chaque objet individuellement.",
+    "typing": false,
+    "réponse possible": [
+      "Le membre est partagé entre toutes les instances",
+      "Le membre est privé automatiquement",
+      "Le membre est réinitialisé à chaque objet",
+      "Le membre ne peut pas être modifié"
+    ]
+  },
+  {
+    "question": "Quelle est la sortie du code suivant ?\n```cpp\nclass Compteur {\n    static int nb;\npublic:\n    Compteur() { nb++; }\n    static int getNb() { return nb; }\n};\n\nint Compteur::nb=0;\n\nint main() {\nCompteur c1, c2, c3;\ncout << Compteur::getNb();\n}\n```",
+    "réponse": "3",
+    "explication": "Trois objets ont été créés, donc le compteur statique vaut 3.",
+    "typing": true
+  },
+  {
+    "question": "Pourquoi un segment qui stocke des pointeurs vers des points locaux détruits pose-t-il problème ?",
+    "réponse": "Parce que les pointeurs deviennent invalides (dangling pointers)",
+    "explication": "Quand les variables locales sortent de portée, les adresses stockées par le segment deviennent invalides et tout accès provoque un comportement indéfini.",
+    "typing": false,
+    "réponse possible": [
+      "Parce que les points sont copiés automatiquement",
+      "Parce que les pointeurs deviennent invalides (dangling pointers)",
+      "Parce que le compilateur interdit l’usage des références",
+      "Parce que le destructeur du segment est privé"
+    ]
+  },
+  {
+    "question": "Que se passe-t-il dans l’étude de cas 3 (Segment avec copies allouées dynamiquement) lorsqu’on copie l’objet sans redéfinir l’opérateur de copie ?",
+    "réponse": "Une double destruction se produit",
+    "explication": "Chaque copie de Segment libère la mémoire de ses pointeurs, entraînant deux destructions de la même zone mémoire.",
+    "typing": false,
+    "réponse possible": [
+      "Une fuite mémoire",
+      "Une double destruction se produit",
+      "Une duplication correcte",
+      "Aucune conséquence"
+    ]
+  },
+  {
+    "question": "Quelles sont les trois règles de base à respecter avec pointeurs et références ?",
+    "réponse": ["Vérifier la vivacité", "Définir la propriété", "Éviter fuite et double destruction"],
+    "explication": "Il faut toujours savoir si l’objet existe encore, qui doit le détruire, et éviter les cas de fuites ou destructions multiples.",
+    "typing": false,
+    "réponse possible": [
+      "Vérifier la vivacité",
+      "Définir la propriété",
+      "Éviter fuite et double destruction",
+      "Toujours utiliser delete"
+    ]
+  },
+  {
+    "question": "Quelle est la différence entre agrégation et composition en UML ?",
+    "réponse": "L’agrégation n’implique pas destruction en cascade, la composition oui",
+    "explication": "En agrégation, les objets peuvent être partagés et survivent à l’agrégat, tandis qu’en composition leur destruction est liée.",
+    "typing": false,
+    "réponse possible": [
+      "Il n’y a pas de différence",
+      "L’agrégation n’implique pas destruction en cascade, la composition oui",
+      "L’agrégation interdit les pointeurs",
+      "La composition impose le mot-clé static"
+    ]
+  },
+  {
+    "question": "Dans `vector`, que fait la méthode `push_back` lorsqu’on ajoute un objet existant ?",
+    "réponse": "Elle crée une copie de l’objet",
+    "explication": "`push_back` prend une référence et crée une copie dans le conteneur.",
+    "typing": false,
+    "réponse possible": [
+      "Elle déplace directement l’objet",
+      "Elle crée une copie de l’objet",
+      "Elle échange l’objet avec le dernier",
+      "Elle génère une erreur si l’objet est déjà présent"
+    ]
+  },
+  {
+    "question": "Pourquoi `emplace_back` est-il plus efficace que `push_back` ?",
+    "réponse": "Parce qu’il construit directement l’objet dans le conteneur",
+    "explication": "`emplace_back` appelle directement le constructeur avec les arguments fournis, évitant une copie intermédiaire.",
+    "typing": false,
+    "réponse possible": [
+      "Parce qu’il évite le destructeur",
+      "Parce qu’il construit directement l’objet dans le conteneur",
+      "Parce qu’il supprime les copies déjà faites",
+      "Parce qu’il libère la mémoire du vecteur"
+    ]
+  },
+  {
+    "question": "Quel problème survient quand un `vector` dépasse sa capacité ?",
+    "réponse": "Il réalloue et copie tous ses éléments dans une nouvelle zone",
+    "explication": "Un `vector` double sa capacité et recopie ses éléments lors de la réallocation, ce qui peut être coûteux.",
+    "typing": false,
+    "réponse possible": [
+      "Il efface son contenu",
+      "Il réalloue et copie tous ses éléments dans une nouvelle zone",
+      "Il bloque le programme",
+      "Il se convertit automatiquement en liste chaînée"
+    ]
+  },
+  {
+    "question": "Quelle méthode permet d’éviter des copies inutiles dues à la réallocation d’un `vector` ?",
+    "réponse": "reserve",
+    "explication": "En réservant à l’avance une capacité suffisante avec `reserve`, on limite le nombre de réallocations et donc de copies.",
+    "typing": false,
+    "réponse possible": [
+      "resize",
+      "clear",
+      "reserve",
+      "shrink_to_fit"
+    ]
+  },
+  {
+    "question": "Quelle comportement par défaut de l’opérateur d’affectation pour une classe contenant un pointeur ?",
+    "réponse": "copie superficielle du pointeur",
+    "explication": "Par défaut, seul le pointeur est copié, pas l’objet pointé. Cela peut provoquer des erreurs de double destruction.",
+    "typing": false,
+    "réponse possible": [
+      "copie superficielle du pointeur",
+      "affectation profonde",
+      "nouvelle allocation et copie",
+      "aucune affectation n’est générée"
+    ]
+  },
+  {
+    "question": "Quels sont les trois éléments de la Rule of Three ?",
+    "réponse": ["Destructeur", "Constructeur de copie", "Opérateur d’affectation"],
+    "explication": "Si une classe gère explicitement une ressource, elle doit définir ces trois éléments pour garantir une gestion correcte.",
+    "typing": false,
+    "réponse possible": [
+      "Destructeur",
+      "Constructeur de copie",
+      "Opérateur d’affectation",
+      "Opérateur de comparaison"
+    ]
+  },
+  {
+    "question": "En C++11, la Rule of Three devient la Rule of Five. Quels ajouts sont concernés ?",
+    "réponse": ["Constructeur de déplacement", "Opérateur d’affectation par déplacement"],
+    "explication": "La Rule of Five prend en compte les optimisations liées aux déplacements (`move`) pour éviter des copies coûteuses.",
+    "typing": false,
+    "réponse possible": [
+      "Constructeur de déplacement",
+      "Opérateur d’affectation par déplacement",
+      "Destructeur virtuel",
+      "Opérateur +"
+    ]
+  },
+  {
+    "question": "Quel est le risque si une classe dépendante contient directement une instance d’une autre classe qui dépend d’elle ?",
+    "réponse": "Une boucle de construction infinie",
+    "explication": "La construction de A entraîne celle de B, qui entraîne celle de A, etc. Ce cercle vicieux est impossible à résoudre sans pointeurs ou références.",
+    "typing": false,
+    "réponse possible": [
+      "Une fuite mémoire",
+      "Une boucle de construction infinie",
+      "Une double destruction",
+      "Un code non portable"
+    ]
+  },
+  {
+    "question": "Quelle est la bonne démarche pour gérer les classes dépendantes ?",
+    "réponse": ["Déclaration préalable", "Utilisation de pointeurs ou références", "Inclusion correcte dans les fichiers séparés"],
+    "explication": "On évite la dépendance circulaire en annonçant la classe à l’avance (`class B;`) et en utilisant des pointeurs/références.",
+    "typing": false,
+    "réponse possible": [
+      "Déclaration préalable",
+      "Utilisation de pointeurs ou références",
+      "Toujours inclure tous les fichiers",
+      "Inclusion correcte dans les fichiers séparés"
+    ]
+  },
+  {
+    "question": "Quel est l’effet d’un membre `static` dans une classe ?",
+    "réponse": "Il est partagé entre toutes les instances de la classe",
+    "explication": "Un membre `static` appartient à la classe et non à un objet particulier, donc il est commun à toutes les instances.",
+    "typing": false,
+    "réponse possible": [
+      "Il est dupliqué dans chaque objet",
+      "Il est partagé entre toutes les instances de la classe",
+      "Il est uniquement accessible dans `main`",
+      "Il est automatiquement constant"
+    ]
+  },
+  {
+    "question": "Dans quel fichier doit-on initialiser une variable membre statique ?",
+    "réponse": "Dans le fichier .cpp correspondant",
+    "explication": "Le mot-clé `static` est déclaré dans la classe, mais l’initialisation doit être effectuée dans le fichier de définition (.cpp).",
+    "typing": false,
+    "réponse possible": [
+      "Dans le .hpp uniquement",
+      "Dans le fichier .cpp correspondant",
+      "Dans chaque fonction `main`",
+      "Nulle part, c’est automatique"
+    ]
+  },
+  {
+    "question": "On souhaite écrire une classe **Compteur** qui compte combien d’objets ont été créés,or le résultat du code est incorrect corriger le",
+    "réponse": "1\n2\n3",
+    "code": true,
+    "language": "cpp",
+    "expectedOutput": "1\n2\n3",
+    "codeTemplate": "\n#include <iostream>\nusing namespace std;\n\nclass Compteur {\npublic:\n    int compteur = 0;\n    Compteur() { compteur++; }\n    int getCompteur() const { return compteur; }\n};\n\n\nint main() {\n    Compteur c1;\n    cout << c1.getCompteur() << endl; \n    Compteur c2;\n    cout << c2.getCompteur() << endl; \n    Compteur c3;\n    cout << c3.getCompteur() << endl; \n}"
+  }
+]

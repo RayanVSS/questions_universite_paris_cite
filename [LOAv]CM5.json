@@ -1,0 +1,380 @@
+[
+  {
+    "question": "Quelle est la bonne syntaxe pour déclarer une classe dérivée publique de A nommée B ?",
+    "réponse": "class B : public A {};",
+    "explication": "En C++, on précise le type d'héritage après le nom de la classe avec la forme `class D : access Base {}`. Ici l'héritage public rend la relation « est-un » visible partout. ",
+    "typing": false,
+    "réponse possible": [
+      "class B (public A) {};",
+      "class B : public A {};",
+      "class B extends A {};",
+      "class B -> A {};"
+    ]
+  },
+  {
+    "question": "Dans quel ordre se déroulent les constructions lors de l’instanciation d’un objet dérivé ?",
+    "réponse": "Base puis attributs de la dérivée puis corps du constructeur de la dérivée",
+    "explication": "Allocation, puis appel du constructeur de la base, initialisation des attributs de la dérivée, puis exécution du corps du constructeur de la dérivée. ",
+    "typing": false,
+    "réponse possible": [
+      "Dérivée puis Base",
+      "Base puis attributs de la dérivée puis corps du constructeur de la dérivée",
+      "Attributs de la dérivée puis Base",
+      "Ordre indéfini par la norme"
+    ]
+  },
+  {
+    "question": "À la destruction d’un objet B dérivé de A, quel est l’ordre d’appel des destructeurs (en supposant destructeurs non virtuels) ?",
+    "réponse": "~B() puis ~A()",
+    "explication": "Les destructeurs sont appelés dans l'ordre inverse des constructeurs : partie dérivée puis base. (Attention : si suppression via pointeur de base sans destructeur virtuel, ~B() peut ne pas être appelé.) ",
+    "typing": false,
+    "réponse possible": [
+      "~A() puis ~B()",
+      "~B() puis ~A()",
+      "Un seul destructeur est appelé",
+      "Ordre non spécifié"
+    ]
+  },
+  {
+    "question": "Pourquoi faut-il déclarer le destructeur de la classe de base `virtual` quand on manipule des objets via des pointeurs de base ?",
+    "réponse": "Pour garantir l’appel du destructeur de la dérivée lors d’un delete via un pointeur de base",
+    "explication": "Sans destructeur virtuel, `delete A*` ne déclenchera que ~A(), risquant des fuites. Avec `virtual ~A()`, on obtient ~B() puis ~A(). ",
+    "typing": false,
+    "réponse possible": [
+      "Pour accélérer le programme",
+      "Pour empêcher l’héritage",
+      "Pour garantir l’appel du destructeur de la dérivée lors d’un delete via un pointeur de base",
+      "Pour autoriser l’overloading du destructeur"
+    ]
+  },
+  {
+    "question": "Quelle affirmation est vraie à propos de `protected` ?",
+    "réponse": "Un membre `protected` est accessible dans une classe dérivée, mais seulement via un objet de type dérivé (ou plus dérivé).",
+    "explication": "L’accès `protected` autorise l’accès dans les sous-classes, mais pas via un objet d’un autre type dérivé ou via un objet de base externe. ",
+    "typing": false,
+    "réponse possible": [
+      "`protected` est équivalent à `public`",
+      "Un membre `protected` est visible partout dans le projet",
+      "Un membre `protected` est accessible dans une classe dérivée, mais seulement via un objet de type dérivé (ou plus dérivé).",
+      "`protected` interdit l'accès aux sous-classes"
+    ]
+  },
+  {
+    "question": "Quelles lignes compilent dans la fonction `void B::f()` ci-dessous ?\n\n```cpp\\nclass A { protected: int a; };\\nclass B : public A { protected: int b; void f(); };\\nclass C : public B { protected: int c; };\\n\\nvoid B::f(){\\n  A tmp;      // L0\\n  tmp.a;     // (1)\\n  B bis;     // L1\\n  bis.a;     // (2)\\n  this->a;   // (3)\\n  C aux;     // L2\\n  aux.a;     // (4)\\n  aux.b;     // (5)\\n  aux.c;     // (6)\\n}\\n```",
+    "réponse": [
+      "(2)",
+      "(3)",
+      "(4)",
+      "(5)"
+    ],
+    "explication": "Dans `B::f()`, on accède à `a` via des objets de « même classe » au sens de l’héritage (B et C) ou via `this`. Pas d’accès via un objet de base non dérivé (tmp). `c` est protégé dans C et inaccessible depuis B. ",
+    "typing": false,
+    "réponse possible": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)",
+      "(5)",
+      "(6)"
+    ]
+  },
+  {
+    "question": "Quelle(s) affirmation(s) est/sont vraie(s) sur la visibilité de l’héritage ?",
+    "réponse": [
+      "`protected` : visible uniquement pour les classes dérivées",
+      "`public` : la relation est visible partout",
+      "`private` : la relation est invisible de l’extérieur"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "`public` : la relation est visible partout",
+      "`protected` : visible uniquement pour les classes dérivées",
+      "`private` : la relation est invisible de l’extérieur",
+      "`protected` : empêche d'écrire dans sur la même variable",
+      "`protected` : visible uniquement pour les classes parents",
+      "`private` : la relation est invisible de l’intérieur"
+    ]
+  },
+  {
+    "question": "Quel est l’effet de l’héritage `private` de A par B sur les membres hérités `public` et `protected` de A ?",
+    "réponse": "Ils deviennent privés dans B (et donc inaccessibles pour les sous-classes de B).",
+    "explication": "Avec `class B : private A`, les membres `public` et `protected` hérités deviennent privés dans B. ",
+    "typing": false,
+    "réponse possible": [
+      "Ils restent publics",
+      "Ils deviennent protégés",
+      "Ils deviennent privés dans B (et donc inaccessibles pour les sous-classes de B).",
+      "Ils sont supprimés"
+    ]
+  },
+  {
+    "question": "Quel mot-clé permet de ré-exposer un nom de méthode de la classe de base pour lever le masquage dû au lookup ?",
+    "réponse": "using",
+    "explication": "`using A::f;` ré-expose le nom `f` de la base afin que la surcharge prenne en compte toutes les signatures visibles. ",
+    "typing": false,
+    "réponse possible": [
+      "override",
+      "using",
+      "friend",
+      "virtual"
+    ]
+  },
+  {
+    "question": "Le `dynamic_cast` sur des pointeurs/références vers la base nécessite quoi pour fonctionner correctement ?",
+    "réponse": "Que la classe de base soit polymorphe (au moins une méthode virtuelle)",
+    "explication": "Le RTTI pour `dynamic_cast` n’est disponible que si la base est polymorphe (p.ex. `virtual ~A(){}`). ",
+    "typing": false,
+    "réponse possible": [
+      "L’activation d’une option du compilateur",
+      "Que la classe de base soit polymorphe (au moins une méthode virtuelle)",
+      "Que l’héritage soit `public`",
+      "Que la classe soit `final`"
+    ]
+  },
+  {
+    "question": "Quelle est la conséquence par défaut de l’opérateur d’affectation (`operator=`) en présence d’héritage ?",
+    "réponse": "Il n’est pas virtuel par défaut ; la version de B masque celle de A.",
+    "explication": "Par défaut, `operator=` est non virtuel, et dans B il masque celui de A, ce qui limite les usages polymorphes. Des patrons plus élaborés sont nécessaires pour un dispatch « virtuel ». ",
+    "typing": false,
+    "réponse possible": [
+      "Il est virtuel par défaut",
+      "Il n’est pas virtuel par défaut ; la version de B masque celle de A.",
+      "Il est supprimé par la norme",
+      "Il devient automatiquement `override`"
+    ]
+  },
+  {
+    "question": "Quel est l’effet du spécificateur `final` appliqué à une méthode virtuelle dans une classe dérivée ?",
+    "réponse": "Il interdit toute redéfinition ultérieure de cette méthode dans les classes encore dérivées.",
+    "explication": "`final` sur une méthode virtuelle empêche toute nouvelle redéfinition dans les classes descendantes. `final` sur une classe interdit toute dérivation. ",
+    "typing": false,
+    "réponse possible": [
+      "Il rend la méthode privée",
+      "Il supprime la méthode",
+      "Il interdit toute redéfinition ultérieure de cette méthode dans les classes encore dérivées.",
+      "Il la rend statique"
+    ]
+  },
+  {
+    "question": "Pendant l’exécution du constructeur de **Base** appelé depuis le constructeur de **Derived**, quel `show()` est invoqué par `Base()` si `show()` est virtuelle et redéfinie dans `Derived` ?",
+    "réponse": "Base::show()",
+    "explication": "La liaison dynamique n’est pas « pleine » pendant construction/destruction : les appels virtuels dans le constructeur/destructeur de Base invoquent la version de Base. ",
+    "typing": false,
+    "réponse possible": [
+      "Derived::show()",
+      "Base::show()",
+      "Comportement indéfini",
+      "Cela dépend de l’ABI utilisée"
+    ]
+  },
+  {
+    "question": "Quel(s) usage(s) correct(s) de `friend` ci-dessous ?",
+    "réponse": [
+      "Déclarer une fonction libre `friend` pour accéder aux membres privés/protégés",
+      "Déclarer une classe entière `friend` pour lui donner un accès étendu"
+    ],
+    "explication": "`friend` se déclare dans la classe qui « offre » l’amitié et permet à la fonction ou la classe désignée d’accéder comme si c’était de l’intérieur. ",
+    "typing": false,
+    "réponse possible": [
+      "Donner des droits via l’héritage",
+      "Déclarer une fonction libre `friend` pour accéder aux membres privés/protégés",
+      "Déclarer une classe entière `friend` pour lui donner un accès étendu",
+      "Rendre une méthode automatique virtuelle"
+    ]
+  },
+  {
+    "question": "Comment éviter le slicing lorsqu’on veut « voir » un objet `B` (dérivé) comme un `A` (base) et pouvoir encore appeler des comportements spécifiques de `B` plus tard ?\n\nLe slicing se produit lorsqu’un objet d’une classe dérivée est copié dans un objet de la classe de base",
+    "réponse": [
+      "Utiliser des références ou des pointeurs vers la base",
+      "Effectuer des `dynamic_cast` sûrs quand on veut revenir à B"
+    ],
+    "explication": "Le slicing se produit avec des passages par valeur (copie de la « tranche » base). Les références/pointeurs conservent l’identité de l’objet ; `dynamic_cast` permet de redescendre en sûreté. ",
+    "typing": false,
+    "réponse possible": [
+      "Toujours copier l’objet",
+      "Utiliser des références ou des pointeurs vers la base",
+      "Utiliser des `static_cast` non vérifiés",
+      "Effectuer des `dynamic_cast` sûrs quand on veut revenir à B"
+    ]
+  },
+  {
+    "question": "Sortie du programme ?\n```cpp\nusing namespace std;\nstruct A { virtual ~A(){}; virtual void f(){ cout<<\"A\"; } };\\nstruct B: A { void f() override { cout<<\"B\"; } };\\nint main(){ B b; A& a=b; a.f(); }\\n```",
+    "réponse": "B",
+    "explication": "Avec `virtual`, la liaison est dynamique : `a` référence un `B`, donc `B::f()` est appelée. ",
+    "typing": false,
+    "réponse possible": [
+      "A",
+      "B",
+      "AB",
+      "Compilation error"
+    ]
+  },
+  {
+    "question": "À la création d’un objet B dérivé de A, quel est l’ordre d’appel des créations ?",
+    "réponse": "A() puis B()",
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "A() puis B()",
+      "B() puis A()",
+      "seulement B()"
+    ]
+  },
+  {
+    "question": "quel sont les lignes qui s'affichent *\"dans A\"*\n\n```cpp\nclass A {\n public :\n  void f () { cout << \" dans A \" ;}\n};\n\nclass B : public A {\n public :\n  void f () { cout << \" dans B \" ;}\n};\n\nint main () {\n A a ;\n B b ;\n A & a2 { b };\n a.f() ; // (1)\n b.f() ; // (2)\n a2.f() ; // (3)\n (( B &) a2 ).f() ; // (4)\n}\n```",
+    "réponse": [
+      "(1)",
+      "(3)"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)"
+    ]
+  },
+  {
+    "question": "quel sont les lignes qui s'affichent *\"dans A\"*\n\n```cpp\nclass A { public : void f () { cout << \" dans A \" ;}};\nclass B : public A {public : virtual void f () { cout << \" dans B \" ;}};\nclass C : public B { public : void f () { cout << \" dans C \" ;} };\nclass D : public C { public : void f () { cout << \" dans D \" ;} };\n\nint main () {\n A a ; B b ; C c ; D d ;\n A & ab { b } , & ac { c };\n B & bc { c };\n C & cd { d };\n a.f() ; // (1)\n b.f(); // (2)\n c.f(); // (3)\n ab.f(); // (4)\n ac.f(); // (5)\n bc.f(); // (6)\n ((B &) ac).f(); // (7)\n cd.f(); // (8)\n}\n```",
+    "réponse": [
+      "1",
+      "4",
+      "5"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "question": "quel sont les lignes qui s'affichent *\"dans B\"*\n\n```cpp\nclass A { public : void f () { cout << \" dans A \" ;}};\nclass B : public A {public : virtual void f () { cout << \" dans B \" ;}};\nclass C : public B { public : void f () { cout << \" dans C \" ;} };\nclass D : public C { public : void f () { cout << \" dans D \" ;} };\n\nint main () {\n A a ; B b ; C c ; D d ;\n A & ab { b } , & ac { c };\n B & bc { c };\n C & cd { d };\n a.f() ; // (1)\n b.f(); // (2)\n c.f(); // (3)\n ab.f(); // (4)\n ac.f(); // (5)\n bc.f(); // (6)\n ((B &) ac).f(); // (7)\n cd.f(); // (8)\n}\n```",
+    "réponse": [
+      "2"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "1",
+      "2",
+      " 3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "question": "quel sont les lignes qui s'affichent *\"dans C\"*\n\n```cpp\nclass A { public : void f () { cout << \" dans A \" ;}};\nclass B : public A {public : virtual void f () { cout << \" dans B \" ;}};\nclass C : public B { public : void f () { cout << \" dans C \" ;} };\nclass D : public C { public : void f () { cout << \" dans D \" ;} };\n\nint main () {\n A a ; B b ; C c ; D d ;\n A & ab { b } , & ac { c };\n B & bc { c };\n C & cd { d };\n a.f() ; // (1)\n b.f(); // (2)\n c.f(); // (3)\n ab.f(); // (4)\n ac.f(); // (5)\n bc.f(); // (6)\n ((B &) ac).f(); // (7)\n cd.f(); // (8)\n}\n```",
+    "réponse": [
+      "3",
+      "6",
+      "7"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "question": "Que permet `using A::g;` écrit dans `class B : private A { ... };` ?",
+    "réponse": "De rendre accessible publiquement dans B une méthode héritée mais masquée par l’héritage privé",
+    "explication": "`using` ré-expose un nom hérité. Placé sous `public:`, il peut rendre `A::g()` accessible publiquement dans `B` malgré l’héritage privé. ",
+    "typing": false,
+    "réponse possible": [
+      "D’appeler une méthode d’une classe sans lien d’héritage",
+      "De rendre accessible publiquement dans B une méthode héritée mais masquée par l’héritage privé",
+      "De convertir implicitement B en A",
+      "De déclarer une méthode virtuelle"
+    ]
+  },
+  {
+    "question": "Cochez les affirmations exactes à propos de `override` et des redéfinitions.",
+    "réponse": [
+      "`override` force le compilateur à vérifier qu’une méthode redéfinit bien une méthode virtuelle de la base",
+      "La covariance du type de retour est autorisée si compatible"
+    ],
+    "explication": "`override` valide signature/virtualité ; la covariance de retour est acceptée conformément aux règles du langage. ",
+    "typing": false,
+    "réponse possible": [
+      "`override` transforme une méthode en virtuelle",
+      "`override` force le compilateur à vérifier qu’une méthode redéfinit bien une méthode virtuelle de la base",
+      "La covariance du type de retour est autorisée si compatible",
+      "`override` rend la méthode non surchargeable"
+    ]
+  },
+  {
+    "question": "Par défaut, pourquoi `operator=` n’est-il pas adapté au polymorphisme ?",
+    "réponse": "Parce qu’il n’est pas virtuel et que la version de la dérivée masque celle de la base",
+    "explication": "L’opérateur d’affectation est non virtuel : `B::operator=` masque `A::operator=`, ce qui limite les usages via des références/pointeurs de base. ",
+    "typing": false,
+    "réponse possible": [
+      "Parce qu’il est toujours `final`",
+      "Parce qu’il est supprimé par défaut",
+      "Parce qu’il n’est pas virtuel et que la version de la dérivée masque celle de la base",
+      "Parce qu’il ne peut pas être surchargé"
+    ]
+  },
+  {
+    "question": "Lors d’une construction d’un objet dérivé, dans quel ordre s’exécutent les étapes ?",
+    "réponse": "Base → attributs de la dérivée → corps du constructeur de la dérivée",
+    "explication": "Allocation, appel du constructeur de base, init des attributs dérivés, puis corps du constructeur. ",
+    "typing": false,
+    "réponse possible": [
+      "Dérivée → Base → attributs",
+      "Base → attributs de la dérivée → corps du constructeur de la dérivée",
+      "Attributs → Base → corps du constructeur",
+      "Ordre non spécifié"
+    ]
+  },
+  {
+    "question": "Quelle est la sortie du programme suivant ?\n\n```cpp\\n#include <iostream>\\nusing namespace std;\\nstruct A{ virtual void f(){ cout<<\"A\"; } };\\nstruct B: A{ void f() override { cout<<\"B\"; } };\\nint main(){ A& a = *(new B); a.f(); }\\n``` ",
+    "réponse": "B",
+    "explication": "La méthode est virtuelle ; la liaison est dynamique et appelle `B::f()`. (Supposé sans fuite pour la question.) ",
+    "typing": false,
+    "réponse possible": [
+      "A",
+      "B",
+      "AB",
+      "Compilation error"
+    ]
+  },
+  {
+    "question": "Dans cet exemple d’héritage `protected`, quelle ligne compile hors de la classe ?\n\n```cpp\nclass A{ public: void dormir(){ cout<<\"Z\"; } };\nclass B: protected A { public: void compter(){ dormir(); } };\nint main(){\n  A{}.dormir(); // L1\n  B{}.compter(); // L2\n  B{}.dormir(); // L3\n}\n```",
+    "réponse": [
+      "L1",
+      "L2"
+    ],
+    "explication": "Depuis l’extérieur, l’accès à `dormir()` via `B` est interdit (héritage protégé). `A{}.dormir()` et l’appel du wrapper public `compter()` sont OK. ",
+    "typing": false,
+    "réponse possible": [
+      "L1",
+      "L2",
+      "L3"
+    ]
+  },
+  {
+    "question": "Saisie libre — Complétez : Le fait de convertir un objet `B` en `A` par **copie** (ex. `A a = b;`) s’appelle le **??????** et fait perdre la partie spécifique à `B`.",
+    "réponse": "slicing",
+    "explication": "Le « slicing » copie uniquement la tranche `A` et perd la partie `B`. Pour éviter, utiliser références/pointeurs. ",
+    "typing": true
+  }
+]

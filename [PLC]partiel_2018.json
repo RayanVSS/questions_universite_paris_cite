@@ -1,0 +1,162 @@
+[
+  {
+    "question": "```prolog\n(X=1;X=2),(Y=3;Y=4),!.\n```",
+    "réponse": [
+      "X = 1, Y = 3."
+    ],
+    "explication": "Le cut (!) est exécuté après la première solution complète, donc X=1 et Y=3 sont fixés. Les autres choix sont bloqués.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 3.",
+      "X = 1, Y = 4.",
+      "X = 2, Y = 3.",
+      "X = 2, Y = 4."
+    ]
+  },
+  {
+    "question": "```prolog\n(X=1;X=2),!,(Y=3;Y=4).\n```",
+    "réponse": [
+      "X = 1, Y = 3.",
+      "X = 1, Y = 4."
+    ],
+    "explication": "Le cut empêche de revenir sur X après X=1, mais les deux valeurs possibles pour Y sont toujours explorées.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 3.",
+      "X = 1, Y = 4.",
+      "X = 2, Y = 3.",
+      "X = 2, Y = 4."
+    ]
+  },
+  {
+    "question": "```prolog\n!, (X=1;X=2),(Y=3;Y=4).\n```",
+    "réponse": [
+      "X = 1, Y = 3.",
+      "X = 1, Y = 4.",
+      "X = 2, Y = 3.",
+      "X = 2, Y = 4."
+    ],
+    "explication": "Le cut est exécuté avant toute alternative, donc il n’a aucun effet ici. Toutes les combinaisons de X et Y sont générées.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 3.",
+      "X = 1, Y = 4.",
+      "X = 2, Y = 3.",
+      "X = 2, Y = 4."
+    ]
+  },
+  {
+    "question": "```prolog\nX = 1+1, X = 2.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "L’unification échoue car `1+1` est une structure et non la valeur 2. Prolog ne fait pas d’évaluation arithmétique dans `=`.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2."
+    ]
+  },
+  {
+    "question": "```prolog\nX = 1+1, X =:= 2.\n```",
+    "réponse": [
+      "X = 1+1."
+    ],
+    "explication": "X est la structure `1+1`. L’opérateur arithmétique `=:=` réussi car X est pas évalué.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2.",
+      "X = 1+1."
+    ]
+  },
+  {
+    "question": "```prolog\nX is 1+1, X = 2.\n```",
+    "réponse": [
+      "X = 2."
+    ],
+    "explication": "L’opérateur `is` évalue 1+1 en 2, puis `=` unifie X et 2, ce qui réussit.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2.",
+      "X = 1+1."
+    ]
+  },
+  {
+    "question": "```prolog\nX = 1+1, X \\== 2.\n```",
+    "réponse": [
+      "X = 1+1."
+    ],
+    "explication": "`\\==` compare les structures syntaxiques. `1+1` n’est pas identique à 2, donc la comparaison réussit.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1+1.",
+      "X = 2."
+    ]
+  },
+  {
+    "question": "```prolog\n[X|[Y|[Z,Y]]] = [a,[b,c],[d,e],W].\n```",
+    "réponse": [
+      "W = Y, Y = [b, c], X = a, Z = [d, e]"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "W = Y, Y = [b, c], X = a, Z = [d, e]",
+      "W = Y, Y = [d, e], X = a, Z = [b, c]",
+      "W = [], Y = [d, e], X = a, Z = [b, c]"
+    ]
+  },
+  {
+    "question": "```prolog\nbagof(X, (member(X,[1,2]), !), L).\n```",
+    "réponse": [
+      "L = [1]."
+    ],
+    "explication": "Le cut `!` fige la première solution de `member/2`. `bagof` collecte uniquement X=1.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = [1].",
+      "L = [2].",
+      "L = [1,2]."
+    ]
+  },
+  {
+    "question": "```prolog\nnot(not(X=1)).\n```",
+    "réponse": [
+      "true."
+    ],
+    "explication": "Le double `not/1` inverse deux fois la valeur logique : comme `X=1` peut réussir, la requête globale est vraie.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1."
+    ]
+  }
+]

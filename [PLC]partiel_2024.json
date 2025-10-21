@@ -1,6 +1,6 @@
 [
   {
-    "question": "Q=..[+,X,Y], X is 3, Y is 4, Q>6.",
+    "question": "```prolog\nQ=..[+,X,Y], X is 3, Y is 4, Q>6.\n```",
     "réponse": [
       "Q = 3+4 , X = 4, Y = 3 ;"
     ],
@@ -15,7 +15,7 @@
     ]
   },
   {
-    "question": "Q=..[*,X,Y], X is 2, Y is 3, Q==6.",
+    "question": "```prolog\nQ=..[*,X,Y], X is 2, Y is 3, Q==6.\n```",
     "réponse": [
       "false."
     ],
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "question": "member(X,[1,2]),!,member(Y,[1,2]).",
+    "question": "```prolog\nmember(X,[1,2]),!,member(Y,[1,2]).\n```",
     "réponse": [
       "X = 1, Y = 1;",
       " X = 1, Y = 2;"
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "question": "Pour:\n```prolog\nmem(X,[X|_]):-!.\nmem(X,[_|L]):-mem(X,L).\n```\nmem(X,[1,2]),mem(Y,[1,2]).",
+    "question": "```prolog\nmem(X,[X|_]):-!.\nmem(X,[_|L]):-mem(X,L).\n\nmem(X,[1,2]),mem(Y,[1,2]).\n```",
     "réponse": [
       "X = 1, Y = 1; "
     ],
@@ -65,7 +65,7 @@
     ]
   },
   {
-    "question": "setof(L,mem(3,L),H),length(H,K).",
+    "question": "```prolog\nmem(X,[X|_]):-!.\nmem(X,[_|L]):-mem(X,L).\nsetof(L,mem(3,L),H),length(H,K).\n```",
     "réponse": [
       "H = [[3|_]], K=1;"
     ],
@@ -80,7 +80,7 @@
     ]
   },
   {
-    "question": "setof(L,member(3,L),H),length(H,K).",
+    "question": "```prolog\nsetof(L,member(3,L),H),length(H,K).\n```",
     "réponse": ["erreur"],
     "explication": "member(3,L) échoue car L doit être une liste contenant 3, mais L est libre — Prolog génère une erreur d’instanciation.",
     "typing": false,
@@ -92,7 +92,7 @@
     ]
   },
   {
-    "question": "not(not(((L=[1];L=[1,1]),length(L,K),K>1))).",
+    "question": "```prolog\nnot(not(((L=[1];L=[1,1]),length(L,K),K>1))).\n```",
     "réponse": ["true."],
     "explication": "Le double not/1 inverse deux fois la vérité. Une solution (L=[1,1]) donne K=2>1, donc la requête est vraie.",
     "typing": false,
@@ -107,7 +107,7 @@
     ]
   },
   {
-    "question": "not(not(((L=[1];L=[1,1]),!,length(L,K),K>1))).",
+    "question": "```prolog\nnot(not(((L=[1];L=[1,1]),!,length(L,K),K>1))).\n```",
     "réponse": "false.",
     "explication": "Le cut (!) empêche de considérer la seconde alternative L=[1,1]; seule L=[1] est testée, K=1, donc K>1 échoue.",
     "typing": false,

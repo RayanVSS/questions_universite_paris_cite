@@ -1,0 +1,153 @@
+[
+  {
+    "question": "```prolog\nX=1, (Y=2;Y=3),!.\n```",
+    "réponse": [
+      "X = 1, Y = 2."
+    ],
+    "explication": "Le cut (!) est exécuté après la première solution Y=2, empêchant tout retour arrière. Une seule solution : X=1, Y=2.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 2.",
+      "X = 1, Y = 3."
+    ]
+  },
+  {
+    "question": "```prolog\n(X=1;X=2),!,Y=3.\n```",
+    "réponse": [
+      "X = 1, Y = 3."
+    ],
+    "explication": "Le cut suit la première alternative (X=1), bloquant le retour vers X=2. On obtient X=1, Y=3.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 3.",
+      "X = 2, Y = 3."
+    ]
+  },
+  {
+    "question": "```prolog\nQ=..[member,X,[1,2]], Q.\n```",
+    "réponse": [
+      "Q = member(2,[1,2]), X = 2; "
+    ],
+    "explication": "L’opérateur univ (=..) construit l’appel member(X,[1,2]), qui renvoie les solutions X=1 puis X=2.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1 ; X = 2.",
+      "Q = member(X,[1,2])",
+      "Q = member(1,[1,2]), X = 1; ",
+      "Q = member(2,[1,2]), X = 2; "
+    ]
+  },
+  {
+    "question": "```prolog\n[a,b,c,d] = [A|[B|[C|D]]].\n```",
+    "réponse": [
+      "A = a, B = b, C = c, D = [d]."
+    ],
+    "explication": "L’unification se fait récursivement : le premier élément va à A, le deuxième à B, le troisième à C, et le reste à D.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "A = a, B = b, C = c, D = [d].",
+      "A = a, B = [b], C = [c], D = [d].",
+      "A = a, B = [b,c,d], C = [c,d], D = [d]."
+    ]
+  },
+  {
+    "question": "```prolog\nnot(not(!)).\n```",
+    "réponse": [
+      "true."
+    ],
+    "explication": "! est un true",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Aucun résultat."
+    ]
+  },
+  {
+    "question": "```prolog\nX is 2, Y is 3, X+Y==5.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "L’expression X+Y==5 compare la structure, pas la valeur numérique. Il faut utiliser =:= pour une comparaison arithmétique.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2, Y = 3"
+    ]
+  },
+  {
+    "question": "```prolog\nsetof(X, X<3, L).\n```",
+    "réponse": [
+      "erreur"
+    ],
+    "explication": "setof/3 nécessite une variable libre dans le but. Ici X<3 n’a pas de générateur pour X, ce qui entraîne une erreur d’instanciation.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = []"
+    ]
+  },
+  {
+    "question": "```prolog\nsetof(X, (X=0;X=1;X=2), L).\n```",
+    "réponse": [
+      "L = [0,1,2]."
+    ],
+    "explication": "Les trois valeurs sont produites par les disjonctions. setof/3 trie et élimine les doublons, donnant L=[0,1,2].",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = [0,1,2].",
+      "L = 0.",
+      "L = 1.",
+      "L = 2.",
+      "L = [2,1,0]."
+    ]
+  },
+  {
+    "question": "```prolog\nX=1, not(X=2).\n```",
+    "réponse": [
+      "X = 1."
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1."
+    ]
+  },
+  {
+    "question": "```prolog\nnot(X=2), X=1.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "not(X=2) échoue ici, car X est encore libre. Prolog ne peut pas prouver que X=2 est faux pour une variable non instanciée.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1."
+    ]
+  }
+]

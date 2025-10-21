@@ -1,0 +1,153 @@
+[
+  {
+    "question": "```prolog\nX = 1+1, X =:= 2.\n```",
+    "réponse": [
+      "X = 1+1."
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2.",
+      "X = 1+1."
+    ]
+  },
+  {
+    "question": "```prolog\nX =:= 1+1, X = 2.\n```",
+    "réponse": [
+      "erreur"
+    ],
+    "explication": "X n’est pas instanciée avant l’évaluation de 1+1, ce qui provoque une erreur d’instanciation avec =:=.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2."
+    ]
+  },
+  {
+    "question": "```prolog\nX == 1+1, X = 1+1.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "meme moi je suis choqué",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1+1."
+    ]
+  },
+  {
+    "question": "```prolog\nQ =.. [member,X,[1,2,trois]], Q, number(X).\n```",
+    "réponse": [
+      "Q = member(1, [1, 2, trois]), X = 1 ;",
+      "Q = member(2, [1, 2, trois]), X = 2 ;"
+    ],
+    "explication": "Q devient member(X,[1,2,trois]). Les solutions X=1, X=2 et X=trois sont possibles, mais seul 1 et 2 sont des nombres.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1 ; X = 2.",
+      "Q = member(1, [1, 2, trois]), X = 1 ;",
+      "Q = member(2, [1, 2, trois]), X = 2 ;"
+    ]
+  },
+  {
+    "question": "```prolog\n[1,2] = [X|Y], (atomic(X) ; atomic(Y)).\n```",
+    "réponse": [
+      "false.",
+      "X = 1, Y = [2]."
+    ],
+    "explication": "X=1, Y=[2]. X est atomique (un nombre), donc le but (atomic(X);atomic(Y)) réussit.\nmais il y a aussi atomic(Y) qui renvoie false\n",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = [2].",
+      "X = 1, Y = 2."
+    ]
+  },
+  {
+    "question": "```prolog\n[1,Z] = [X|Y], ground(X), ground(Y).\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "X=1 (ground), mais Y=[Z] contient Z non instancié, donc ground(Y) échoue.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = [Z]."
+    ]
+  },
+  {
+    "question": "```prolog\nnot(X = 0).\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "X est libre. Prolog ne peut pas déterminer que X=0 est faux, donc not(X=0) échoue.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 0."
+    ]
+  },
+  {
+    "question": "```prolog\nsetof(X, X = 1, R), setof(Y, Y = Z, S), S = R.\n```",
+    "réponse": [
+      "R = S, S = [1], Z=1;"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "R = S, S = [1], Z=1;",
+      "R = S, S = 1, Z=1;"
+    ]
+  },
+  {
+    "question": "```prolog\nX = 1, !, (Y = 2 ; Y = 3).\n```",
+    "réponse": [
+      "X = 1, Y = 2.",
+      "X = 1, Y = 3."
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 2.",
+      "X = 1, Y = 3."
+    ]
+  },
+  {
+    "question": "```prolog\n!, X = 1, (Y = 2 ; Y = 3).\n```",
+    "réponse": [
+      "X = 1, Y = 2.",
+      "X = 1, Y = 3."
+    ],
+    "explication": "Le cut est exécuté avant les choix, donc il n’a aucun effet ici. Les deux solutions Y=2 et Y=3 sont produites.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 2.",
+      "X = 1, Y = 3."
+    ]
+  }
+]

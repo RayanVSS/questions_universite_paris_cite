@@ -1,0 +1,160 @@
+[
+  {
+    "question": "```prolog\nX=2, X+3=Y, X==2, Y=:=5.\n```",
+    "réponse": [
+      "X = 2, Y = 2+3;"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2, Y = 2+3;",
+      "X = 2, Y = 5;"
+    ]
+  },
+  {
+    "question": "```prolog\nX=2, X+3=Y, X=:=2, Y==5.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 2, Y = 2+3;",
+      "X = 2, Y = 5;"
+    ]
+  },
+  {
+    "question": "```prolog\nsetof(X, (member(X,[1,2,3,3,2,1]), X<3), L).\n```",
+    "réponse": [
+      "L = [1,2]."
+    ],
+    "explication": "Le prédicat setof/3 collecte les valeurs distinctes de X vérifiant la condition X<3 dans la liste donnée. Résultat trié : [1,2].",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = [1,2].",
+      "L = [2,1].",
+      "L = [1,1,2,2].",
+      "L = [1,2,2,1]."
+    ]
+  },
+  {
+    "question": "```prolog\nsetof(X, (X<3, member(X,[1,2,3,3,2,1])), L).\n```",
+    "réponse": [
+      "erreur",
+      "L = [1,2]."
+    ],
+    "explication": "\"Arguments are not sufficiently instantiated\"",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = [1,2]."
+    ]
+  },
+  {
+    "question": "```prolog\n(X=a; X=b; X=c), !.\n```",
+    "réponse": [
+      "X = a."
+    ],
+    "explication": "Le cut (!) empêche tout retour arrière après la première solution. Seule la première alternative X=a est gardée.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = a.",
+      "X = b.",
+      "X = c.",
+      "X = a, X = b, X = c."
+    ]
+  },
+  {
+    "question": "```prolog\n!, (X=a; X=b; X=c).\n```",
+    "réponse": [
+      "X = a, X = b, X = c."
+    ],
+    "explication": "Le cut est placé avant la disjonction. Il n’a donc aucun effet ici, toutes les solutions sont générées successivement.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = a, X = b, X = c.",
+      "X = a.",
+      "X = b.",
+      "X = c."
+    ]
+  },
+  {
+    "question": "```prolog\nnot(not(X=a)).\n```",
+    "réponse": [
+      "true."
+    ],
+    "explication": "Double négation : not(not(...)) revient à vérifier la vérité de X=a. Comme X peut être unifié à a, la requête est vraie.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = a."
+    ]
+  },
+  {
+    "question": "```prolog\n[A|[B|C]] = [a,b,c,d].\n```",
+    "réponse": [
+      "A = a, B = b, C = [c,d];"
+    ],
+    "explication": "L’unification se fait récursivement : A correspond au premier élément, B au second, et C au reste de la liste.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "A = a, B = b, C = [c,d];",
+      "A = a, B = b, C = c;",
+      "A = a, B = [b], C = [c,d];"
+    ]
+  },
+  {
+    "question": "```prolog\n[A|[B,C]] = [a,b,c,d].\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "Le côté gauche est une liste de trois éléments alors que le côté droit en contient quatre. L’unification échoue donc.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "A = a, B = b, C = c",
+      "A = a, B = b, C = [c,d];",
+      "A = a, B = [b], C = [c,d];"
+    ]
+  },
+  {
+    "question": "```prolog\nP = ..[member, X, [a,b,c]], P, !.\n```",
+    "réponse": [
+      "P=member(a,[a,b,c]), X=a;"
+    ],
+    "explication": "L’opérateur univ (=..) construit le but member(X,[a,b,c]) puis l’exécute. Le cut garde uniquement la première solution X=a.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "P=member(a,[a,b,c]), X=a;",
+      "P=member(b,[a,b,c]), X=b;",
+      "P=member(c,[a,b,c]), X=c;"
+    ]
+  }
+]

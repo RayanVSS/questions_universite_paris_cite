@@ -1,0 +1,156 @@
+[
+  {
+    "question": "```prolog\n[[Z|X]] = [a,a].\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "La structure à gauche est une liste contenant une sous-liste, tandis que [a,a] est une liste de deux atomes. L’unification échoue.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Z = a, X = [a]."
+    ]
+  },
+  {
+    "question": "```prolog\n[Z|X] = [[a,a]].\n```",
+    "réponse": [
+      "Z = [a,a], X = []."
+    ],
+    "explication": "L’unification donne Z = [a,a] et X = [].",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Z = [a,a], X = [].",
+      "Z = a, X = [a].",
+      "Z = a, X = a."
+    ]
+  },
+  {
+    "question": "```prolog\n[[Z|X]] = [[a,a]].\n```",
+    "réponse": [
+      "Z = a, X = [a]."
+    ],
+    "explication": "Les deux côtés ont la même structure de liste : Z = a et X = [a].",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Z = a, X = [a].",
+      "Z = a, X = a.",
+      "Z = [a,a], X = []."
+    ]
+  },
+  {
+    "question": "```prolog\nnot(!);true.\n```",
+    "réponse": [
+      "true."
+    ],
+    "explication": "`not(!)` échoue puisque `!` réussit ; mais avec `; true`, la disjonction globale réussit.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "not(!) échoue."
+    ]
+  },
+  {
+    "question": "```prolog\n(!,fail);true.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "fail."
+    ]
+  },
+  {
+    "question": "```prolog\nbagof(X, (X is 1 ; X = 1 ; X is 2), L).\n```",
+    "réponse": [
+      "L = [1,1,2]."
+    ],
+    "explication": "L’expression `X is 1` provoque une erreur d’instanciation si X n’est pas encore lié avant évaluation.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = [1,1,2].",
+      "L = [1,2].",
+      "L = 1.",
+      "L = [1]."
+    ]
+  },
+  {
+    "question": "```prolog\nsetof(X, member(X, [1,1,2,3]), L).\n```",
+    "réponse": [
+      "L = [1,2,3]."
+    ],
+    "explication": "`setof/3` élimine les doublons et trie les résultats : L = [1,2,3].",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "L = [1,2,3].",
+      "L = [1,1,2,3].",
+      "L = 1.",
+      "L = 2.",
+      "L = 3."
+    ]
+  },
+  {
+    "question": "```prolog\nQ =.. [member, X, [1,2]], Q.\n```",
+    "réponse": [
+      "X = 1 ; X = 2."
+    ],
+    "explication": "L’opérateur `=..` construit `member(X,[1,2])`. L’appel de Q renvoie les deux solutions possibles.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1 ; X = 2.",
+      "Q = member(1, [1, 2]), X = 1.",
+      "Q = member(2, [1, 2]), X = 2."
+    ]
+  },
+  {
+    "question": "```prolog\nQ =.. [not, true], Q.\n```",
+    "réponse": [
+      "false."
+    ],
+    "explication": "`Q` devient `not(true)`, ce qui échoue puisque `true` réussit.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Q = not(true)."
+    ]
+  },
+  {
+    "question": "```prolog\nQ =.. [not, true], not(Q).\n```",
+    "réponse": [
+      "Q = not(true)."
+    ],
+    "explication": "`Q` est `not(true)` (faux), donc `not(Q)` réussit.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Q = not(true).",
+      "Q = true."
+    ]
+  }
+]

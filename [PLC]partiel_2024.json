@@ -1,0 +1,124 @@
+[
+  {
+    "question": "Q=..[+,X,Y], X is 3, Y is 4, Q>6.",
+    "réponse": [
+      "Q = 3+4 , X = 4, Y = 3 ;"
+    ],
+    "explication": "Q est l’expression arithmétique X+Y, soit 3+4=7. Comme 7>6, la requête réussit",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Q = 6 , X = 3, Y = 4 ;",
+      "Q = 3+4 , X = 4, Y = 3 ;"
+    ]
+  },
+  {
+    "question": "Q=..[*,X,Y], X is 2, Y is 3, Q==6.",
+    "réponse": [
+      "false."
+    ],
+    "explication": "Q devient l’expression 2*3 mais n’est pas évaluée. L’opérateur == compare la structure, pas la valeur arithmétique, donc false.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "Q = 6 , X = 2, Y = 3 ;",
+      "Q = 2*3 , X = 2, Y = 3 ;"
+    ]
+  },
+  {
+    "question": "member(X,[1,2]),!,member(Y,[1,2]).",
+    "réponse": [
+      "X = 1, Y = 1;",
+      " X = 1, Y = 2;"
+    ],
+    "explication": "Le cut (!) après le premier member(X,[1,2]) empêche le retour arrière sur X. Donc X=1 uniquement, Y peut être 1 ou 2.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 1;",
+      " X = 1, Y = 2;",
+      " X = 2, Y = 2;",
+      "X = 2, Y = 1;"
+    ]
+  },
+  {
+    "question": "Pour:\n```prolog\nmem(X,[X|_]):-!.\nmem(X,[_|L]):-mem(X,L).\n```\nmem(X,[1,2]),mem(Y,[1,2]).",
+    "réponse": [
+      "X = 1, Y = 1; "
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "X = 1, Y = 1; ",
+      " X = 1, Y = 2;",
+      "X = 2, Y = 1; ",
+      "X = 2, Y = 2;"
+    ]
+  },
+  {
+    "question": "setof(L,mem(3,L),H),length(H,K).",
+    "réponse": [
+      "H = [[3|_]], K=1;"
+    ],
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "H = [[3|_]], K=1;",
+      "H = [[3|_]], K=2;"
+    ]
+  },
+  {
+    "question": "setof(L,member(3,L),H),length(H,K).",
+    "réponse": ["erreur"],
+    "explication": "member(3,L) échoue car L doit être une liste contenant 3, mais L est libre — Prolog génère une erreur d’instanciation.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "K = 0"
+    ]
+  },
+  {
+    "question": "not(not(((L=[1];L=[1,1]),length(L,K),K>1))).",
+    "réponse": ["true."],
+    "explication": "Le double not/1 inverse deux fois la vérité. Une solution (L=[1,1]) donne K=2>1, donc la requête est vraie.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "K = 2, L = [1, 1];",
+      "K = 1, L = [1];",
+      "K = 2;",
+      "K = 1;"
+    ]
+  },
+  {
+    "question": "not(not(((L=[1];L=[1,1]),!,length(L,K),K>1))).",
+    "réponse": "false.",
+    "explication": "Le cut (!) empêche de considérer la seconde alternative L=[1,1]; seule L=[1] est testée, K=1, donc K>1 échoue.",
+    "typing": false,
+    "réponse possible": [
+      "true.",
+      "false.",
+      "erreur",
+      "K = 2, L = [1, 1];",
+      "K = 1, L = [1];",
+      "K = 2;",
+      "K = 1;"
+    ]
+  }
+]

@@ -111,7 +111,8 @@
   {
     "question": "```prolog\nQ =.. [member, X, [1,2]], Q.\n```",
     "réponse": [
-      "X = 1 ; X = 2."
+      "Q = member(1, [1, 2]), X = 1.",
+      "Q = member(2, [1, 2]), X = 2."
     ],
     "explication": "L’opérateur `=..` construit `member(X,[1,2])`. L’appel de Q renvoie les deux solutions possibles.",
     "typing": false,
@@ -153,4 +154,5 @@
       "Q = true."
     ]
   }
+
 ]

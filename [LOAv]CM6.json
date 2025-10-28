@@ -1,0 +1,508 @@
+[
+  {
+    "question": "[Diapo 4] Quelle est la démarche pour introduire des classes abstraites ?",
+    "réponse": "Identifier des facteurs communs, définir une interface, réécrire le code",
+    "explication": "La motivation est de factoriser les comportements communs derrière une interface.",
+    "typing": false,
+    "réponse possible": [
+      "Identifier des facteurs communs, définir une interface, réécrire le code",
+      "Commencer par optimiser, puis profiler, puis documenter",
+      "Coder sans modèle puis refactorer",
+      "Remplacer toutes les classes par des templates"
+    ]
+  },
+  {
+    "question": "[Diapo 5] En UML, écrire une méthode en italique signifie :",
+    "réponse": "La méthode est abstraite",
+    "explication": "En UML, l’italique est l’usage conventionnel pour les membres abstraits.",
+    "typing": false,
+    "réponse possible": [
+      "La méthode est abstraite",
+      "La méthode est statique",
+      "La méthode est finale",
+      "La méthode est inline"
+    ]
+  },
+  {
+    "question": "[Diapo 6] La classe suivante est-elle abstraite ?\n```cpp\nclass AppareilDeMesure {\npublic:\n    virtual void calibrer() = 0;\n    virtual double mesurer() = 0;\n};\n``` \n",
+    "réponse": "Vrai",
+    "explication": "La présence d'au moins une méthode virtuelle pure (=0) rend la classe abstraite.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "[Diapo 7] À propos d’une classe abstraite en C++, cochez ce qui est vrai :",
+    "réponse": [
+      "On peut déclarer des références ou des pointeurs vers elle",
+      "Elle n’est pas instanciable directement"
+    ],
+    "explication": "On manipule les abstractions via références/pointeurs et on instancie des dérivées concrètes.",
+    "typing": false,
+    "réponse possible": [
+      "On peut déclarer des références ou des pointeurs vers elle",
+      "On peut l’instancier directement",
+      "Elle ne peut pas contenir d’attributs",
+      "Elle n’est pas instanciable directement"
+    ]
+  },
+  {
+    "question": "[Diapo 8] Le « bon » choix d’abstraction est :",
+    "réponse": "Dépendant du contexte et relève de la responsabilité du concepteur",
+    "explication": "Plusieurs hiérarchies sont possibles selon les besoins et le domaine.",
+    "typing": false,
+    "réponse possible": [
+      "Unique et imposé par le langage",
+      "Dépendant du contexte et relève de la responsabilité du concepteur",
+      "Toujours la hiérarchie la plus profonde",
+      "Toujours la hiérarchie la plus plate"
+    ]
+  },
+  {
+    "question": "[Diapo 9] « Plusieurs hiérarchies sont possibles selon le contexte » :",
+    "réponse": "Vrai",
+    "explication": "Il n’y a pas une seule modélisation correcte ; tout dépend des usages ciblés.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "[Diapo 11] Associez la bonne sémantique : « = delete » sur un constructeur de copie :",
+    "réponse": "Interdit la copie",
+    "explication": "Marquer un membre « = delete » en interdit l’usage (liage).",
+    "typing": false,
+    "réponse possible": [
+      "Implémente la méthode par défaut du compilateur",
+      "Interdit la copie",
+      "Rend la méthode virtuelle pure",
+      "Autorise l’héritage multiple"
+    ]
+  },
+  {
+    "question": "[Diapo 11] Associez la bonne sémantique : « = default » sur un constructeur de copie :",
+    "réponse": "Implémente la méthode par défaut du compilateur",
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "Implémente la méthode par défaut du compilateur",
+      "Interdit la copie",
+      "Rend la méthode virtuelle pure",
+      "Autorise l’héritage multiple"
+    ]
+  },
+  {
+    "question": "[Diapo 11] Associez le type : « virtual » sur un constructeur de copie :",
+    "réponse": "Rend la méthode virtuelle pure",
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "Implémente la méthode par défaut du compilateur",
+      "Interdit la copie",
+      "Rend la méthode virtuelle pure",
+      "Autorise l’héritage multiple"
+    ]
+  },
+  {
+    "question": "[Diapo 12] Un cas d’usage typique de « = delete » est :",
+    "réponse": [
+      "Empêcher la copie (singletons, ressources uniques)",
+      "Empêcher l’affectation",
+      "Désactiver certaines conversions implicites"
+    ],
+    "explication": "Empêcher la copie (singletons, ressources uniques): Empêcher la copie évite les duplications non souhaitées d’une ressource unique.\nEmpêcher l’affectation: TO DO\nDésactiver certaines conversions implicites: TO DO",
+    "typing": false,
+    "réponse possible": [
+      "Empêcher la copie (singletons, ressources uniques)",
+      "Empêcher l’affectation",
+      "Désactiver certaines conversions implicites",
+      "Forcer la conversion implicite",
+      "Accélérer le code",
+      "Rendre le destructeur noexcept"
+    ]
+  },
+  {
+    "question": "[Diapo 14] Avec une `enum` classique en C++, cochez ce qui est vrai :",
+    "réponse": [
+      "Les identifiants sont dans le namespace englobant",
+      "La conversion implicite vers `int` est possible",
+      "Risque de collision de noms"
+    ],
+    "explication": "Les `enum` simples provoquent collisions de noms et conversions implicites.\n\n```cpp\nenum Color { Red , Green , Orange };\nenum Fruit {Pomme , Orange}; // PB\nColor c = Red; // OK\nint value = Red; // OK (= 0)\nColor d = static_cast <Color >(1);\nswitch (c) {\ncase Red:\n// ...\nbreak;\ncase Green:\n// ...\nbreak;\ndefault :\n// ...\nbreak;\n};\n```",
+    "typing": false,
+    "réponse possible": [
+      "Les identifiants sont dans le namespace englobant",
+      "Les constantes restent dans un namespace dédié",
+      "La conversion implicite vers `int` est possible",
+      "Il est impossible de faire `static_cast<int>(c)`",
+      "Risque de collision de noms"
+    ]
+  },
+  {
+    "question": "[Diapo 15] Avec `enum class Color { Red, Green, Orange };` laquelle est correcte ?",
+    "réponse": "Color c = Color::Red;",
+    "explication": "`enum class` isole les identifiants et interdit la conversion implicite vers int.",
+    "typing": false,
+    "réponse possible": [
+      "Color c = Red;",
+      "Color c = Color::Red; int v = c;",
+      "Color c = Color::Red;",
+      "Color::Red = 0;"
+    ]
+  },
+  {
+    "question": "[Diapo 16] On veut écrire : `if (Keyboard::isKeyPressed(Keyboard::Right)) move(Direction::Right);` Quels choix sont corrects ?",
+    "réponse": [
+      "`Direction` peut être une `enum class`",
+      "`Keyboard::isKeyPressed` est une méthode statique d’une classe `Keyboard`"
+    ],
+    "explication": "`Keyboard` ne peut pas être une `enum class` s’il contient une méthode ; l’identifiant `Right` peut exister comme membre enum interne.",
+    "typing": false,
+    "réponse possible": [
+      "`Direction` peut être une `enum class`",
+      "`Keyboard` doit être une `enum class`",
+      "`Keyboard::isKeyPressed` est une méthode statique d’une classe `Keyboard`",
+      "`Right` ne peut pas être un identifiant de `Keyboard`"
+    ]
+  },
+  {
+    "question": "[Diapo 18] À propos des classes internes en C++ : cochez ce qui est vrai.",
+    "réponse": [
+      "Elles sont toujours définies statiquement",
+      "Elles ont les privilèges d’une classe amie vis-à-vis de la classe englobante",
+      "Pas de privilèges pour la classe englobante"
+    ],
+    "explication": "Pas d’instance englobante à la Java ; l’interne a des privilèges d’amie.",
+    "typing": false,
+    "réponse possible": [
+      "Elles possèdent automatiquement une référence à l’instance englobante",
+      "Elles sont toujours définies statiquement",
+      "Elles ont les privilèges d’une classe amie vis-à-vis de la classe englobante",
+      "La classe englobante a des privilèges sur les privés de l’interne",
+      "Pas de privilèges pour la classe englobante"
+    ]
+  },
+  {
+    "question": "[Diapo 19] Dans le code suivant, `A::B::g(A&)` peut-elle modifier `A::n` privé ?\n```cpp\nclass A{\nprivate:\n  int n;\n  class B{\n  public:\n    void g(A& a);\n  };\n};\nvoid A::B::g(A& a){ a.n++; }\n```\n",
+    "réponse": "Oui",
+    "explication": "La classe interne est considérée comme amie et peut accéder aux privés de A.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[Diapo 20] Dans ce code, pourquoi la ligne `b.x++;` est-elle invalide ?\n```cpp\nclass A{\nprivate:\n  class B{ private: int x; };\n  void f(){ B b; * b.x++; * }\n};\n```\n",
+    "réponse": "Parce que la classe englobante n’a pas de privilèges particuliers sur les membres privés de la classe interne",
+    "explication": "L’accès est privé à B, même pour A qui l’englobe.",
+    "typing": false,
+    "réponse possible": [
+      "Parce que la classe englobante n’a pas de privilèges particuliers sur les membres privés de la classe interne",
+      "Parce que `x` est `static`",
+      "Parce que `x` est `const`",
+      "Parce que `B` n’existe pas pour `A`"
+    ]
+  },
+  {
+    "question": "[Diapo 22] L’objectif des exceptions est :",
+    "réponse": "Séparer le flux normal du traitement des erreurs",
+    "explication": "On évite de mélanger le code nominal et la gestion d’erreurs.",
+    "typing": false,
+    "réponse possible": [
+      "Séparer le flux normal du traitement des erreurs",
+      "Accélérer systématiquement le programme",
+      "Remplacer les codes de retour par des `goto`",
+      "Rendre tout `noexcept`"
+    ]
+  },
+  {
+    "question": "[Diapo 23] Lors d’un `throw`, quelles opérations ont lieu ?",
+    "réponse": [
+      "Remontée de la pile des appels",
+      "Destruction des objets temporaires le long de la remontée",
+      "Recherche d’un `catch` adéquat"
+    ],
+    "explication": "C’est le mécanisme classique d’exception et de *stack unwinding*.",
+    "typing": false,
+    "réponse possible": [
+      "Remontée de la pile des appels",
+      "Duplication des objets existants",
+      "Destruction des objets temporaires le long de la remontée",
+      "Recherche d’un `catch` adéquat"
+    ]
+  },
+  {
+    "question": "[Diapo 24] Cochez ce qui est vrai concernant la syntaxe C++ des exceptions :",
+    "réponse": [
+      "Tout type peut être lancé en exception",
+      "Les exceptions standard se trouvent dans `<stdexcept>`",
+      "L’ordre des `catch` est significatif"
+    ],
+    "explication": "Le matching se fait dans l’ordre, et std propose `runtime_error`, etc.",
+    "typing": false,
+    "réponse possible": [
+      "Tout type peut être lancé en exception",
+      "On doit déclarer les exceptions dans la signature des méthodes",
+      "Les exceptions standard se trouvent dans `<stdexcept>`",
+      "L’ordre des `catch` est significatif"
+    ]
+  },
+  {
+    "question": "[Diapo 25] Considérez le bloc :\n```cpp\ntry {\n  if (condition) throw std::runtime_error{\"Description\"};\n}\ncatch (const std::runtime_error& e) {  }\ncatch (const std::exception& e) {  }\ncatch (...) {  }\n```\nLequel est pris en premier si `condition` est vraie ?",
+    "réponse": "Le `catch (const std::runtime_error& e)`",
+    "explication": "Le premier `catch` compatible et rencontré est sélectionné.",
+    "typing": false,
+    "réponse possible": [
+      "Le `catch (const std::runtime_error& e)`",
+      "Le `catch (const std::exception& e)`",
+      "Le `catch (...)`",
+      "Aucun, le programme termine"
+    ]
+  },
+  {
+    "question": "[Diapo 26] Quelle technique C++ garantit la libération de ressources en cas d’exception ?",
+    "réponse": "RAII (Resource Acquisition Is Initialization)",
+    "explication": "Les destructeurs des objets locaux s’exécutent pendant le *stack unwinding*.",
+    "typing": false,
+    "réponse possible": [
+      "RAII (Resource Acquisition Is Initialization)",
+      "finally obligatoire",
+      "Garbage collector natif",
+      "Ref counting dans `main` uniquement"
+    ]
+  },
+  {
+    "question": "[Diapo 27] Si un constructeur lève une exception, le destructeur de l’objet en construction est-il appelé ?",
+    "réponse": "Non",
+    "explication": "On considère que l’objet n’a jamais été construit de façon cohérente.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[Diapo 28] Considérez le programme suivant. Quelle est exactement la sortie ?\n```cpp\n#include <iostream>\nusing namespace std;\nclass A { \n    public: A(){ cout<<\"A| \"; } \n    ~A(){ cout<<\"mortA| \"; } \n};\n\nclass B : \n    public A { \n        public: \n            B(){ cout<<\"B| \"; throw 1; } \n            ~B(){ cout<<\"mortB| \"; } \n        };\n\nclass C {\n    public:\n        A a; B b;\n        C(): a{}, b{} { cout<<\"C| \"; }\n        ~C(){ cout<<\"mort C| \"; }\n};\n\nint main(){ try { C c; } catch (...) { cout << \"catch| \"; } }\n\n```\n",
+    "réponse": "A| A| B| mortA| mortA| catch| ",
+    "explication": "Ordre : construction de C.a → A ; construction de B (hérite de A donc A) → B puis throw ; on détruit le sous-objet A de B, puis A de C.a, puis on arrive au `catch`. (Affichage concaténé : `A` (C.a), `A` (base de B), `B`, `mort A` (base de B), `mort A` (C.a), `catch`).",
+    "typing": false,
+    "réponse possible": [
+      "A| A| B| mortA| mortA| catch| ",
+      "A| A| B| C| mort C| mortB| mortA| mortA|",
+      "A| A| B| mortB| mortA| mortA| catch| ",
+      "A| A| B| C| mort C| mortB| mortA| mortA|  catch| "
+    ]
+  },
+  {
+    "question": "[Diapo 29] Une exception levée dans un destructeur pendant le *stack unwinding* est :",
+    "réponse": "Irrattrapable et termine le programme",
+    "explication": "Pour éviter les « doubles exceptions », le programme se termine.",
+    "typing": false,
+    "réponse possible": [
+      "Irrattrapable et termine le programme",
+      "Rattrapée par le `catch` le plus proche",
+      "Ignorée silencieusement",
+      "Convertie en `std::bad_alloc`"
+    ]
+  },
+  {
+    "question": "[Diapo 30] À propos de `noexcept`, cochez ce qui est vrai :",
+    "réponse": [
+      "Une exception levée depuis une fonction `noexcept` provoque `std::terminate()`"
+    ],
+    "explication": "Le contrat `noexcept` implique la terminaison si violé.",
+    "typing": false,
+    "réponse possible": [
+      "Une fonction `noexcept` ne peut pas appeler d’autres fonctions",
+      "Une exception levée depuis une fonction `noexcept` provoque `std::terminate()`",
+      "`noexcept` garantit des performances x2",
+      "`noexcept` force l’inlining"
+    ]
+  },
+  {
+    "question": "[Diapo 31] Cochez les affirmations vraies sur les exceptions standard :",
+    "réponse": [
+      "`std::exception::what()` est `noexcept`",
+      "`std::invalid_argument` accepte une chaîne décrivant l’erreur"
+    ],
+    "explication": "Les types standards dérivent de `std::exception` et exposent `what()`.",
+    "typing": false,
+    "réponse possible": [
+      "`std::exception::what()` est `noexcept`",
+      "`std::exception` ne peut pas être instanciée",
+      "`std::invalid_argument` accepte une chaîne décrivant l’erreur",
+      "`what()` retourne un `std::string` par valeur"
+    ]
+  },
+  {
+    "question": "[Diapo 34] Dans la boucle événementielle SFML (pour l'interface graphique), quelle méthode dépile les événements ?",
+    "réponse": "app.pollEvent(event)",
+    "explication": "`pollEvent` extrait les événements en attente vers l’objet `event` passé par référence.",
+    "typing": false,
+    "réponse possible": [
+      "app.waitEvent(event)",
+      "app.pollEvent(event)",
+      "app.nextEvent(event)",
+      "Event::read(event)"
+    ]
+  },
+  {
+    "question": "[Diapo 35] L’appel à `app.display()` a pour effet :",
+    "réponse": "Afficher effectivement le contenu rendu sur la fenêtre",
+    "explication": "Après `clear()` et les `draw()`, `display()` bascule le buffer visible.",
+    "typing": false,
+    "réponse possible": [
+      "Afficher effectivement le contenu rendu sur la fenêtre",
+      "Effacer l’écran",
+      "Fermer la fenêtre",
+      "Bloquer jusqu’au prochain événement"
+    ]
+  },
+  {
+    "question": "[Diapo 37] Que fait `tuile.setScale(0.5, 0.5);` ?",
+    "réponse": "Réduit le sprite d’un facteur 2 sur chaque axe",
+    "explication": "Un scale de 0.5 signifie une réduction à 50% en X et Y.",
+    "typing": false,
+    "réponse possible": [
+      "Réduit le sprite d’un facteur 2 sur chaque axe",
+      "Augmente le sprite de 2x",
+      "Déplace le sprite",
+      "Change la texture"
+    ]
+  },
+  {
+    "question": "[Diapo 38] Différence principale : `Event::KeyPressed` vs `Keyboard::isKeyPressed` ?",
+    "réponse": "Le premier est un événement ponctuel, le second teste un état continu",
+    "explication": "On traite l’instant du déclenchement vs l’état maintenu (utile pour déplacements).",
+    "typing": false,
+    "réponse possible": [
+      "Le premier est un événement ponctuel, le second teste un état continu",
+      "Les deux sont identiques",
+      "Les deux testent un état continu",
+      "Aucun ne permet de lire la touche Espace"
+    ]
+  },
+  {
+    "question": "[Diapo 39] Quelle méthode convertit la position de la souris en coordonnées monde ?",
+    "réponse": "app.mapPixelToCoords(Mouse::getPosition(app))",
+    "explication": "On transforme des pixels en coordonnées de la vue associée à la fenêtre.",
+    "typing": false,
+    "réponse possible": [
+      "app.mapPixelToCoords(Mouse::getPosition(app))",
+      "Mouse::getWorldPos()",
+      "Keyboard::getPosition(app)",
+      "Event::mousePosition()"
+    ]
+  },
+  {
+    "question": "[Diapo 42] Pourquoi introduire un pseudo Garbage Collector dans l’étude de cas ?",
+    "réponse": "Pour centraliser la destruction et éviter des fuites dans un graphe (sommets/arêtes)",
+    "explication": "Les objets alloués dynamiquement doivent être libérés de façon ordonnée.",
+    "typing": false,
+    "réponse possible": [
+      "Pour centraliser la destruction et éviter des fuites dans un graphe (sommets/arêtes)",
+      "Pour accélérer tous les algorithmes de graphe",
+      "Pour remplacer `std::unique_ptr`",
+      "Pour activer un GC natif de C++"
+    ]
+  },
+  {
+    "question": "[Diapo 43] Quel patron convient pour garantir une instance unique du GC ?",
+    "réponse": "Singleton",
+    "explication": "La diapo suggère explicitement un objet unique de gestion.",
+    "typing": false,
+    "réponse possible": [
+      "Singleton",
+      "Factory Method",
+      "Observer",
+      "Strategy"
+    ]
+  },
+  {
+    "question": "[Diapo 45] Dans `Sommet`, pourquoi appeler `Gc::add(this)` dans les constructeurs et `Gc::remove(this)` dans le destructeur ?\n\n```cpp\nclass Sommet {\n    string etiquette;\npublic:\n    Sommet(const string& s) : etiquette{s} { Gc::add(this); }\n    Sommet(const Sommet& s) : etiquette{s.etiquette} { Gc::add(this); }\n    ~Sommet () { Gc:: remove(this); }\n};\n```",
+    "réponse": "Pour enregistrer automatiquement les objets créés et les déréférencer à la destruction",
+    "explication": "Cela rend la gestion centralisée et transparente pour l’utilisateur.",
+    "typing": false,
+    "réponse possible": [
+      "Pour enregistrer automatiquement les objets créés et les déréférencer à la destruction",
+      "Pour empêcher toute allocation dynamique",
+      "Pour activer un GC mark-and-sweep",
+      "Pour sérialiser les sommets en JSON"
+    ]
+  },
+  {
+    "question": "[Diapo 46] Pourquoi cette implémentation de destructeur de GC termine correctement ?\n```cpp\nGc::~Gc(){\n  while(!sommets.empty())\n    delete sommets.front();\n}\n``` \n",
+    "réponse": "Parce que `delete` déclenche `Sommet::~Sommet()` qui enlève l’élément de la liste, faisant progresser la boucle",
+    "explication": "Le `remove` indirect via le destructeur modifie la liste, rendant la boucle finie.",
+    "typing": false,
+    "réponse possible": [
+      "Parce que `delete` déclenche `Sommet::~Sommet()` qui enlève l’élément de la liste, faisant progresser la boucle",
+      "Parce que `front()` parcourt toute la liste",
+      "Parce que `while(true)` est optimisé",
+      "Parce que `delete` ne fait rien"
+    ]
+  },
+  {
+    "question": "[Diapo 47] Quel choix de membre garantit que les extrémités d’une arête sont fixées définitivement ?",
+    "réponse": "`Sommet* const depart; Sommet* const arrivee;`",
+    "explication": "Le pointeur est constant (l’adresse ne change pas), ce qui fige l’extrémité.",
+    "typing": false,
+    "réponse possible": [
+      "`Sommet* const depart; Sommet* const arrivee;`",
+      "`const Sommet* depart; const Sommet* arrivee;`",
+      "`Sommet& depart; Sommet& arrivee;`",
+      "`std::shared_ptr<Sommet> depart; std::shared_ptr<Sommet> arrivee;`"
+    ]
+  },
+  {
+    "question": "[Diapo 6] Dans la classe dérivée, l’usage de `override` est-il recommandé ?",
+    "réponse": "Oui",
+    "explication": "`override` permet au compilateur de vérifier qu’on redéfinit bien une méthode virtuelle existante.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[Diapo 14] Avec `enum` simple, choisissez les risques :",
+    "réponse": [
+      "Collision de noms entre différentes `enum`",
+      "Conversions implicites non désirées vers `int`"
+    ],
+    "explication": "C’est la principale motivation pour préférer `enum class`.",
+    "typing": false,
+    "réponse possible": [
+      "Collision de noms entre différentes `enum`",
+      "Conversions implicites non désirées vers `int`",
+      "Interdiction d’utiliser `switch`",
+      "Incapacité à stocker la valeur"
+    ]
+  },
+  {
+    "question": "[Diapo 24] Complétez : capturer toute exception s’écrit avec le mot clé ?",
+    "réponse": "catch",
+    "explication": "on utilise `catch`, Le *catch-all* utilise l’ellipse.",
+    "typing": true
+  },
+  {
+    "question": "[Diapo 33] Quels modules doivent être liés pour une app graphique SFML minimale ? (la questions est chaud ​🔥​)",
+    "réponse": [
+      "-lsfml-graphics",
+      "-lsfml-window",
+      "-lsfml-system"
+    ],
+    "explication": "Ce trio est l’ensemble standard pour le rendu 2D, la fenêtre et le système.",
+    "typing": false,
+    "réponse possible": [
+      "-lsfml-graphics",
+      "-lsfml-window",
+      "-lsfml-system",
+      "-lsfml-audio"
+    ]
+  }
+]

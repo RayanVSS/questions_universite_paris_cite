@@ -1,0 +1,246 @@
+[
+  {
+    "question": "À la compilation, un fichier .o est généré pour chaque fichier source du programme.",
+    "réponse": "Vrai",
+    "explication": "Chaque fichier source .cpp est compilé en un fichier objet .o avant l’édition de liens.",
+    "typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+  },
+  {
+    "question": "Les déclarations d’un programme sont normalement placées dans les fichiers .hpp.",
+    "réponse": "Vrai",
+    "explication": "Les fichiers d’en-tête .hpp contiennent les déclarations (classes, prototypes, constantes) tandis que les .cpp contiennent les définitions.",
+    "typing": false,
+    "réponse possible": ["Vrai", "Faux"]
+  },
+  {
+    "question": "Que produit le code suivant ?\n```cpp\nint t[]{4,0,9};\nint *p(t);\np++;\ncout << \"Décalage : \" << p-t << \" - Contenu : \";\nfor (int x:t) cout << x << \" \";\n```\n",
+    "réponse": "Décalage : 1 - Contenu : 4 0 9",
+    "explication": "Le pointeur `p` pointe initialement sur t[0], puis `p++` l’avance sur t[1], donc le décalage est 1.",
+    "typing": false,
+    "réponse possible": [
+      "Décalage : 0 - Contenu : 5 0 9",
+      "Décalage : 1 - Contenu : 4 0 9",
+      "Décalage : 1 - Contenu : 0 9",
+      "Décalage : 0 - Contenu : 4 0 9"
+    ]
+  },
+  {
+    "question": "Le programme suivant compile-t-il ?\n```cpp\n#include < vector >\nclass Forest;\nclass Tree {\npublic:\n int label;\n Forest children;\n};\nclass Forest {\npublic:\n std::vector<Tree> trees;\n};\n```",
+    "réponse": "Non",
+    "explication": "La classe Tree contient un objet Forest non encore défini au moment de la déclaration.",
+    "typing": false,
+    "réponse possible": ["Oui", "Non"]
+  },
+  {
+    "question": "Le programme suivant compile-t-il ?\n```cpp\n#include < iostream >\nclass B;\nclass C;\nclass A {\n private:\n  static int x;\n  friend class B;\n};\nclass B { friend class C; };\nclass C {\n public:\n  static void f();\n};\nint A::x = 42;\nvoid C::f() { std::cout << A::x << std::endl; }\nint main() { C::f(); }\n```",
+    "réponse": "Oui",
+    "explication": "Les amitiés en chaîne permettent à C d’accéder à A::x via la relation friend.",
+    "typing": false,
+    "réponse possible": ["Oui", "Non"]
+  },
+  {
+    "question": "Dans le fichier Livre.hpp suivant, faut-il inclure Personne.hpp ?\n```cpp\nclass Personne;\nclass Livre {\n public:\n  Personne *auteur;\n};\n```",
+    "réponse": "Non",
+    "explication": "Une déclaration anticipée (forward declaration) suffit car seul un pointeur vers Personne est utilisé.",
+    "typing": false,
+    "réponse possible": ["Oui", "Non"]
+  },
+  {
+    "question": "Que produit le programme suivant ?\n```cpp\n#include < iostream >\nclass A {\npublic:\n A(){ std::cout << \"A()\"; }\n ~A(){ std::cout << \"~A()\"; }\n};\nclass B: public A {\npublic:\n B(){ std::cout << \"B()\"; }\n ~B(){ std::cout << \"~B()\"; }\n};\nint main(){ B b; }\n```\n",
+    "réponse": "A()B()~B()~A()",
+    "explication": "Les constructeurs s’appellent du parent vers l’enfant, et les destructeurs dans l’ordre inverse.",
+    "typing": false,
+    "réponse possible": [
+      "A()B()~B()~A()",
+      "B()A()~B()~A()",
+      "A()B()~A()~B()"
+    ]
+  },
+  {
+    "question": "Que produit le programme suivant ?\n```cpp\nclass A {\npublic:\nA() : x_(0) { cout << \"A() \"; }\nA(int x) : x_(x) { cout << \"A(\" << x << \") \"; }\n~A() { cout << \"~A():\" << x_; }\n\nprivate:\nint x_;\n};\n\nint main() {\nA a;\nA b(98);\n}\n```",
+    "réponse": "A() A(98) ~A():98 ~A():0",
+    "explication": "Deux objets sont créés : a avec le constructeur par défaut et b avec le constructeur paramétré. Les destructeurs s'exécutent dans l'ordre inverse, affichant les valeurs respectives de x_.",
+    "typing": false,
+    "réponse possible": [
+      "A() A(98) ~A():98 ~A():0 ~A():0",
+      "A() A(98)",
+      "A() A() A(98) ~A():0 ~A():0 ~A():98",
+      "A() A(98) ~A():0 ~A():98",
+      "A() A(98) ~A():98 ~A():0",
+      "A() ~A() A():98 ~A():0"
+    ]
+  },
+  {
+    "question": "Que produit le programme suivant ?\n```cpp\nclass A {\npublic:\nA() : x_(0) { cout << \"A() \"; }\nA(int x) : x_(x) { cout << \"A(\" << x << \") \"; }\n~A() { cout << \"~A():\" << x_; }\n\nprivate:\nint x_;\n};\n\nint main() {\nfor (int i = 0; i < 2; i++) {\nA a(i + 1);\n}\n}\n```",
+    "réponse": "A(1) ~A():1 A(2) ~A():2",
+    "explication": "À chaque itération, un objet A temporaire est créé puis détruit à la fin du bloc de boucle, affichant successivement la création et destruction pour x_ = 1 puis x_ = 2.",
+    "typing": false,
+    "réponse possible": [
+      "A(1) ~A():1 A(2) ~A():2",
+      "A(1) A(2) ~A():1 ~A():2",
+      "A() A(1) A() A(2) ~A():2 ~A():1 ~A():1 ~A():2",
+      "A(1) A(2)",
+      "A(1) A(2) ~A():2 ~A():1",
+      "F() A(1) A() A(2)",
+      "A() A(1) A() A(2) ~A():2 ~A():1 ~A():1 ~A():1 ~A():2"
+    ]
+  },
+  {
+    "question": "Que produit le programme suivant ?\n```cpp\nclass A {\npublic:\nA() : x_(0) { cout << \"A() \"; }\nA(int x) : x_(x) { cout << \"A(\" << x << \") \"; }\n~A() { cout << \"~A():\" << x_; }\n\nprivate:\nint x_;\n};\n\nint main() {\nA* a_ptr[2]{NULL, NULL};\nfor (int i = 0; i < 2; i++) {\na_ptr[i] = new A(i);\n}\n}\n```",
+    "réponse": "A(0) A(1)",
+    "explication": "Deux objets sont alloués dynamiquement dans le tas via `new`. Les destructeurs ne sont pas appelés car aucun `delete` n'est présent.",
+    "typing": false,
+    "réponse possible": [
+      "A(0) A(1) ~A():1 ~A():0",
+      "A(0) ~A():0 A(1) ~A():1",
+      "A(0) A(1) ~A():0 ~A():1",
+      "A() A(0) A() A(1) ~A():1 ~A():0 ~A():0 ~A():0",
+      "A(0) A(1)",
+      "A() A(0) A() A(1) ~A():0 ~A():0 ~A():0 ~A():1",
+      "A() A(0) A() A(1)"
+    ]
+  },
+  {
+    "question": "On donne le code suivant :\n```cpp\n#include <iostream>\nusing namespace std;\n\nint f(int t) { return t; }\nint g(int& t) { return t; }\nint& h(int& t) { return t; }\n\nint main() {\n  int a = 95;\n  int b = a;\n  int& c = a;\n  a = 67;\n  cout << a << \",\" << b << \",\" << c << endl;\n  \n  int v = f(a);\n  int w = g(a);\n  int& y = h(a);\n  int z = h(a);\n  a = 12;\n  cout << a << \",\" << b << \",\" << c << endl;\n  cout << v << \",\" << w << \",\" << y << \",\" << z << endl;\n  \n  return 0;\n}\n```\nÀ l'exécution du code ci-contre, quel est l'affichage obtenu ?",
+    "réponse": "67, 95, 67\n12, 95, 12\n67,67,12,67",
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "67, 95, 95\n12, 95, 95\n67,67,12",
+      "67, 95, 95\n12, 95, 95\n67,67,67,67",
+      "67, 95, 95\n12, 95, 95\n67,67,12,67",
+      "67, 95, 67\n12, 95, 12\n67,67,12,67",
+      "67,95,67\n12,95,12\n67,67,67,67",
+      "67,95,67\n12,95,12\n67,67,12,12",
+      "67, 95, 95\n12, 95, 95\n67,67,67,12",
+      "67,95,67\n12,95,12\n67,67,12,67",
+      "67, 95, 95\n12, 95, 95\n67,12,12,12"
+    ]
+  },
+  {
+    "question": "Cocher les cases qui permettent de compléter ce code sans faire d'erreur à la compilation :\n```cpp\nclass Retour {\npublic:\n Retour(): x(2024){}\n ... retour(); // à compléter\nprivate:\n int x;\n};\n```\n",
+    "réponse": ["const int& retour() const { return x; }", "int retour() const { return 2024; }"],
+    "explication": "On retourne une référence constante à x pour éviter une copie et garantir la constance.",
+    "typing": false,
+    "réponse possible": [
+      "const int& retour() const { return x; }",
+      "const int& retour() { return &x; }",
+      "int& retour() { return &x; }",
+      "int retour() { return &x; }",
+      "int retour() const { return 2024; }",
+      "int& retour() const { return 2024; }"
+    ]
+  },
+  {
+    "question": "On donne la déclaration de la classe A suivante :\n```cpp\n#include < iostream >\n#include < string >\nusing namespace std;\n\nclass Machin {\nprivate:\n  const int n;\n  int y;\n  mutable int u;\npublic:\n  Machin(int n, int y, int u)\n    :n(n),y(y),u(u){}\n  int f() const;\n  void g(int z) const;\n  int h(int const z);\n};\n```\nCocher les définitions qui compilent :",
+    "réponse": ["int Machin::f() const { u = 0; return y; }", "int Machin::h( int const z ) { u= z; return n; }"],
+    "explication": "Les méthodes const peuvent modifier les membres mutable. La méthode h() n'est pas const donc peut modifier u. n est const donc ne peut jamais être modifié après initialisation.",
+    "typing": false,
+    "réponse possible": [
+      "void Machin::g( int z ) const { n = z;}",
+      "int Machin::f() const { u = 0; return y; }",
+      "int Machin::h( int const z ) { n= 2*z; return n; }",
+      "int Machin::f() const { y = 0; return u;}",
+      "int Machin::h( int const z ) { u= z; return n; }"
+    ]
+  },
+  {
+    "question": "On donne la déclaration et définition de la classe Bidule suivante :\n```cpp\n#include < iostream >\nusing namespace std;\n\nclass Bidule {\nprivate:\n  int x;\npublic:\n  Bidule(int n) :x(n){};\n  virtual ~Bidule(){}\n  Bidule( const Bidule& a) :x(a.x){}\n  int getX(){return x;}\n};\n\nBidule g (Bidule b){ return b; }\nint h (Bidule *c){ return c->getX(); }\n```\nDans cet exercice et le suivant, on compile en refusant les optimisations liées aux constructeurs.\n\nÀ l'exécution du code suivant, combien y a-t-il d'appels à des constructeurs directs, à des constructeurs de copies ?\n```cpp\nint main() {\n  Bidule *r = new Bidule(8);\n  int i {h(r)};\n  delete r;\n  return EXIT_SUCCESS;\n}\n```",
+    "réponse": "1 constructeur, 0 constructeur de copie",
+    "explication": "Un seul objet Bidule est créé dynamiquement avec new Bidule(8), ce qui appelle le constructeur direct. La fonction h() prend un pointeur, donc aucune copie n'est effectuée.",
+    "typing": false,
+    "réponse possible": [
+      "0 constructeur, 1 constructeur de copie",
+      "0 constructeur, 2 constructeur de copie",
+      "1 constructeur, 0 constructeur de copie",
+      "1 constructeur, 1 constructeur de copie",
+      "1 constructeur, 2 constructeurs de copie",
+      "2 constructeurs, 0 constructeur de copie",
+      "2 constructeurs, 1 constructeur de copie",
+      "2 constructeurs, 2 constructeurs de copie",
+      "3 constructeurs, 0 constructeur de copie"
+    ]
+  },
+  {
+    "question": "On donne la déclaration et définition de la classe Bidule suivante :\n```cpp\n#include < iostream >\nusing namespace std;\n\nclass Bidule {\nprivate:\n  int x;\npublic:\n  Bidule(int n) :x(n){};\n  virtual ~Bidule(){}\n  Bidule( const Bidule& a) :x(a.x){}\n  int getX(){return x;}\n};\n\nBidule g (Bidule b){ return b; }\nint h (Bidule *c){ return c->getX(); }\n```\nDans cet exercice et le suivant, on compile en refusant les optimisations liées aux constructeurs.\n\nÀ l'exécution du code suivant, combien y a-t-il d'appels à des constructeurs directs, à des constructeurs de copies ?\n```cpp\nint main() {\n  Bidule p{5};\n  Bidule *q{&p};\n  *q = g(p);\n  return EXIT_SUCCESS;\n}\n```",
+    "réponse": "1 constructeur, 2 constructeurs de copie",
+    "explication": "1 constructeur direct pour p{5}. Premier constructeur de copie : passage par valeur de p à la fonction g(). Deuxième constructeur de copie : retour par valeur de g() qui est ensuite affecté à *q (l'affectation utilise le constructeur de copie car il n'y a pas d'optimisation).",
+    "typing": false,
+    "réponse possible": [
+      "0 constructeur, 1 constructeur de copie",
+      "0 constructeur, 2 constructeur de copie",
+      "1 constructeur, 0 constructeur de copie",
+      "1 constructeur, 1 constructeur de copie",
+      "1 constructeur, 2 constructeurs de copie",
+      "2 constructeurs, 0 constructeur de copie",
+      "2 constructeurs, 1 constructeur de copie",
+      "2 constructeurs, 2 constructeurs de copie",
+      "3 constructeurs, 0 constructeur de copie"
+    ]
+  },
+  {
+    "question": "On donne le code suivant :\n```cpp\nclass A{\nprivate:\n  A *a;\npublic:\n  A(int x) :x(x){}\n  int get() const { return x; }\n};\n\nclass B{\nprivate:\n  A *a;\npublic:\n  B(int a) :a(new A(a)){}\n  int get() const { return a->get(); }\n};\n\nclass C{\nprivate:\n  B b;\npublic:\n  C(int z) :b(z){}\n  int get() const { return b.get(); }\n};\n\nint main(){\n  int x = 6;\n  C c(x);\n  if(c.get()%2 == 0) { C c2(x); }\n  cout << c.get() << endl;\n  return 0;\n}\n```\nCocher les cases qui donnent une réponse correcte et cocher les corrections absolument nécessaires (et rien de plus) afin que le code compile et s'exécute correctement sans erreur, ni fuite de mémoire :",
+    "réponse": ["le code ne compile pas", "ajouter un constructeur de copie à la classe B", "ajouter un destructeur à la classe C", "ajouter un destructeur à la classe A"],
+    "explication": "Le code ne compile pas car la classe A a un membre privé 'a' non initialisé dans le constructeur, et manque un membre 'x'. Pour corriger : il faut ajouter un constructeur de copie à B (pour gérer la copie de C qui contient B), et un destructeur à C pour libérer la mémoire allouée par B.",
+    "typing": false,
+    "réponse possible": [
+      "il y a des erreurs à l'exécution",
+      "le code ne compile pas",
+      "le code ne termine pas lors de l'exécution",
+      "le code provoque une fuite de mémoire",
+      "Pour résoudre le probleme: ajouter un constructeur de copie à la classe B",
+      "Pour résoudre le probleme: ajouter un constructeur de copie à la classe C",
+      "Pour résoudre le probleme: ajouter un constructeur de copie à la classe A",
+      "Pour résoudre le probleme: ajouter un destructeur à la classe B",
+      "Pour résoudre le probleme: ajouter un destructeur à la classe C",
+      "Pour résoudre le probleme: ajouter un destructeur à la classe A"
+    ]
+  },
+  {
+    "question": "Soit le code suivant :\n```cpp\nclass A {\npublic:\n  void f_pub() ;\nprotected:\n  void f_prot();\n};\n\nclass B : protected A {\npublic:\n  void g() ;\n};\n\nclass C: public B {\npublic:\n  void h();\n};\n\nvoid A::f_pub() {\n  A aa; B ba; C ca;\n  aa.f_prot(); // (1)\n  ba.f_prot(); // (2)\n  ca.f_prot(); // (3)\n}\n\nvoid A::f_prot() {};\n\nvoid B::g() {\n  A ab; B bb; C cb;\n  ab.f_prot(); // (4)\n  bb.f_prot(); // (5)\n  cb.f_prot(); // (6)\n};\n\nvoid C::h() {\n  A ac; B bc; C cc;\n  ac.f_prot(); // (7)\n  bc.f_prot(); // (8)\n  cc.f_prot(); // (9)\n}\n```\nCocher les cases qui correspondent aux appels (identifiés par le numéro en commentaire) qui ne compilent pas :",
+    "réponse": ["(8)", "(2)", "(3)", "(9)", "(1)", "(5)", "(7)", "(4)"],
+    "explication": "Avec l'héritage protected, les membres publics et protected de A deviennent protected dans B. Seuls les appels depuis l'objet courant ou ses dérivés via 'this' implicite compilent. Les appels directs sur des objets externes ne compilent pas.",
+    "typing": false,
+    "réponse possible": ["(8)", "(2)", "(3)", "(9)", "(1)", "(5)", "(7)", "(6)", "(4)"]
+  },
+  {
+    "question": "On considère le code suivant :\n```cpp\nclass D {\npublic:\n  ~D() {cout << \"D::~D() called\";}\n};\n\nclass E : public D{\nprotected:\n  ~E() {cout << \"E::~E() called\";}\n};\n\nclass F : public E{\npublic:\n  ~F() {cout << \"F::~F() called\";}\n};\n\nint main() {\n  E e;\n  F f;\n  D* dp = new F();\n  delete dp;\n  return EXIT_SUCCESS;\n}\n```\nCocher l'affirmation correcte :",
+    "réponse": "la ligne **\"F f;\"**  est acceptable, la ligne **\"E e;\"** fait échouer la compilation",
+    "explication": "",
+    "typing": false,
+    "réponse possible": [
+      "la ligne **\"F f;\"**  est acceptable, la ligne **\"E e;\"** fait échouer la compilation",
+      "la ligne **\"E e;\"** est acceptable mais la ligne **\"F f;\"** fait échouer la compilation",
+      "la ligne **\"E e;\"** et la ligne **\"F f;\"** font échouer la compilation",
+      "avec les lignes **\"E e;\"** et **\"F f;\"** le code compile"
+    ]
+  },
+  {
+    "question": "On numérote les affichages possibles lors de la destruction des objets créés au cours de l'exécution du programme de la question précédente :\n```\n(1) D::~D() called\n(2) E::~E() called\n(3) F::~F() called\n```\nCocher la case qui correspond aux affichages lors de la destruction de dp :",
+    "réponse": "(1)",
+    "explication": "Seul le destructeur de D est appelé car le destructeur n'est pas virtuel et dp est de type D*. Les destructeurs de E et F ne sont pas appelés, causant une fuite de ressources potentielle.",
+    "typing": false,
+    "réponse possible": [
+      "(3)(2)(1)",
+      "(1)",
+      "(1)(3)",
+      "(1)(2)(3)",
+      "(3)",
+      "(1)(3)(2)"
+    ]
+  },
+  {
+    "question": "On considère le code suivant :\n```cpp\nclass Base {\npublic:\n  virtual void show() { cout << \"Base\"; }\n};\n\nclass Derived : public Base {\npublic:\n  void show() { cout << \"Derived\"; }\n};\n\nclass Wrapper {\npublic:\n  Wrapper(Base& b) : ref(b) {}\n  void callShow() { ref.show(); }\n  void changeObject(Base& newRef) {\n    ref = newRef;\n  }\nprivate:\n  Base& ref;\n};\n\nint main(){\n  Derived d;\n  Base b;\n  Wrapper wrapper(d);\n  wrapper.callShow();\n  wrapper.changeObject(b);\n  wrapper.callShow();\n  return EXIT_SUCCESS;\n}\n```\nCocher la case qui donne l'affichage obtenu à l'exécution du code :",
+    "réponse": "Derived Derived",
+    "explication": "Le Wrapper contient une référence à l'objet d. Même après changeObject(b), la référence pointe toujours vers d (on ne peut pas réassigner une référence). Les deux appels à callShow() affichent donc 'Derived'.",
+    "typing": false,
+    "réponse possible": [
+      "Base Base",
+      "Base Derived",
+      "Derived Base",
+      "Derived Derived"
+    ]
+  }
+
+]

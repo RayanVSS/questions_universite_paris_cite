@@ -181,7 +181,7 @@
   },
   {
     "question": "On donne le code suivant :\n```cpp\n#include < iostream >\nusing namespace std;\n\nclass A{\nprivate:\n  int x;\npublic:\n  A(int x) :x(x){}\n  int get() const { return x; }\n};\n\nclass B{\nprivate:\n  A *a;\npublic:\n  B(int a) :a(new A(a)){}\n  int get() const { return a->get(); }\n};\n\nclass C{\nprivate:\n  B b;\npublic:\n  C(int z) :b(z){}\n  int get() const { return b.get(); }\n};\n\nint main(){\n  int x = 6;\n  C c(x);\n  if(c.get()%2 == 0) { C c2(x); }\n  cout << c.get() << endl;\n  return 0;\n}\n```\nCocher les cases qui donnent une réponse correcte et cocher les corrections absolument nécessaires (et rien de plus) afin que le code compile et s'exécute correctement sans erreur, ni fuite de mémoire :",
-    "réponse": ["le code ne compile pas","Pour résoudre le probleme: ajouter un destructeur à la classe B","Pour résoudre le probleme: ajouter un constructeur de copie à la classe B"],
+    "réponse": ["le code provoque une fuite de mémoire","Pour résoudre le probleme: ajouter un destructeur à la classe B","Pour résoudre le probleme: ajouter un constructeur de copie à la classe B"],
     "explication": "Le code ne compile pas car la classe A a un membre privé 'a' non initialisé dans le constructeur, et manque un membre 'x'. Pour corriger : il faut ajouter un constructeur de copie à B (pour gérer la copie de C qui contient B), et un destructeur à C pour libérer la mémoire allouée par B.",
     "typing": false,
     "réponse possible": [
@@ -244,6 +244,7 @@
   }
 
 ]
+
 
 
 

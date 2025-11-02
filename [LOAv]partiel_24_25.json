@@ -120,15 +120,15 @@
   },
   {
     "question": "Cocher les cases qui permettent de compléter ce code sans faire d'erreur à la compilation :\n```cpp\nclass Retour {\npublic:\n Retour(): x(2024){}\n ... retour(); // à compléter\nprivate:\n int x;\n};\n```\n",
-    "réponse": ["const int& retour() const { return x; }", "int retour() const { return 2024; }"],
-    "explication": "On retourne une référence constante à x pour éviter une copie et garantir la constance.",
+    "réponse": ["const int& retour() const { return x; }", "int retour() { return 2024; }","int& retour() { return x; }"],
+    "explication": "",
     "typing": false,
     "réponse possible": [
       "const int& retour() const { return x; }",
       "const int& retour() { return &x; }",
-      "int& retour() { return &x; }",
+      "int& retour() { return x; }",
       "int retour() { return &x; }",
-      "int retour() const { return 2024; }",
+      "int retour() { return 2024; }",
       "int& retour() const { return 2024; }"
     ]
   },
@@ -244,6 +244,7 @@
   }
 
 ]
+
 
 
 

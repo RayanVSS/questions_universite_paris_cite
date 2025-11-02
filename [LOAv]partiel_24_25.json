@@ -217,7 +217,7 @@
     ]
   },
   {
-    "question": "On numérote les affichages possibles lors de la destruction des objets créés au cours de l'exécution du programme de la question précédente :\n```\n(1) D::~D() called\n(2) E::~E() called\n(3) F::~F() called\n```\nCocher la case qui correspond aux affichages lors de la destruction de dp :",
+    "question": "On considère le code suivant :\n```cpp\nclass D {\npublic:\n  ~D() {cout << \"D::~D() called\";}\n};\n\nclass E : public D{\nprotected:\n  ~E() {cout << \"E::~E() called\";}\n};\n\nclass F : public E{\npublic:\n  ~F() {cout << \"F::~F() called\";}\n};\n\nint main() {\n  E e;\n  F f;\n  D* dp = new F();\n  delete dp;\n  return EXIT_SUCCESS;\n}\n```\nOn numérote les affichages possibles lors de la destruction des objets créés au cours de l'exécution du programme de la question précédente :\n```\n(1) D::~D() called\n(2) E::~E() called\n(3) F::~F() called\n```\nCocher la case qui correspond aux affichages lors de la destruction de dp :",
     "réponse": "(1)",
     "explication": "Seul le destructeur de D est appelé car le destructeur n'est pas virtuel et dp est de type D*. Les destructeurs de E et F ne sont pas appelés, causant une fuite de ressources potentielle.",
     "typing": false,
@@ -244,3 +244,4 @@
   }
 
 ]
+

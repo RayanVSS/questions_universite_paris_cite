@@ -1,7 +1,7 @@
 [
   {
     "question": "À la compilation, un fichier .o est généré pour chaque fichier source du programme.",
-    "réponse": "Vrai",
+    "réponse": "Faux",
     "explication": "Chaque fichier source .cpp est compilé en un fichier objet .o avant l’édition de liens.",
     "typing": false,
     "réponse possible": ["Vrai", "Faux"]
@@ -244,6 +244,7 @@
   }
 
 ]
+
 
 
 

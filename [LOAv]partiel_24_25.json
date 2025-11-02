@@ -199,10 +199,10 @@
   },
   {
     "question": "Soit le code suivant :\n```cpp\nclass A {\npublic:\n  void f_pub() ;\nprotected:\n  void f_prot();\n};\n\nclass B : protected A {\npublic:\n  void g() ;\n};\n\nclass C: public B {\npublic:\n  void h();\n};\n\nvoid A::f_pub() {\n  A aa; B ba; C ca;\n  aa.f_prot(); // (1)\n  ba.f_prot(); // (2)\n  ca.f_prot(); // (3)\n}\n\nvoid A::f_prot() {};\n\nvoid B::g() {\n  A ab; B bb; C cb;\n  ab.f_prot(); // (4)\n  bb.f_prot(); // (5)\n  cb.f_prot(); // (6)\n};\n\nvoid C::h() {\n  A ac; B bc; C cc;\n  ac.f_prot(); // (7)\n  bc.f_prot(); // (8)\n  cc.f_prot(); // (9)\n}\n```\nCocher les cases qui correspondent aux appels (identifiés par le numéro en commentaire) qui ne compilent pas :",
-    "réponse": ["(8)", "(2)", "(3)", "(9)", "(1)", "(5)", "(7)", "(4)"],
+    "réponse": ["(8)", "(2)", "(3)", "(7)", "(4)"],
     "explication": "Avec l'héritage protected, les membres publics et protected de A deviennent protected dans B. Seuls les appels depuis l'objet courant ou ses dérivés via 'this' implicite compilent. Les appels directs sur des objets externes ne compilent pas.",
     "typing": false,
-    "réponse possible": ["(8)", "(2)", "(3)", "(7)", "(4)"]
+    "réponse possible": ["(8)", "(2)", "(3)", "(9)", "(1)", "(5)", "(7)", "(4)"]
   },
   {
     "question": "On considère le code suivant :\n```cpp\nclass D {\npublic:\n  ~D() {cout << \"D::~D() called\";}\n};\n\nclass E : public D{\nprotected:\n  ~E() {cout << \"E::~E() called\";}\n};\n\nclass F : public E{\npublic:\n  ~F() {cout << \"F::~F() called\";}\n};\n\nint main() {\n  E e;\n  F f;\n  D* dp = new F();\n  delete dp;\n  return EXIT_SUCCESS;\n}\n```\nCocher l'affirmation correcte :",
@@ -244,6 +244,7 @@
   }
 
 ]
+
 
 
 

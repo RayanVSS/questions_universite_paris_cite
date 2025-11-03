@@ -34,7 +34,7 @@
   },
   {
     "question": "Le programme suivant compile-t-il ?\n```cpp\n#include < iostream >\nclass B;\nclass C;\nclass A {\n private:\n  static int x;\n  friend class B;\n};\nclass B { friend class C; };\nclass C {\n public:\n  static void f();\n};\nint A::x = 42;\nvoid C::f() { std::cout << A::x << std::endl; }\nint main() { C::f(); }\n```",
-    "réponse": "Oui",
+    "réponse": "Non",
     "explication": "Les amitiés en chaîne permettent à C d’accéder à A::x via la relation friend.",
     "typing": false,
     "réponse possible": ["Oui", "Non"]
@@ -244,6 +244,7 @@
   }
 
 ]
+
 
 
 

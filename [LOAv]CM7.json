@@ -1,0 +1,194 @@
+[
+  {
+    "question": "[CM7 slide 4] En C++, une classe dérivée B par héritage public de A :",
+    "réponse": ["Est un A","Il \"possède\" par sa structure les attributs et méthodes qu’ont les A"],
+    "explication": "Avec un héritage public, B est un sous-type de A : un objet B peut être utilisé comme un A.",
+    "typing": false,
+    "réponse possible": [
+      "Est un A",
+      "Il \"possède\" par sa structure les attributs et méthodes qu’ont les A",
+      "Contient un A uniquement",
+      "N’a aucun lien de type avec A",
+      "Copie les méthodes de A sans relation de type"
+    ]
+  },
+  {
+    "question": "[CM7 slide 5] L’héritage privé en C++ est fonctionnellement proche de :",
+    "réponse": "La composition",
+    "explication": "L’héritage privé cache le sous-typage, comme la composition : on ne peut plus utiliser B comme un A.",
+    "typing": false,
+    "réponse possible": [
+      "La composition",
+      "L’héritage public",
+      "Les templates",
+      "Les interfaces"
+    ]
+  },
+  {
+    "question": "[CM7 slide 6] En héritage multiple, pourquoi un appel de fonction peut-il être ambigu ?",
+    "réponse": "Parce que plusieurs classes de base peuvent définir la même nom de fonction",
+    "explication": "Si A1 et A2 définissent toutes deux `f()`, le compilateur ne sait pas laquelle appeler sans qualification.",
+    "typing": false,
+    "réponse possible": [
+      "Parce que plusieurs classes de base peuvent définir la même nom de fonction",
+      "Parce que les fonctions virtuelles ne sont pas supportées",
+      "Parce que les classes dérivées ne peuvent pas redéfinir les fonctions"
+    ]
+  },
+  {
+    "question": "[CM7 slide 6] Comment lever une ambiguïté en héritage multiple ?",
+    "réponse": "En qualifiant avec le nom de la classe de base",
+    "explication": "On écrit par exemple `A1::f()` ou `A2::f()` pour préciser la partie de l’objet utilisée.",
+    "typing": false,
+    "réponse possible": [
+      "En qualifiant avec le nom de la classe de base",
+      "En utilisant `using namespace`",
+      "En rendant la méthode virtuelle",
+      "En ajoutant un destructeur virtuel"
+    ]
+  },
+  {
+    "question": "[CM7 slide 7] Dans quel ordre sont construits les objets en héritage multiple ?",
+    "réponse": "Bases dans l’ordre de déclaration, puis attributs",
+    "explication": "L’ordre de construction dépend uniquement de l’ordre d’héritage dans la déclaration de la classe.",
+    "typing": false,
+    "réponse possible": [
+      "Bases dans l’ordre de déclaration, puis attributs",
+      "Bases dans l’ordre des initialisateurs",
+      "Attributs avant les bases",
+      "Ordre indéfini"
+    ]
+  },
+  {
+    "question": "[CM7 slide 7] L’ordre de destruction des objets est :",
+    "réponse": "L’inverse de l’ordre de construction",
+    "explication": "Les objets sont détruits en ordre inverse pour garantir la cohérence des dépendances.",
+    "typing": false,
+    "réponse possible": [
+      "L’inverse de l’ordre de construction",
+      "Le même ordre que la construction",
+      "Un ordre aléatoire",
+      "Défini par le destructeur"
+    ]
+  },
+  {
+    "question": "[CM7 slide 8] Le « cas du diamant » correspond à :",
+    "réponse": "Deux chemins d’héritage vers une même classe de base",
+    "explication": "Une classe C est héritée par A1 et A2, puis B hérite de A1 et A2.",
+    "typing": false,
+    "réponse possible": [
+      "Deux chemins d’héritage vers une même classe de base",
+      "Une boucle d’héritage",
+      "Un héritage circulaire",
+      "Une composition récursive"
+    ]
+  },
+  {
+    "question": "[CM7 slide 9] Sans héritage virtuel, le cas du diamant entraîne : \n```cpp\nclass C {\npublic:\n    int z;\n};\n\nclass A1 : public C {};\nclass A2 : public C {};\nclass B : public A1, public A2 {};\n```",
+    "réponse": "Deux instances distinctes de la classe de base",
+    "explication": "Chaque chemin d’héritage crée sa propre instance de la classe C.",
+    "typing": false,
+    "réponse possible": [
+      "Deux instances distinctes de la classe de base",
+      "Une seule instance partagée",
+      "Une erreur de compilationtique",
+      "Une fusion automatique des attributs"
+    ]
+  },
+  {
+    "question": "[CM7 slide 12] Le mot-clé `virtual` sur une base signifie :\n```cpp\nclass C {\npublic:\n    int z;\n};\n\nclass A1 : virtual public C {};\nclass A2 : virtual public C {};\nclass B : public A1, public A2 {}; \n```",
+    "réponse": "Que la base est partagée entre tous les chemins d’héritage",
+    "explication": "Une base virtuelle n’existe qu’en un seul exemplaire, même en héritage multiple.",
+    "typing": false,
+    "réponse possible": [
+      "Que la base est partagée entre tous les chemins d’héritage",
+      "Que toutes les méthodes deviennent virtuelles",
+      "Que la classe ne peut pas être instanciée",
+      "Que la copie est interdite"
+    ]
+  },
+  {
+    "question": "[CM7 slide 12] Qui est responsable de la construction d’une base virtuelle ?",
+    "réponse": "La classe la plus dérivée",
+    "explication": "La construction d’une base virtuelle est reportée au type réel le plus dérivé.",
+    "typing": false,
+    "réponse possible": [
+      "La classe la plus dérivée",
+      "La première classe intermédiaire",
+      "La classe virtuelle elle-même",
+      "Le compilateur automatiquement"
+    ]
+  },
+  {
+    "question": "[CM7 slide 14] Oublier d’initialiser une base virtuelle entraîne :",
+    "réponse": "Une erreur de compilation",
+    "explication": "Si aucun constructeur par défaut n’existe pour la base virtuelle, la compilation échoue.",
+    "typing": false,
+    "réponse possible": [
+      "Une erreur de compilation",
+      "Une initialisation implicite à 0",
+      "Une exception à l’exécution",
+      "Une fuite mémoire"
+    ]
+  },
+  {
+    "question": "[CM7 slide 15] Dans un héritage mixte (virtual et non virtual), combien d’instances de la base peut-on avoir ?",
+    "réponse": "1 pour les virtuels et plusieurs pour les non virtuels",
+    "explication": "Les héritages non virtuels créent leurs propres instances, les virtuels partagent la leur.",
+    "typing": false,
+    "réponse possible": [
+      "Une seule",
+      "Deux exactement, une pour les virtuels et une pour les non virtuels",
+      "Aucune",
+      "1 pour les virtuels et plusieurs pour les non virtuels"
+    ]
+  },
+  {
+    "question": "[CM7 slide 16] Toute classe dont la hiérarchie contient une base virtuelle doit :",
+    "réponse": "Construire explicitement la base virtuelle",
+    "explication": "C’est une règle générale du langage C++ pour garantir une construction cohérente.",
+    "typing": false,
+    "réponse possible": [
+      "Construire explicitement la base virtuelle",
+      "Déclarer un destructeur virtuel",
+      "Interdire la copie",
+      "Utiliser des pointeurs"
+    ]
+  },
+  {
+    "question": "[CM7 slide 18] Lors des destructions en héritage multiple, l’ordre dépend :",
+    "réponse": "De l’ordre de déclaration des héritages",
+    "explication": "L’ordre lexical des bases détermine l’ordre de construction et donc l’inverse pour la destruction.",
+    "typing": false,
+    "réponse possible": [
+      "De l’ordre de déclaration des héritages",
+      "De l’ordre des constructeurs",
+      "Du type dynamique",
+      "Du nombre d’attributs"
+    ]
+  },
+  {
+    "question": "[CM7 slide 21] Dans l'exercice Composant / Clavier / Écran / Ordi, pourquoi faut-il qualifier `x.Clavier::num`? \n```cpp\nclass Composant {\n    static int NB;\npublic:\n    const string num;\n    Composant() : num{to_string(NB++)} {}\n};\n\nint Composant::NB=0;\n\nclass Clavier : public Composant {};\nclass Ecran : public Composant {};\nclass Ordi : public Clavier, public Ecran {};\n\nint main () {\n    Clavier c ;\n    cout << c.num ;\n    Ordi x ;\n    cout << x.Clavier::num << \" \" << x.Ecran::num ;\n}\n```", 
+    "réponse": "Parce que Ordi possède deux instances distinctes de Composant",
+    "explication": "Sans héritage virtuel, chaque branche apporte sa propre instance.",
+    "typing": false,
+    "réponse possible": [
+      "Parce que Ordi possède deux instances distinctes de Composant",
+      "Parce que `num` est public",
+      "Parce que `num` est statique",
+      "Parce que `num` est constant"
+    ]
+  },
+  {
+    "question": "[CM7 slide 26] Dans l’exemple Animal / Carnivore / Herbivore / Omnivore, pourquoi utiliser `virtual` ? ```cpp\nclass Animal {\npublic:\n    const string adn;\n    Animal(string x) : adn{x} {}\n};\n\nclass Herbivore : virtual public Animal {};\nclass Carnivore : virtual public Animal {};\n\nclass Omnivore : public Herbivore, public Carnivore {\npublic:\n    Omnivore(string x) : Animal{x}, Herbivore{x}, Carnivore{x} {}\n};\n```",
+    "réponse": "Pour garantir une seule instance d’Animal",
+    "explication": "L’héritage virtuel évite la duplication de la base Animal dans Omnivore.",
+    "typing": false,
+    "réponse possible": [
+      "Pour garantir une seule instance d’Animal",
+      "Pour améliorer les performances",
+      "Pour autoriser la copie",
+      "Pour éviter les références"
+    ]
+  }
+]

@@ -1,0 +1,208 @@
+[
+  {
+    "question": "[CM9] Quel problème principal les templates cherchent-ils à résoudre ?",
+    "réponse": "La duplication de code pour plusieurs types",
+    "explication": "Les templates permettent d’écrire un algorithme générique utilisable pour plusieurs types.",
+    "typing": false,
+    "réponse possible": [
+      "La duplication de code pour plusieurs types",
+      "Le manque d’héritage",
+      "L’absence de classes abstraites",
+      "Les problèmes de performance mémoire"
+    ]
+  },
+  {
+    "question": "[CM9] Dans `template <typename T>`, `T` représente :",
+    "réponse": "Un paramètre de type",
+    "explication": "`T` est un type générique déterminé lors de l’instanciation du template.",
+    "typing": false,
+    "réponse possible": [
+      "Un paramètre de type",
+      "Une variable globale",
+      "Un pointeur",
+      "Un alias"
+    ]
+  },
+  {
+    "question": "[CM9] Le code suivant est-il valide ?\n```cpp\ntemplate <typename T>\nT min(T a, T b) { return a < b ? a : b; }\nmin(3, 4);\n```",
+    "réponse": "Oui",
+    "explication": "Le compilateur déduit T comme étant `int`.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[CM9] Le code suivant compile-t-il ?\n```cpp\nmin(2, 3.5);\n```",
+    "réponse": "Faux",
+    "explication": "Le type T ne peut pas être déduit à la fois comme int et double.",
+    "typing": false,
+    "réponse possible": [
+      "Vrai",
+      "Faux"
+    ]
+  },
+  {
+    "question": "[CM9] Le template suivant est-il bien conçu ?\n```cpp\ntemplate <typename T1, typename T2>\nT1 min(T1 a, T2 b);\n```",
+    "réponse": "Non",
+    "explication": "Il n’est pas symétrique et peut produire des résultats incohérents.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[CM9] À quel moment un template est-il réellement compilé ?",
+    "réponse": "Lors de son instanciation",
+    "explication": "Le code est généré uniquement lorsqu’un type concret est utilisé.",
+    "typing": false,
+    "réponse possible": [
+      "Lors de sa déclaration",
+      "Lors de son instanciation",
+      "À l’édition de liens",
+      "À l’exécution"
+    ]
+  },
+  {
+    "question": "[CM9] Le template suivant impose quelle contrainte implicite sur T ?\n```cpp\ntemplate <typename T>\nT min(T a, T b) { return a < b ? a : b; }\n```",
+    "réponse": "L’opérateur < doit être défini pour T",
+    "explication": "Le template suppose que l’opérateur < existe pour le type T.",
+    "typing": false,
+    "réponse possible": [
+      "L’opérateur < doit être défini pour T",
+      "T doit hériter d’une classe",
+      "T doit être un type numérique",
+      "T doit être pointeur"
+    ]
+  },
+  {
+    "question": "[CM9] Pourquoi les templates doivent-ils être visibles dans les headers ?",
+    "réponse": "Parce que le compilateur génère le code à l’instanciation",
+    "explication": "Sans accès au code, le compilateur ne peut pas instancier le template.",
+    "typing": false,
+    "réponse possible": [
+      "Parce que le compilateur génère le code à l’instanciation",
+      "À cause du linker",
+      "Pour des raisons de sécurité",
+      "Pour optimiser l’exécution"
+    ]
+  },
+  {
+    "question": "[CM9] Où doit-on placer l’implémentation d’un template ?",
+    "réponse": "Dans le header",
+    "explication": "Les templates ne supportent pas la compilation séparée.",
+    "typing": false,
+    "réponse possible": [
+      "Dans le header",
+      "Dans un fichier .cpp",
+      "Dans main.cpp",
+      "Dans une bibliothèque dynamique"
+    ]
+  },
+  {
+    "question": "[CM9] Le code suivant peut-il provoquer une instanciation infinie ?\n```cpp\ntemplate <typename T>\nvoid f(T x, int n) {\n if (n == 0) return;\n vector<T> v;\n v.push_back(x);\n f(v, n - 1);\n}\n```",
+    "réponse": "Oui",
+    "explication": "Chaque appel génère un nouveau type vector<T>, vector<vector<T>>, etc.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[CM9] Qu’est-ce qu’une spécialisation complète de template ?",
+    "réponse": "Une implémentation spécifique pour un type donné",
+    "explication": "Elle remplace le template générique pour un type précis.",
+    "typing": false,
+    "réponse possible": [
+      "Une implémentation spécifique pour un type donné",
+      "Une surcharge classique",
+      "Un alias de type",
+      "Un macro"
+    ]
+  },
+  {
+    "question": "[CM9] Quelle syntaxe indique une spécialisation complète ?",
+    "réponse": "template <>",
+    "explication": "`template <>` est obligatoire pour une spécialisation complète.",
+    "typing": false,
+    "réponse possible": [
+      "template <>",
+      "template <string>",
+      "template <class string>",
+      "template <typename string>"
+    ]
+  },
+  {
+    "question": "[CM9] En cas de conflit, quelle fonction est prioritaire ?",
+    "réponse": "La fonction non-template",
+    "explication": "Les fonctions classiques sont prioritaires sur les templates.",
+    "typing": false,
+    "réponse possible": [
+      "La fonction non-template",
+      "Le template le plus long",
+      "Le template le plus ancien",
+      "Le template partiellement spécialisé"
+    ]
+  },
+  {
+    "question": "[CM9] Les types `A<int>` et `A<bool>` sont-ils liés ?",
+    "réponse": "Non",
+    "explication": "Chaque instanciation produit une classe distincte.",
+    "typing": false,
+    "réponse possible": [
+      "Oui",
+      "Non"
+    ]
+  },
+  {
+    "question": "[CM9] Quel est l’avantage principal d’un foncteur ?",
+    "réponse": "Il peut contenir un état",
+    "explication": "Un foncteur est un objet appelable avec un état interne.",
+    "typing": false,
+    "réponse possible": [
+      "Il peut contenir un état",
+      "Il remplace les templates",
+      "Il évite la compilation",
+      "Il est toujours plus rapide"
+    ]
+  },
+  {
+    "question": "[CM9] Une lambda en C++ est équivalente à :",
+    "réponse": "Un foncteur généré par le compilateur",
+    "explication": "Chaque lambda correspond à une classe avec operator().",
+    "typing": false,
+    "réponse possible": [
+      "Un foncteur généré par le compilateur",
+      "Une fonction globale",
+      "Un macro",
+      "Un pointeur de fonction"
+    ]
+  },
+  {
+    "question": "[CM9] Quelle capture permet de modifier une variable capturée par valeur ?",
+    "réponse": "mutable",
+    "explication": "`mutable` autorise la modification des copies capturées.",
+    "typing": false,
+    "réponse possible": [
+      "mutable",
+      "explicit",
+      "constexpr",
+      "static"
+    ]
+  },
+  {
+    "question": "[CM9] Pourquoi utilise-t-on `std::function` ?",
+    "réponse": "Pour stocker des fonctions, foncteurs ou lambdas de même signature",
+    "explication": "`std::function` permet de manipuler uniformément les entités appelables.",
+    "typing": false,
+    "réponse possible": [
+      "Pour stocker des fonctions, foncteurs ou lambdas de même signature",
+      "Pour accélérer le code",
+      "Pour éviter les templates",
+      "Pour remplacer l’héritage"
+    ]
+  }
+]
